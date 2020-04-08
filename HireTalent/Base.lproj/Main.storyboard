@@ -124,6 +124,15 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yKa-4h-jfq">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Title" id="gvH-EG-utE">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="myS-JH-F9z"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -152,7 +161,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nan-XQ-PBD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1835" y="-353"/>
+            <point key="canvasLocation" x="1834.7826086956522" y="-353.57142857142856"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="A6v-fJ-tnG">
@@ -305,7 +314,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2lW-W0-cJc"/>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="tlJ-bM-ELy"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="emailTextField" destination="MiA-Wc-1dT" id="0hp-0W-RfE"/>
                         <outlet property="errorLabel" destination="iIh-bX-ISc" id="cXM-Bf-kc9"/>

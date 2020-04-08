@@ -27,7 +27,6 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,6 +34,13 @@ class SignUpViewController: UIViewController {
         
         setUpElements()
     }
+    
+    
+    // Hide the status bar from the UI
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     
     func setUpElements() {
         
@@ -56,7 +62,9 @@ class SignUpViewController: UIViewController {
         Utilities.styleFilledButton(signUpButton)
     }
     
-    // Check the fields nad validate that the data is correct. If everything is correct, this method returns nil. Otherwise, it returns the error message.
+    
+    // Check the fields and validate that the data is correct. If everything is correct, this method returns nil.
+    // Otherwise, it returns the error message.
     func validateFields() -> String? {
         
         // Check that all fields are filled in
@@ -66,11 +74,11 @@ class SignUpViewController: UIViewController {
         }
         
         // Check if the password is secure
-//        let cleanedPassword = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-//        
-//        if Utilities.isPasswordValid(cleanedPassword) == false {
-//            return "Please make sure your password is at least 8 characters, contains a special character and a number"
-//        }
+        let cleanedPassword = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        if Utilities.isPasswordValid(cleanedPassword) == false {
+            return "Please make sure your password is at least 8 characters, contains a special character and a number"
+        }
         
         return nil
     }
@@ -93,7 +101,79 @@ class SignUpViewController: UIViewController {
         view.window?.rootViewController = homeViewController
         view.window?.makeKeyAndVisible()
     }
+    
+    
+    // Use models to have a schema for the information
+    func createUser() {
+        
+        // Create the user
+        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (result, err) in
+            
+            // Check for errors
+            if err != nil {
+                
+                // There was an error creating the user
+                self.showError("Error creating user")
+            }
+            else {
+                
+                self.addUserInformation(result)
+                
+            }
+            
+        }
+        
+    }
+    
+    
+    func addUserInformation(_ result: AuthDataResult?) {
+        
+        // Use the model to organize the employer information
+        let employer: Employer = Employer(firstNameTextField.text!, lastNameTextField.text!, emailTextField.text!)
+        
+        
+        // Add the informaton to the database
+        let db = Firestore.firestore()
+        
+        db.collection("employers").document(result!.user.uid).setData([
+            "firstName": employer.firstName!,
+            "lastName": employer.lastName!,
+            "email": employer.email!
+        ]) { (error) in
+            
+            if error != nil {
+                
+                // Show the error message
+                self.showError("Error saving user data")
+            }
+        }
+        
+        // Transition to the home screen
+        self.transitionToHome()
+        
+        // Check if the company already exists
+        
+        
+        // If yes make a relation between the company and the user
+        
+        
+        // If not create the company
+        
+        
+        // User was created successfully, now store the other data
+        
+//            "company":self.companyTextField.text!,
+//            "position":self.positionTextField.text!,
+//            "address1":self.address1TextField.text!,
+//            "address2":self.address2TextField.text!,
+//            "city":self.cityTexField.text!,
+//            "state":self.stateTextField.text!
+        
 
+    }
+
+    
+    // When Sign Up button tapped then...
     @IBAction func signUpTapped(_ sender: Any) {
         
         // Validate the fields
@@ -105,45 +185,8 @@ class SignUpViewController: UIViewController {
             showError(error!)
         }
         else {
-            // Create the user
-            Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (result, err) in
-                
-                // Check for errors
-                if err != nil {
-                    
-                    // There was an error creating the user
-                    self.showError("Error creating user")
-                }
-                else {
-                    
-                    // User was created successfully, now store the other data
-                    let db = Firestore.firestore()
-                    
-                    db.collection("employers").addDocument(data: [
-                        "uid":result!.user.uid,
-                        "firstName":self.firstNameTextField.text!,
-                        "lastName":self.lastNameTextField.text!,
-                        "company":self.companyTextField.text!,
-                        "position":self.positionTextField.text!,
-                        "address1":self.address1TextField.text!,
-                        "address2":self.address2TextField.text!,
-                        "city":self.cityTexField.text!,
-                        "state":self.stateTextField.text!
-                    ]) { (error) in
-                        
-                        if error != nil {
-                            
-                            // Show the error message
-                            self.showError("Error saving user data")
-                        }
-                    }
-                    
-                    // Transition to the home screen
-                    self.transitionToHome()
-                    
-                }
-                
-            }
+            
+            createUser()
             
         }
         
