@@ -8,15 +8,11 @@
 
 import Foundation
 
-class Employer {
+struct Employer {
     
-    let firstName: String?
-    let lastName: String?
-    let email: String?
+    var firstName: String = ""
+    var lastName: String = ""
+    var email: String = ""
+    var position: String = ""
     
-    init(_ fName: String, _ lName: String, _ mail: String){
-        firstName = fName
-        lastName = lName
-        email = mail
-    }
 }

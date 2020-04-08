@@ -50,7 +50,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repeat password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UD9-FN-rT5">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="RFC (Company)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UD9-FN-rT5">
                                         <rect key="frame" x="0.0" y="240" width="334" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="K9g-Cv-Djw"/>
@@ -152,9 +152,9 @@
                         <outlet property="errorLabel" destination="S5H-zA-rF2" id="Y1K-KI-v9Q"/>
                         <outlet property="firstNameTextField" destination="sH8-cN-qp6" id="dJE-8D-sGp"/>
                         <outlet property="lastNameTextField" destination="NU1-B3-aAd" id="t6R-1V-TNv"/>
-                        <outlet property="password2TextField" destination="UD9-FN-rT5" id="nAQ-Wq-5hn"/>
                         <outlet property="passwordTextField" destination="zdi-TJ-Dzu" id="qzi-IR-hgi"/>
                         <outlet property="positionTextField" destination="Aa1-Vm-0GH" id="dIk-4i-HKk"/>
+                        <outlet property="rfcTextField" destination="UD9-FN-rT5" id="4qb-gb-pRl"/>
                         <outlet property="signUpButton" destination="JRc-T2-JuV" id="heG-X6-3DQ"/>
                         <outlet property="stateTextField" destination="6GY-s4-6qa" id="Ik8-ga-7Iv"/>
                     </connections>

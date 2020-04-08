@@ -21,6 +21,7 @@
 		8CE42383243A788A00846E86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CE42382243A788A00846E86 /* Assets.xcassets */; };
 		8CE42386243A788A00846E86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CE42384243A788A00846E86 /* LaunchScreen.storyboard */; };
 		8CE71481243E5BE600D08928 /* Employer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE71480243E5BE600D08928 /* Employer.swift */; };
+		8CE71483243E651700D08928 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE71482243E651700D08928 /* Company.swift */; };
 		ECDB31FF34CEFE7BEDFCF0A1 /* Pods_HireTalent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5442D0D49DF7F0B372E2D957 /* Pods_HireTalent.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		8CE42385243A788A00846E86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8CE42387243A788A00846E86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CE71480243E5BE600D08928 /* Employer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employer.swift; sourceTree = "<group>"; };
+		8CE71482243E651700D08928 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		ADAA34DAC9C1B49D711F053A /* Pods-HireTalent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HireTalent.release.xcconfig"; path = "Target Support Files/Pods-HireTalent/Pods-HireTalent.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				8CE71480243E5BE600D08928 /* Employer.swift */,
+				8CE71482243E651700D08928 /* Company.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				8CE4237E243A788800846E86 /* ViewController.swift in Sources */,
 				8CE71481243E5BE600D08928 /* Employer.swift in Sources */,
 				8CE4237A243A788800846E86 /* AppDelegate.swift in Sources */,
+				8CE71483243E651700D08928 /* Company.swift in Sources */,
 				8C7309F3243BDDCC0090C21D /* Utilities.swift in Sources */,
 				8C0D03F1243BB27B00B2BC78 /* SignUpViewController.swift in Sources */,
 				8C0D03F3243BB29300B2BC78 /* LoginViewController.swift in Sources */,
