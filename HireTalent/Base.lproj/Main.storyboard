@@ -50,7 +50,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repeat password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UD9-FN-rT5">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="RFC (Company)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UD9-FN-rT5">
                                         <rect key="frame" x="0.0" y="240" width="334" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="K9g-Cv-Djw"/>
@@ -124,6 +124,15 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yKa-4h-jfq">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Title" id="gvH-EG-utE">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="myS-JH-F9z"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -143,16 +152,16 @@
                         <outlet property="errorLabel" destination="S5H-zA-rF2" id="Y1K-KI-v9Q"/>
                         <outlet property="firstNameTextField" destination="sH8-cN-qp6" id="dJE-8D-sGp"/>
                         <outlet property="lastNameTextField" destination="NU1-B3-aAd" id="t6R-1V-TNv"/>
-                        <outlet property="password2TextField" destination="UD9-FN-rT5" id="nAQ-Wq-5hn"/>
                         <outlet property="passwordTextField" destination="zdi-TJ-Dzu" id="qzi-IR-hgi"/>
                         <outlet property="positionTextField" destination="Aa1-Vm-0GH" id="dIk-4i-HKk"/>
+                        <outlet property="rfcTextField" destination="UD9-FN-rT5" id="4qb-gb-pRl"/>
                         <outlet property="signUpButton" destination="JRc-T2-JuV" id="heG-X6-3DQ"/>
                         <outlet property="stateTextField" destination="6GY-s4-6qa" id="Ik8-ga-7Iv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nan-XQ-PBD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1835" y="-353"/>
+            <point key="canvasLocation" x="1834.7826086956522" y="-353.57142857142856"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="A6v-fJ-tnG">
@@ -305,7 +314,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2lW-W0-cJc"/>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="tlJ-bM-ELy"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="emailTextField" destination="MiA-Wc-1dT" id="0hp-0W-RfE"/>
                         <outlet property="errorLabel" destination="iIh-bX-ISc" id="cXM-Bf-kc9"/>
