@@ -59,55 +59,39 @@ class CompanyDAO {
             }
         }
     }
-
-
-    // Make a relation between the company and the user.
-    // It is used a callback because we depend of the 'result' provided by the setData() and updateData()
-    // functions, so in any of both cases we return a String to the ViewController indicating the result of
-    // the operation.
-    static func makeUserCompanyRelation(_ rfc: String, _ userId: String, _ email: String, completion: @escaping((_ data: String?) -> Void)) {
-        
+    
+    
+    // Get the general information of a compnay
+    static func getCompanyInformation(_ rfc: String, completion: @escaping(((String?), (Company?)) -> Void)) {
+    
         // Establish the connection with the database
         let db = Firestore.firestore()
         
+        // Set a reference to the desired document
+        let compRef = db.collection("company").document(rfc)
         
-        // Check if the company relation is already registered
-        let isEmployerRef = db.collection("isEmployer").document(rfc)
-
-        isEmployerRef.getDocument { (document, error) in
-
-            // If document already exists
+        compRef.getDocument { (document, error) in
+            
+            // If the specified document exist
             if let document = document, document.exists {
-
-                // Update the relations of a selected company
-                db.collection("isEmployer").document(rfc).updateData([
-                    userId: email
-                ]) { (error) in
-
-                    // Check for errors
-                    if error != nil {
-
-                        // There was an error making the relation
-                        completion("There was not possible to link the specified user and company")
-                    }
-                }
+                
+                let compData = document.data()
+                var company = Company()
+                
+                company.name = compData!["name"] as? String ?? ""
+                company.address_1 = compData!["address_1"] as? String ?? ""
+                company.address_2 = compData!["address_2"] as? String ?? ""
+                company.city = compData!["city"] as? String ?? ""
+                company.state = compData!["state"] as? String ?? ""
+                
+                // Returns an object company with all its data
+                completion(nil, company)
+            } else {
+                
+                // Returns an error message 
+                completion("Error retrieving the user data", nil)
             }
-            else {
-
-                // Create the relations of a selected company
-                db.collection("isEmployer").document(rfc).setData([
-                    userId: email
-                ]) { (error) in
-
-                    // Check for errors
-                    if error != nil {
-
-                        // There was an error making the relation
-                        completion("There was not possible to link the specified user and company")
-                    }
-                }
-            }
-            completion(nil)
         }
     }
+
 }

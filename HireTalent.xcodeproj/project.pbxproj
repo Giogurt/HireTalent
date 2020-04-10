@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C0BD66A243CF4C00019E9D8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0BD669243CF4C00019E9D8 /* Constants.swift */; };
 		8C0D03EF243A814100B2BC78 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C0D03EE243A814100B2BC78 /* GoogleService-Info.plist */; };
 		8C0D03F1243BB27B00B2BC78 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0D03F0243BB27B00B2BC78 /* SignUpViewController.swift */; };
 		8C0D03F3243BB29300B2BC78 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0D03F2243BB29300B2BC78 /* LoginViewController.swift */; };
@@ -30,7 +29,6 @@
 /* Begin PBXFileReference section */
 		5442D0D49DF7F0B372E2D957 /* Pods_HireTalent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HireTalent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A59F020F03BB0BF96DD785B /* Pods-HireTalent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HireTalent.debug.xcconfig"; path = "Target Support Files/Pods-HireTalent/Pods-HireTalent.debug.xcconfig"; sourceTree = "<group>"; };
-		8C0BD669243CF4C00019E9D8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8C0D03EE243A814100B2BC78 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8C0D03F0243BB27B00B2BC78 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		8C0D03F2243BB29300B2BC78 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -104,7 +102,6 @@
 			isa = PBXGroup;
 			children = (
 				8C7309F2243BDDCC0090C21D /* Utilities.swift */,
-				8C0BD669243CF4C00019E9D8 /* Constants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -292,7 +289,6 @@
 				8CE4237C243A788800846E86 /* SceneDelegate.swift in Sources */,
 				8C0D03F5243BB2B300B2BC78 /* HomeViewController.swift in Sources */,
 				8C867529243ECAF90068B03B /* EmployerDAO.swift in Sources */,
-				8C0BD66A243CF4C00019E9D8 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

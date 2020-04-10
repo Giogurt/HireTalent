@@ -29,16 +29,18 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
         setUpElements()
     }
     
     
-    // Hide the status bar from the UI
-    override var prefersStatusBarHidden: Bool {
-        return true
+    // This method is called before the view is actually removed and before any animations are configured.
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        // Show the navigation bar on other view controllers
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-    
+
     
     // This function is used to stylize the components of the UI
     func setUpElements() {
@@ -90,16 +92,6 @@ class SignUpViewController: UIViewController {
     }
     
     
-    // Transition to home function when Sign Up Button is tapped
-    func transitionToHome() {
-        
-        let homeViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeEmployerViewController) as? HomeViewController
-        
-        view.window?.rootViewController = homeViewController
-        view.window?.makeKeyAndVisible()
-    }
-    
-    
     // When Sign Up button tapped then...
     @IBAction func signUpTapped(_ sender: Any) {
         
@@ -124,7 +116,7 @@ class SignUpViewController: UIViewController {
                 else {
                     
                     // Call the function to insert the user extra data
-                    EmployerDAO.addUserInformation(userRetrieved!, self.firstNameTextField.text!, self.lastNameTextField.text!, self.emailTextField.text!, self.positionTextField.text!) { (userErrorHandler) in
+                    EmployerDAO.addUserInformation(userRetrieved!, self.firstNameTextField.text!, self.lastNameTextField.text!, self.emailTextField.text!, self.positionTextField.text!, self.rfcTextField.text!) { (userErrorHandler) in
                         
                         // If there was an error storing the user information
                         if userErrorHandler != nil {
@@ -141,18 +133,8 @@ class SignUpViewController: UIViewController {
                                 }
                                 else {
                                     
-                                    // Call the function to make the relation between the user and the company
-                                    CompanyDAO.makeUserCompanyRelation(self.rfcTextField.text!, userRetrieved!, self.emailTextField.text!) { (relationErrorHandler) in
-                                        
-                                        // If there was an error storing the company information
-                                        if relationErrorHandler != nil {
-                                            self.showError(relationErrorHandler!)
-                                        }
-                                        else {
-                                            // Transition to the home screen
-                                            self.transitionToHome()
-                                        }
-                                    }
+                                    self.performSegue(withIdentifier: "employerProfileScreen", sender: nil)
+
                                 }
                             }
                         }

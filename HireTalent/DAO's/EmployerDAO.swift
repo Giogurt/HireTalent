@@ -40,7 +40,7 @@ class EmployerDAO {
     // It is used a callback because we depend of the 'result' provided by the createUser() function,
     // so in any of both cases we return a String to the ViewController indicating the result of the
     // operation.
-    static func addUserInformation(_ userId: String, _ firstName: String, _ lastName: String, _ email: String, _ position: String, completion: @escaping((_ data: String?) -> Void)){
+    static func addUserInformation(_ userId: String, _ firstName: String, _ lastName: String, _ email: String, _ position: String, _ company_rfc: String, completion: @escaping((_ data: String?) -> Void)){
         
         // Establish the connection with the database
         let db = Firestore.firestore()
@@ -52,6 +52,7 @@ class EmployerDAO {
         employer.lastName = lastName
         employer.email = email
         employer.position = position
+        employer.company_rfc = company_rfc
 
 
         // Store the information in the database
@@ -59,7 +60,8 @@ class EmployerDAO {
             "firstName": employer.firstName,
             "lastName": employer.lastName,
             "email": employer.email,
-            "position": employer.position
+            "position": employer.position,
+            "company_rfc": employer.company_rfc
         ]) { (error) in
 
             // Check for errors
@@ -73,5 +75,46 @@ class EmployerDAO {
             completion(nil)
         }
     }
+    
+    
+    // Get the user id
+    static func getUserId() -> String {
+        return Auth.auth().currentUser!.uid
+    }
+    
+    
+    // Get the general information of the employer
+    static func getEmployerInformation(_ userId: String, completion: @escaping(((String?), (Employer?)) -> Void)) {
+    
+        // Establish the connection with the database
+        let db = Firestore.firestore()
+        
+        // Set a reference to the desired document
+        let empRef = db.collection("employers").document(userId)
+        
+        empRef.getDocument { (document, error) in
+            
+            // If the specified document exist
+            if let document = document, document.exists {
+                
+                let empData = document.data()
+                var employer = Employer()
+                
+                employer.firstName = empData!["firstName"] as? String ?? ""
+                employer.lastName = empData!["lastName"] as? String ?? ""
+                employer.email = empData!["email"] as? String ?? ""
+                employer.position = empData!["position"] as? String ?? ""
+                employer.company_rfc = empData!["company_rfc"] as? String ?? ""
+                
+                // Returns an object employer with all their data
+                completion(nil, employer)
+            } else {
+                
+                // Returns an error message
+                completion("Error retrieving the user data", nil)
+            }
+        }
+    }
+    
 
 }
