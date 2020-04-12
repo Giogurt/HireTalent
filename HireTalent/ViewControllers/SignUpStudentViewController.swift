@@ -8,23 +8,93 @@
 
 import UIKit
 
-class SignUpStudentViewController: UIViewController {
+class SignUpStudentViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
 
+    @IBOutlet weak var lastNameTextField: UITextField!
+    @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var confirmPasswordTextField: UITextField!
+    @IBOutlet weak var cityTextField: UITextField!
+    @IBOutlet weak var stateTextField: UITextField!
+    @IBOutlet weak var schoolTextField: UITextField!
+    @IBOutlet weak var majorTextField: UITextField!
+    @IBOutlet weak var semesterTextField: UITextField!
+    
+    var lastName: String?
+    var firstName: String?
+    var email: String?
+    var password:String?
+    var confirmPassword:String?
+    var city: String?
+    var state: String?
+    var school: String?
+    var major: String?
+    var semester: String?
+    
+    var profilePicture: UIImage?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        lastNameTextField.delegate = self
+        firstNameTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        confirmPasswordTextField.delegate = self
+        cityTextField.delegate = self
+        stateTextField.delegate = self
+        schoolTextField.delegate = self
+        majorTextField.delegate = self
+        semesterTextField.delegate = self
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func chooseProfilePicture(_ sender: UIButton) {
+        let imagePickerController = UIImagePickerController()
+        
+        imagePickerController.sourceType = .photoLibrary
+        
+        imagePickerController.delegate = self
+        
+        present(imagePickerController,animated: true, completion: nil)
     }
-    */
-
+    
+    @IBAction func next(_ sender: UIBarButtonItem) {
+        getValues()
+        if(lastName == "" || firstName == "" || email == "" || password == "" || confirmPassword == "" || city == "" || state == "" || school == "" || major == "" || semester == ""){
+            
+            errorLabel.text = "Fill in all the fields"
+            return
+        }
+        if(passwordTextField.text != confirmPasswordTextField.text){
+            errorLabel.text = "passwords don't match"
+            return
+        }
+        if(profilePicture == nil){
+            errorLabel.text = "missing profile picture"
+            return
+        }
+        
+        
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.resignFirstResponder()
+    }
+    func getValues() {
+        lastName = lastNameTextField.text ?? ""
+        firstName = firstNameTextField.text ?? ""
+        email = emailTextField.text ?? ""
+        password = passwordTextField.text ?? ""
+        confirmPassword = confirmPasswordTextField.text ?? ""
+        city = cityTextField.text ?? ""
+        state = stateTextField.text ?? ""
+        school = schoolTextField.text ?? ""
+        major = majorTextField.text  ?? ""
+        semester = semesterTextField.text ?? ""
+    }
 }

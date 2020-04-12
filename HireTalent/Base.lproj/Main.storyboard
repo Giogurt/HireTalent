@@ -120,6 +120,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LcF-cc-3OT">
                                         <rect key="frame" x="0.0" y="586.5" width="334" height="30"/>
                                         <state key="normal" title="Choose profile picture"/>
+                                        <connections>
+                                            <action selector="chooseProfilePicture:" destination="Ee7-ER-3wq" eventType="touchUpInside" id="Ht5-uv-xER"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -135,8 +138,25 @@
                         <viewLayoutGuide key="safeArea" id="HT4-Ej-kgK"/>
                     </view>
                     <navigationItem key="navigationItem" title="Student" id="f59-7e-lhf">
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="Xg2-I4-hDT"/>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="Xg2-I4-hDT">
+                            <connections>
+                                <action selector="next:" destination="Ee7-ER-3wq" id="Igz-gJ-Xok"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="cityTextField" destination="XIP-xe-lcb" id="si6-O7-gd9"/>
+                        <outlet property="confirmPasswordTextField" destination="UuM-Jk-iHM" id="gWG-80-PG4"/>
+                        <outlet property="emailTextField" destination="htg-uh-chf" id="vPD-BG-trK"/>
+                        <outlet property="errorLabel" destination="xnE-kC-AAc" id="8fW-XK-XrA"/>
+                        <outlet property="firstNameTextField" destination="0xt-pU-IF5" id="9lk-lM-fV7"/>
+                        <outlet property="lastNameTextField" destination="DAp-sy-Pff" id="ett-42-9Z2"/>
+                        <outlet property="majorTextField" destination="jWy-1X-EwS" id="qK9-ru-Obo"/>
+                        <outlet property="passwordTextField" destination="tNr-wj-cHE" id="mJy-Eo-XDg"/>
+                        <outlet property="schoolTextField" destination="A8l-iU-bbT" id="L21-bs-AUU"/>
+                        <outlet property="semesterTextField" destination="Fpv-Ul-6sv" id="Y2r-RI-mjo"/>
+                        <outlet property="stateTextField" destination="paW-wP-R2b" id="oMV-9l-Xkh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Nm-Bw-MPo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
