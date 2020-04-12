@@ -49,6 +49,7 @@ class SignUpStudentViewController: UIViewController, UITextFieldDelegate, UIImag
         majorTextField.delegate = self
         semesterTextField.delegate = self
         
+        errorLabel.isHidden = true
     }
     
     @IBAction func chooseProfilePicture(_ sender: UIButton) {
@@ -60,22 +61,38 @@ class SignUpStudentViewController: UIViewController, UITextFieldDelegate, UIImag
         
         present(imagePickerController,animated: true, completion: nil)
     }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let currentProfilePicture = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else{
+            fatalError("did not get the image, instead got \(info)")
+        }
+        
+        profilePicture = currentProfilePicture
+        dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func next(_ sender: UIBarButtonItem) {
         getValues()
         if(lastName == "" || firstName == "" || email == "" || password == "" || confirmPassword == "" || city == "" || state == "" || school == "" || major == "" || semester == ""){
-            
+            errorLabel.isHidden = false
             errorLabel.text = "Fill in all the fields"
             return
         }
         if(passwordTextField.text != confirmPasswordTextField.text){
+            errorLabel.isHidden = false
+
             errorLabel.text = "passwords don't match"
             return
         }
         if(profilePicture == nil){
+            errorLabel.isHidden = false
+
             errorLabel.text = "missing profile picture"
             return
         }
+        //prepare for segue and perform segue to experienceViewController
         
         
     }
