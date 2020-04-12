@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExperienceViewController: UIViewController {
+class ExperienceViewController: UIViewController, UITextViewDelegate{
     var lastName: String?
     var firstName: String?
     var email: String?
@@ -21,21 +21,26 @@ class ExperienceViewController: UIViewController {
     var semester: String?
     
     var profilePicture: UIImage?
+    var experience: String?
+    
+    var startedEditing = false
+    @IBOutlet weak var experienceTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        experienceTextView.delegate = self
+        
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        
     }
-    */
-
+    func textViewDidEndEditing(_ textView: UITextView) {
+        experience = experienceTextView.text
+    }
+    @IBAction func signUp(_ sender: UIBarButtonItem) {
+    }
+    
 }

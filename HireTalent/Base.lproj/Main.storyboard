@@ -157,36 +157,50 @@
                         <outlet property="schoolTextField" destination="A8l-iU-bbT" id="L21-bs-AUU"/>
                         <outlet property="semesterTextField" destination="Fpv-Ul-6sv" id="Y2r-RI-mjo"/>
                         <outlet property="stateTextField" destination="paW-wP-R2b" id="oMV-9l-Xkh"/>
-                        <segue destination="2Ke-rf-JNn" kind="show" identifier="experienceIdentifier" id="kLm-mH-KJU"/>
+                        <segue destination="2Ke-rf-JNn" kind="show" identifier="experienceIdentifier" id="FC1-V7-7g6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Nm-Bw-MPo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2443" y="615"/>
         </scene>
-        <!--View Controller-->
+        <!--Experience View Controller-->
         <scene sceneID="GKs-Wj-ubQ">
             <objects>
-                <viewController id="2Ke-rf-JNn" sceneMemberID="viewController">
+                <viewController id="2Ke-rf-JNn" customClass="ExperienceViewController" customModule="HireTalent" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="K4K-04-qXy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Experience &amp; skills" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CE5-CA-Yd2">
-                                <rect key="frame" x="20" y="121" width="374" height="724"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CE5-CA-Yd2">
+                                <rect key="frame" x="20" y="171" width="374" height="674"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Experience &amp; skills:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWY-wW-9vl">
+                                <rect key="frame" x="20" y="122" width="148" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="nyB-E4-Mlv"/>
                     </view>
                     <navigationItem key="navigationItem" id="yrE-Qa-xac">
-                        <barButtonItem key="rightBarButtonItem" title="Sign Up" id="pRo-hx-mK4"/>
+                        <barButtonItem key="rightBarButtonItem" title="Sign Up" id="pRo-hx-mK4">
+                            <connections>
+                                <action selector="signUp:" destination="2Ke-rf-JNn" id="SUB-b5-D4Y"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="experienceTextView" destination="CE5-CA-Yd2" id="sDT-SS-3h9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrz-Ct-ylp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

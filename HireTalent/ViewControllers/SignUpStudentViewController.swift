@@ -50,7 +50,7 @@ class SignUpStudentViewController: UIViewController, UITextFieldDelegate, UIImag
         schoolTextField.delegate = self
         majorTextField.delegate = self
         semesterTextField.delegate = self
-        
+
         errorLabel.isHidden = true
     }
     
@@ -72,8 +72,8 @@ class SignUpStudentViewController: UIViewController, UITextFieldDelegate, UIImag
         }
         
         profilePicture = currentProfilePicture
-        chooseProfilePictureButton.titleLabel?.text = "Change profile picture"
         dismiss(animated: true, completion: nil)
+        chooseProfilePictureButton.setTitle("Change profile picture", for: .normal)
     }
     
     @IBAction func next(_ sender: UIBarButtonItem) {
