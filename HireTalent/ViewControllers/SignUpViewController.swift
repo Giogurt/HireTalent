@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import FirebaseAuth
-import Firebase
 
 class SignUpViewController: UIViewController {
 
@@ -31,16 +29,18 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
         setUpElements()
     }
     
     
-    // Hide the status bar from the UI
-    override var prefersStatusBarHidden: Bool {
-        return true
+    // This method is called before the view is actually removed and before any animations are configured.
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        // Show the navigation bar on other view controllers
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-    
+
     
     // This function is used to stylize the components of the UI
     func setUpElements() {
@@ -92,170 +92,6 @@ class SignUpViewController: UIViewController {
     }
     
     
-    // Transition to home function when Sign Up Button is tapped
-    func transitionToHome() {
-        
-        let homeViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeEmployerViewController) as? HomeViewController
-        
-        view.window?.rootViewController = homeViewController
-        view.window?.makeKeyAndVisible()
-    }
-    
-    
-    // Create the user in the Authentication Section of Firebase and register some extra data in the database
-    func createUser() {
-        
-        // Create the user
-        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (result, err) in
-            
-            // Check for errors
-            if err != nil {
-                
-                // There was an error creating the user
-                self.showError("Error creating user")
-            }
-            else {
-                
-                // Add extra data about the user
-                self.addUserInformation(result)
-                
-            }
-        }
-    }
-    
-    
-    // Add extra data about the user
-    func addUserInformation(_ result: AuthDataResult?) {
-        
-        let db = Firestore.firestore()
-        
-        // Use a model to organize the employer information
-        var employer = Employer()
-        
-        employer.firstName = firstNameTextField.text!
-        employer.lastName = lastNameTextField.text!
-        employer.email = emailTextField.text!
-        employer.position = positionTextField.text!
-        
-        
-        // Store the information in the database
-        db.collection("employers").document(result!.user.uid).setData([
-            "firstName": employer.firstName,
-            "lastName": employer.lastName,
-            "email": employer.email,
-            "position": employer.position
-        ]) { (error) in
-            
-            // Check for errors
-            if error != nil {
-                
-                // There was an error adding the user data to the database
-                self.showError("Error saving user data")
-            }
-        }
-        
-        // Add data about the company
-        addCompanyInformation(result!.user.uid, employer.email)
-        
-        // Transition to the home screen
-        self.transitionToHome()
-    }
-    
-    
-    // Add data about the company
-    func addCompanyInformation(_ userId: String, _ email: String) {
-        
-        let db = Firestore.firestore()
-        
-        // Use a model to organize the company information
-        var company = Company()
-        
-        company.rfc = rfcTextField.text!
-        company.name = companyTextField.text!
-        company.address_1 = address1TextField.text!
-        company.address_2 = address2TextField.text!
-        company.city = cityTexField.text!
-        company.state = stateTextField.text!
-        
-        
-        // Check if the company data is already registered
-        let companyRef = db.collection("company").document(company.rfc)
-        
-        companyRef.getDocument { (document, error) in
-            
-            // If document already exists
-            if let document = document, document.exists {
-                self.makeUserCompanyRelation(userId, email, company.rfc)
-            }
-            else {
-                db.collection("company").document(company.rfc).setData([
-                    "name": company.name,
-                    "address_1": company.address_1,
-                    "address_2": company.address_2,
-                    "city": company.city,
-                    "state": company.state
-                ]) { (error) in
-                    
-                    // Check for errors
-                    if error != nil {
-                        
-                        // There was an error creating the company
-                        self.showError("Error saving company data")
-                    }
-                }
-                
-                // Make a relation between the company and the user
-                self.makeUserCompanyRelation(userId, email, company.rfc)
-            }
-        }
-    }
-    
-    
-    // Make a relation between the company and the user
-    func makeUserCompanyRelation(_ userId: String, _ email: String, _ companyRfc: String) {
-        
-        let db = Firestore.firestore()
-        
-        // Check if the company relation is already registered
-        let isEmployerRef = db.collection("isEmployer").document(companyRfc)
-        
-        isEmployerRef.getDocument { (document, error) in
-            
-            // If document already exists
-            if let document = document, document.exists {
-                
-                // Update the relations of a selected company
-                db.collection("isEmployer").document(companyRfc).updateData([
-                    userId: email
-                ]) { (error) in
-                    
-                    // Check for errors
-                    if error != nil {
-                        
-                        // There was an error making the relation
-                        self.showError("Error making the relation")
-                    }
-                }
-            }
-            else {
-                
-                // Create the relations of a selected company
-                db.collection("isEmployer").document(companyRfc).setData([
-                    userId: email
-                ]) { (error) in
-                    
-                    // Check for errors
-                    if error != nil {
-                        
-                        // There was an error making the relation
-                        self.showError("Error making the relation")
-                    }
-                }
-            }
-        }
-    }
-
-    
     // When Sign Up button tapped then...
     @IBAction func signUpTapped(_ sender: Any) {
         
@@ -270,10 +106,42 @@ class SignUpViewController: UIViewController {
         }
         else {
             
-            createUser()
-            
+            // Call the function to create a user
+            EmployerDAO.createUser(emailTextField.text!, passwordTextField.text!) { (userRetrieved) in
+                
+                // If the user was not created correctly
+                if userRetrieved == nil {
+                    self.showError("There was an error creating the user")
+                }
+                else {
+                    
+                    // Call the function to insert the user extra data
+                    EmployerDAO.addUserInformation(userRetrieved!, self.firstNameTextField.text!, self.lastNameTextField.text!, self.emailTextField.text!, self.positionTextField.text!, self.rfcTextField.text!) { (userErrorHandler) in
+                        
+                        // If there was an error storing the user information
+                        if userErrorHandler != nil {
+                            self.showError(userErrorHandler!)
+                        }
+                        else {
+                            
+                            // Call the function to add the company information
+                            CompanyDAO.addCompanyInformation(self.rfcTextField.text!, self.companyTextField.text!, self.address1TextField.text!, self.address2TextField.text!, self.cityTexField.text!, self.stateTextField.text!) { (companyErrorHandler) in
+                                
+                                // If there was an error storing the company information
+                                if companyErrorHandler != nil {
+                                    self.showError(companyErrorHandler!)
+                                }
+                                else {
+                                    
+                                    self.performSegue(withIdentifier: "employerProfileScreen", sender: nil)
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
-        
     }
     
 }
