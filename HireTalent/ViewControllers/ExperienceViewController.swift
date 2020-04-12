@@ -9,7 +9,18 @@
 import UIKit
 
 class ExperienceViewController: UIViewController {
-
+    var lastName: String?
+    var firstName: String?
+    var email: String?
+    var password:String?
+    var confirmPassword:String?
+    var city: String?
+    var state: String?
+    var school: String?
+    var major: String?
+    var semester: String?
+    
+    var profilePicture: UIImage?
     override func viewDidLoad() {
         super.viewDidLoad()
 

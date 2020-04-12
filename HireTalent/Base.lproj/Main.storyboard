@@ -145,6 +145,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="chooseProfilePictureButton" destination="LcF-cc-3OT" id="Nmo-dh-G1u"/>
                         <outlet property="cityTextField" destination="XIP-xe-lcb" id="si6-O7-gd9"/>
                         <outlet property="confirmPasswordTextField" destination="UuM-Jk-iHM" id="gWG-80-PG4"/>
                         <outlet property="emailTextField" destination="htg-uh-chf" id="vPD-BG-trK"/>
@@ -156,6 +157,7 @@
                         <outlet property="schoolTextField" destination="A8l-iU-bbT" id="L21-bs-AUU"/>
                         <outlet property="semesterTextField" destination="Fpv-Ul-6sv" id="Y2r-RI-mjo"/>
                         <outlet property="stateTextField" destination="paW-wP-R2b" id="oMV-9l-Xkh"/>
+                        <segue destination="2Ke-rf-JNn" kind="show" identifier="experienceIdentifier" id="kLm-mH-KJU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Nm-Bw-MPo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

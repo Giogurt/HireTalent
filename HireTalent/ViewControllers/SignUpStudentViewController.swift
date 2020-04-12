@@ -22,6 +22,8 @@ class SignUpStudentViewController: UIViewController, UITextFieldDelegate, UIImag
     @IBOutlet weak var majorTextField: UITextField!
     @IBOutlet weak var semesterTextField: UITextField!
     
+    @IBOutlet weak var chooseProfilePictureButton: UIButton!
+    
     var lastName: String?
     var firstName: String?
     var email: String?
@@ -70,6 +72,7 @@ class SignUpStudentViewController: UIViewController, UITextFieldDelegate, UIImag
         }
         
         profilePicture = currentProfilePicture
+        chooseProfilePictureButton.titleLabel?.text = "Change profile picture"
         dismiss(animated: true, completion: nil)
     }
     
@@ -93,8 +96,24 @@ class SignUpStudentViewController: UIViewController, UITextFieldDelegate, UIImag
             return
         }
         //prepare for segue and perform segue to experienceViewController
+        performSegue(withIdentifier: "experienceIdentifier", sender: self)
         
-        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "experienceIdentifier" {
+            let destinationExperience = segue.destination as! ExperienceViewController
+            destinationExperience.lastName = lastName
+            destinationExperience.firstName = firstName
+            destinationExperience.email = email
+            destinationExperience.password = password
+            destinationExperience.confirmPassword = confirmPassword
+            destinationExperience.city = city
+            destinationExperience.state = state
+            destinationExperience.school = school
+            destinationExperience.major = major
+            destinationExperience.semester = semester
+            destinationExperience.profilePicture = profilePicture
+        }
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
