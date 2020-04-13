@@ -106,7 +106,6 @@ class SignUpStudentViewController: UIViewController, UITextFieldDelegate, UIImag
             destinationExperience.firstName = firstName
             destinationExperience.email = email
             destinationExperience.password = password
-            destinationExperience.confirmPassword = confirmPassword
             destinationExperience.city = city
             destinationExperience.state = state
             destinationExperience.school = school

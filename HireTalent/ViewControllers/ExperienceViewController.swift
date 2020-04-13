@@ -13,7 +13,6 @@ class ExperienceViewController: UIViewController, UITextViewDelegate{
     var firstName: String?
     var email: String?
     var password:String?
-    var confirmPassword:String?
     var city: String?
     var state: String?
     var school: String?
@@ -41,6 +40,50 @@ class ExperienceViewController: UIViewController, UITextViewDelegate{
         experience = experienceTextView.text
     }
     @IBAction func signUp(_ sender: UIBarButtonItem) {
+//        if(experienceTextView.text == "" || experienceTextView.text.count < 20){
+//            //TODO: add an error view at least 20 characters
+//            return
+//        }
+        var student = Student()
+        student.firstName = firstName!
+        student.lastName = lastName!
+        student.email = email!
+        student.password = password!
+        student.city = city!
+        student.school = school!
+        student.experience = experienceTextView.text!
+        student.major = major!
+        student.profilePicture = profilePicture!
+        student.state = state!
+        student.semester = semester!
+        
+        StudentDAO.createStudentCredentials(student.email, student.password){
+            (userRetrieved) in
+            // If the user was not created correctly
+            if userRetrieved == nil {
+//                self.showError("There was an error creating the user")
+                print("Error creating user 1")
+            }
+            else {
+                StudentDAO.addStudent(student: student){
+                    (extraErrorHandler) in
+                    if extraErrorHandler != nil {
+//                        self.showError(extraErrorHandler!)
+                        print("Error creating adding user")
+
+                    }
+                    else {
+                        
+//                        self.performSegue(withIdentifier: "employerProfileScreen", sender: nil)
+                        print("success saving it")
+
+                    }
+                }
+            }
+        }
+        
+        
+        
     }
     
 }
