@@ -15,7 +15,7 @@ class StudentDAO{
         
         // Create the user
         Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
-            
+            print("email \(email) password \(password)")
             // Check for errors
             if err != nil {
                 
