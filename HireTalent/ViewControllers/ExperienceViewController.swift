@@ -65,7 +65,7 @@ class ExperienceViewController: UIViewController, UITextViewDelegate{
                 print("Error creating user 1")
             }
             else {
-                StudentDAO.addStudent(student: student){
+                StudentDAO.addStudent(id: userRetrieved!,student: student){
                     (extraErrorHandler) in
                     if extraErrorHandler != nil {
 //                        self.showError(extraErrorHandler!)
@@ -74,7 +74,7 @@ class ExperienceViewController: UIViewController, UITextViewDelegate{
                     }
                     else {
                         
-//                        self.performSegue(withIdentifier: "employerProfileScreen", sender: nil)
+                        self.performSegue(withIdentifier: "studentProfileIdentifier", sender: nil)
                         print("success saving it")
 
                     }
