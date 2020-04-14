@@ -16,10 +16,12 @@ class SignUpOptionViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    // When the employee taps the Sign Up Employer button
     @IBAction func employerOptionPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "signUpEmployerScreen", sender: self)
     }
     
+    // When the student taps the Sign Up Student button
     @IBAction func studentOptionPressed(_ sender: UIButton) {
          performSegue(withIdentifier: "signUpStudentScreen", sender: self)
     }

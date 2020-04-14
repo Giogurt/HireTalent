@@ -37,6 +37,7 @@ class SignUpStudentViewController: UIViewController, UITextFieldDelegate, UIImag
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
         lastNameTextField.delegate = self
         firstNameTextField.delegate = self
@@ -52,15 +53,20 @@ class SignUpStudentViewController: UIViewController, UITextFieldDelegate, UIImag
         errorLabel.isHidden = true
     }
     
-
-    
+    // Check the fields and validate that the data is correct.
+    // Otherwise, it returns the error message.
     @IBAction func next(_ sender: UIBarButtonItem) {
         getValues()
+        
+        // Check that all fields are filled in
         if(lastName == "" || firstName == "" || email == "" || password == "" || confirmPassword == "" || city == "" || state == "" || school == "" || major == "" || semester == ""){
+            
             errorLabel.isHidden = false
             errorLabel.text = "Fill in all the fields"
             return
         }
+        
+        //Validate passwords
         if(passwordTextField.text != confirmPasswordTextField.text){
             errorLabel.isHidden = false
 
@@ -68,10 +74,11 @@ class SignUpStudentViewController: UIViewController, UITextFieldDelegate, UIImag
             return
         }
        
-        //prepare for segue and perform segue to experienceViewController
+        //Prepare for segue and perform segue to experienceViewController
         performSegue(withIdentifier: "experienceIdentifier", sender: self)
         
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "experienceIdentifier" {
             let destinationExperience = segue.destination as! ExperienceViewController
@@ -86,12 +93,15 @@ class SignUpStudentViewController: UIViewController, UITextFieldDelegate, UIImag
             destinationExperience.semester = semester
         }
     }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
     }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.resignFirstResponder()
     }
+    
     func getValues() {
         lastName = lastNameTextField.text ?? ""
         firstName = firstNameTextField.text ?? ""

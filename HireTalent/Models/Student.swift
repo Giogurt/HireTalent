@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 struct Student {
+    
     var firstName: String = ""
     var lastName: String = ""
     var email: String = ""

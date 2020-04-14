@@ -9,6 +9,7 @@
 import UIKit
 
 class ExperienceViewController: UIViewController, UITextViewDelegate{
+    
     var lastName: String?
     var firstName: String?
     var email: String?
@@ -22,28 +23,28 @@ class ExperienceViewController: UIViewController, UITextViewDelegate{
     var experience: String?
     
     var startedEditing = false
+    
     @IBOutlet weak var experienceTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         experienceTextView.delegate = self
-        
         // Do any additional setup after loading the view.
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        
     }
+    
     func textViewDidEndEditing(_ textView: UITextView) {
         experience = experienceTextView.text
     }
+    
     @IBAction func signUp(_ sender: UIBarButtonItem) {
-//        if(experienceTextView.text == "" || experienceTextView.text.count < 20){
-//            //TODO: add an error view at least 20 characters
-//            return
-//        }
+        
+        // Use a model to organize the employer information
         var student = Student()
+        
         student.firstName = firstName!
         student.lastName = lastName!
         student.email = email!
@@ -57,31 +58,25 @@ class ExperienceViewController: UIViewController, UITextViewDelegate{
         
         StudentDAO.createStudentCredentials(student.email, student.password){
             (userRetrieved) in
+            
             // If the user was not created correctly
             if userRetrieved == nil {
-//                self.showError("There was an error creating the user")
                 print("Error creating user 1")
             }
             else {
+                
                 StudentDAO.addStudent(id: userRetrieved!,student: student){
                     (extraErrorHandler) in
                     if extraErrorHandler != nil {
-//                        self.showError(extraErrorHandler!)
                         print("Error creating adding user")
-
                     }
                     else {
                         
                         self.performSegue(withIdentifier: "studentProfileIdentifier", sender: nil)
                         print("success saving it")
-
                     }
                 }
             }
         }
-        
-        
-        
     }
-    
 }

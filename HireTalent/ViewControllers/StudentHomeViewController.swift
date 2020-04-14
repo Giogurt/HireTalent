@@ -28,25 +28,22 @@ class StudentHomeViewController: UIViewController {
     
     func initProfile(){
           
-          let userId = StudentDAO.getStudentId()
+        let userId = StudentDAO.getStudentId()
           
-          StudentDAO.getStudent(userId) { (error, student) in
+        StudentDAO.getStudent(userId) { (error, student) in
               
-              if error != nil {
-                  print(error!)
-              }
-              else {
-                  self.fullName.text = student!.self.firstName + " " + student!.self.lastName
-                  self.emailLabel.text = student!.self.email
+            if error != nil {
+                print(error!)
+            }
+            else {
+                self.fullName.text = student!.self.firstName + " " + student!.self.lastName
+                self.emailLabel.text = student!.self.email
                 self.locationLabel.text = student!.self.city + ", " + student!.self.state
                 self.schoolLabel.text = student!.self.school
                 self.majorLabel.text = student!.self.major
                 self.semesterLabel.text = student!.self.semester
                 self.experienceLabel.text = student!.self.experience
-                
-                  
-               
-              }
-          }
+            }
+        }
     }
 }

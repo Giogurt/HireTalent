@@ -11,11 +11,17 @@ import Firebase
 import FirebaseAuth
 
 class StudentDAO{
+    
+    // Create the user adding it to the Authentication Section of Firebase.
+    // It is used a callback because we depend of the 'result' provided by the createUser() function,
+    // so in any of both cases we return a String to the ViewController indicating the result of the
+    // operation.
     static func createStudentCredentials(_ email:String, _ password: String, completion: @escaping((_ data: String?) -> Void)) {
         
         // Create the user
         Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
             print("email \(email) password \(password)")
+            
             // Check for errors
             if err != nil {
                 
@@ -31,10 +37,16 @@ class StudentDAO{
     }
     
     
+    //Insert the student data in the database.
+    // It is used a callback because we depend of the 'result' provided by the createUser() function,
+    // so in any of both cases we return a String to the ViewController indicating the result of the
+    // operation.
     static func addStudent(id: String, student: Student, completion: @escaping((_ data: String?) -> Void)){
        
+        // Establish the connection with the database
         let db = Firestore.firestore()
         
+            // Store the information in the database
         db.collection("students").document("\(id)").setData([
             "firstName": student.firstName,
             "lastName": student.lastName,
@@ -46,8 +58,7 @@ class StudentDAO{
             "major": student.major,
             "semester": student.semester,
             "experience": student.experience,
-        ])
-        { (error) in
+        ]) { (error) in
 
             // Check for errors
             if error != nil {
@@ -59,14 +70,16 @@ class StudentDAO{
             // If the insertion was executed correctly return nil
             completion(nil)
         }
-
     }
+    
+    
     // Get the user id
-       static func getStudentId() -> String {
-           return Auth.auth().currentUser!.uid
-       }
+    static func getStudentId() -> String {
+        return Auth.auth().currentUser!.uid
+    }
        
     
+    // Get the general information of the student
     static func getStudent(_ userId: String, completion: @escaping(((String?), (Student?)) -> Void)) {
     
         // Establish the connection with the database
@@ -86,12 +99,13 @@ class StudentDAO{
                 student.firstName = empData!["firstName"] as? String ?? ""
                 student.lastName = empData!["lastName"] as? String ?? ""
                 student.email = empData!["email"] as? String ?? ""
-                student.city = empData!["city"] as? String ?? "Lol"
-                student.state = empData!["state"] as? String ?? "Lol"
-                student.school = empData!["school"] as? String ?? "Lol"
-                student.major = empData!["major"] as? String ?? "Lol"
-                student.semester = empData!["semester"] as? String ?? "Lol"
-                student.experience = empData!["experience"] as? String ?? "Lol"
+                student.city = empData!["city"] as? String ?? ""
+                student.state = empData!["state"] as? String ?? ""
+                student.school = empData!["school"] as? String ?? ""
+                student.major = empData!["major"] as? String ?? ""
+                student.semester = empData!["semester"] as? String ?? ""
+                student.experience = empData!["experience"] as? String ?? ""
+                
                 // Returns an object employer with all their data
                 completion(nil, student)
             } else {

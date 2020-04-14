@@ -55,7 +55,7 @@ class EmployerDAO {
         employer.company_rfc = company_rfc
 
 
-        // Store the information in the database
+            // Store the information in the database
         db.collection("employers").document(userId).setData([
             "firstName": employer.firstName,
             "lastName": employer.lastName,
@@ -115,6 +115,4 @@ class EmployerDAO {
             }
         }
     }
-    
-
 }
