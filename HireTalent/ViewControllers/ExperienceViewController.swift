@@ -19,7 +19,6 @@ class ExperienceViewController: UIViewController, UITextViewDelegate{
     var major: String?
     var semester: String?
     
-    var profilePicture: UIImage?
     var experience: String?
     
     var startedEditing = false
@@ -53,7 +52,6 @@ class ExperienceViewController: UIViewController, UITextViewDelegate{
         student.school = school!
         student.experience = experienceTextView.text!
         student.major = major!
-        student.profilePicture = profilePicture!
         student.state = state!
         student.semester = semester!
         

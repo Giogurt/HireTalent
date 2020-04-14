@@ -22,7 +22,6 @@ class SignUpStudentViewController: UIViewController, UITextFieldDelegate, UIImag
     @IBOutlet weak var majorTextField: UITextField!
     @IBOutlet weak var semesterTextField: UITextField!
     
-    @IBOutlet weak var chooseProfilePictureButton: UIButton!
     
     var lastName: String?
     var firstName: String?
@@ -35,7 +34,6 @@ class SignUpStudentViewController: UIViewController, UITextFieldDelegate, UIImag
     var major: String?
     var semester: String?
     
-    var profilePicture: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,27 +52,7 @@ class SignUpStudentViewController: UIViewController, UITextFieldDelegate, UIImag
         errorLabel.isHidden = true
     }
     
-    @IBAction func chooseProfilePicture(_ sender: UIButton) {
-        let imagePickerController = UIImagePickerController()
-        
-        imagePickerController.sourceType = .photoLibrary
-        
-        imagePickerController.delegate = self
-        
-        present(imagePickerController,animated: true, completion: nil)
-    }
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
-    }
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let currentProfilePicture = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else{
-            fatalError("did not get the image, instead got \(info)")
-        }
-        
-        profilePicture = currentProfilePicture
-        dismiss(animated: true, completion: nil)
-        chooseProfilePictureButton.setTitle("Change profile picture", for: .normal)
-    }
+
     
     @IBAction func next(_ sender: UIBarButtonItem) {
         getValues()
@@ -89,12 +67,7 @@ class SignUpStudentViewController: UIViewController, UITextFieldDelegate, UIImag
             errorLabel.text = "passwords don't match"
             return
         }
-        if(profilePicture == nil){
-            errorLabel.isHidden = false
-
-            errorLabel.text = "missing profile picture"
-            return
-        }
+       
         //prepare for segue and perform segue to experienceViewController
         performSegue(withIdentifier: "experienceIdentifier", sender: self)
         
@@ -111,7 +84,6 @@ class SignUpStudentViewController: UIViewController, UITextFieldDelegate, UIImag
             destinationExperience.school = school
             destinationExperience.major = major
             destinationExperience.semester = semester
-            destinationExperience.profilePicture = profilePicture
         }
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

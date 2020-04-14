@@ -46,7 +46,6 @@ class StudentDAO{
             "major": student.major,
             "semester": student.semester,
             "experience": student.experience,
-            "profilePicture": "picture not implemented"
         ])
         { (error) in
 
