@@ -54,14 +54,14 @@ class ViewController: UIViewController {
     // When the user taps the Sign Up button
     @IBAction func signUpTapped(_ sender: Any) {
         
-        performSegue(withIdentifier: "signUpScreen", sender: nil)
+        performSegue(withIdentifier: "signUpOptionScreen", sender: self)
     }
     
     
     // When the user taps the Login button
     @IBAction func loginTapped(_ sender: Any) {
         
-        performSegue(withIdentifier: "loginScreen", sender: nil)
+        performSegue(withIdentifier: "loginScreen", sender: self)
     }
     
 }

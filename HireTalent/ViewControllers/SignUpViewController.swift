@@ -37,8 +37,8 @@ class SignUpViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        // Show the navigation bar on other view controllers
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        // Shows the navigation bar on other view controllers
+        //self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
     
@@ -134,7 +134,6 @@ class SignUpViewController: UIViewController {
                                 else {
                                     
                                     self.performSegue(withIdentifier: "employerProfileScreen", sender: nil)
-
                                 }
                             }
                         }
@@ -143,5 +142,4 @@ class SignUpViewController: UIViewController {
             }
         }
     }
-    
 }

@@ -61,10 +61,5 @@ class HomeViewController: UIViewController {
                 }
             }
         }
-        
     }
-    
-    
-
-
 }
