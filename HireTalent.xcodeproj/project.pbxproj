@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41C4338524438294000C1C97 /* Test3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C4338424438294000C1C97 /* Test3.swift */; };
+		41C43387244387B8000C1C97 /* SignUpStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C43386244387B8000C1C97 /* SignUpStudentViewController.swift */; };
+		41C43389244388F7000C1C97 /* SignUpOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C43388244388F7000C1C97 /* SignUpOptionViewController.swift */; };
+		41C4338E2443C225000C1C97 /* ExperienceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C4338D2443C225000C1C97 /* ExperienceViewController.swift */; };
+		41C433902443CD06000C1C97 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C4338F2443CD06000C1C97 /* Student.swift */; };
+		41C433922443DDC9000C1C97 /* StudentDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C433912443DDC9000C1C97 /* StudentDAO.swift */; };
+		41C4339424441103000C1C97 /* StudentHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C4339324441103000C1C97 /* StudentHomeViewController.swift */; };
 		8C0D03EF243A814100B2BC78 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C0D03EE243A814100B2BC78 /* GoogleService-Info.plist */; };
 		8C0D03F1243BB27B00B2BC78 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0D03F0243BB27B00B2BC78 /* SignUpViewController.swift */; };
 		8C0D03F3243BB29300B2BC78 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0D03F2243BB29300B2BC78 /* LoginViewController.swift */; };
@@ -27,6 +34,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		41C4338424438294000C1C97 /* Test3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test3.swift; sourceTree = "<group>"; };
+		41C43386244387B8000C1C97 /* SignUpStudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStudentViewController.swift; sourceTree = "<group>"; };
+		41C43388244388F7000C1C97 /* SignUpOptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpOptionViewController.swift; sourceTree = "<group>"; };
+		41C4338D2443C225000C1C97 /* ExperienceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceViewController.swift; sourceTree = "<group>"; };
+		41C4338F2443CD06000C1C97 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		41C433912443DDC9000C1C97 /* StudentDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDAO.swift; sourceTree = "<group>"; };
+		41C4339324441103000C1C97 /* StudentHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentHomeViewController.swift; sourceTree = "<group>"; };
 		5442D0D49DF7F0B372E2D957 /* Pods_HireTalent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HireTalent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A59F020F03BB0BF96DD785B /* Pods-HireTalent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HireTalent.debug.xcconfig"; path = "Target Support Files/Pods-HireTalent/Pods-HireTalent.debug.xcconfig"; sourceTree = "<group>"; };
 		8C0D03EE243A814100B2BC78 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -86,6 +100,10 @@
 				8C0D03F2243BB29300B2BC78 /* LoginViewController.swift */,
 				8C0D03F0243BB27B00B2BC78 /* SignUpViewController.swift */,
 				8CE4237D243A788800846E86 /* ViewController.swift */,
+				41C43388244388F7000C1C97 /* SignUpOptionViewController.swift */,
+				41C43386244387B8000C1C97 /* SignUpStudentViewController.swift */,
+				41C4338D2443C225000C1C97 /* ExperienceViewController.swift */,
+				41C4339324441103000C1C97 /* StudentHomeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -111,6 +129,7 @@
 			children = (
 				8C867528243ECAF90068B03B /* EmployerDAO.swift */,
 				8C86752A243EFA880068B03B /* CompanyDAO.swift */,
+				41C433912443DDC9000C1C97 /* StudentDAO.swift */,
 			);
 			path = "DAO's";
 			sourceTree = "<group>";
@@ -148,6 +167,7 @@
 				8CE7147F243E5BA600D08928 /* Models */,
 				8CE4237B243A788800846E86 /* SceneDelegate.swift */,
 				8C0D03F6243BB2CC00B2BC78 /* ViewControllers */,
+				41C4338424438294000C1C97 /* Test3.swift */,
 			);
 			path = HireTalent;
 			sourceTree = "<group>";
@@ -157,6 +177,7 @@
 			children = (
 				8CE71480243E5BE600D08928 /* Employer.swift */,
 				8CE71482243E651700D08928 /* Company.swift */,
+				41C4338F2443CD06000C1C97 /* Student.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -284,11 +305,18 @@
 				8CE71483243E651700D08928 /* Company.swift in Sources */,
 				8C7309F3243BDDCC0090C21D /* Utilities.swift in Sources */,
 				8C0D03F1243BB27B00B2BC78 /* SignUpViewController.swift in Sources */,
+				41C43389244388F7000C1C97 /* SignUpOptionViewController.swift in Sources */,
+				41C433922443DDC9000C1C97 /* StudentDAO.swift in Sources */,
 				8C86752B243EFA880068B03B /* CompanyDAO.swift in Sources */,
 				8C0D03F3243BB29300B2BC78 /* LoginViewController.swift in Sources */,
+				41C43387244387B8000C1C97 /* SignUpStudentViewController.swift in Sources */,
+				41C4339424441103000C1C97 /* StudentHomeViewController.swift in Sources */,
 				8CE4237C243A788800846E86 /* SceneDelegate.swift in Sources */,
+				41C4338524438294000C1C97 /* Test3.swift in Sources */,
+				41C4338E2443C225000C1C97 /* ExperienceViewController.swift in Sources */,
 				8C0D03F5243BB2B300B2BC78 /* HomeViewController.swift in Sources */,
 				8C867529243ECAF90068B03B /* EmployerDAO.swift in Sources */,
+				41C433902443CD06000C1C97 /* Student.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
