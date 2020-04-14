@@ -19,10 +19,20 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        // Hide the navigation bar for the HomeViewController (LoginViewController -> HomeViewController)
         setUpElements()
     }
+    
+    
+    // This method is called before the view is actually removed and before any animations are configured.
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        // Show the navigation bar on other view controllers
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     
     func setUpElements() {
         
@@ -57,16 +67,6 @@ class LoginViewController: UIViewController {
     }
     
     
-    // Transition to home function
-    func transitionToHome() {
-        
-        let homeViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeEmployerViewController) as? HomeViewController
-        
-        view.window?.rootViewController = homeViewController
-        view.window?.makeKeyAndVisible()
-    }
-    
-    
     @IBAction func loginButtonTapped(_ sender: Any) {
         
         // Validate Text Fields
@@ -88,10 +88,9 @@ class LoginViewController: UIViewController {
                     self.errorLabel.alpha = 1
                 }
                 else {
-                    
+            
                     // Transition to the home screen
-                    self.transitionToHome()
-                    
+                    self.performSegue(withIdentifier: "employerProfileScreen", sender: nil)
                 }
             }
         }

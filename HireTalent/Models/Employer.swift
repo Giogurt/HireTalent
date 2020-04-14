@@ -14,5 +14,6 @@ struct Employer {
     var lastName: String = ""
     var email: String = ""
     var position: String = ""
+    var company_rfc: String = ""
     
 }
