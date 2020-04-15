@@ -8,21 +8,23 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController {
-
+class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var rfcTextField: UITextField!
     @IBOutlet weak var companyTextField: UITextField!
-    @IBOutlet weak var positionTextField: UITextField!
     @IBOutlet weak var address1TextField: UITextField!
     @IBOutlet weak var address2TextField: UITextField!
     @IBOutlet weak var cityTexField: UITextField!
     @IBOutlet weak var stateTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var positionPicker: UIPickerView!
+    
+    var pickerData: [String] = [String]()
+    var department: String?
     
     
     override func viewDidLoad() {
@@ -30,6 +32,26 @@ class SignUpViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         setUpElements()
+        
+        self.positionPicker.delegate = self
+        self.positionPicker.dataSource = self
+        pickerData = ["IT", "Merchandising", "Help Desk"]
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        department = pickerData[row]
     }
     
     
@@ -55,7 +77,6 @@ class SignUpViewController: UIViewController {
         Utilities.styleTextField(passwordTextField)
         Utilities.styleTextField(rfcTextField)
         Utilities.styleTextField(companyTextField)
-        Utilities.styleTextField(positionTextField)
         Utilities.styleTextField(address1TextField)
         Utilities.styleTextField(address2TextField)
         Utilities.styleTextField(cityTexField)
@@ -69,7 +90,7 @@ class SignUpViewController: UIViewController {
     func validateFields() -> String? {
         
         // Check that all fields are filled in
-        if firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || rfcTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || companyTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || positionTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || address1TextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || address2TextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || cityTexField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || stateTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+        if firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || rfcTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || companyTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || address1TextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || address2TextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || cityTexField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || stateTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             
             return "Please fill in all the fields"
         }
@@ -116,7 +137,7 @@ class SignUpViewController: UIViewController {
                 else {
                     
                     // Call the function to insert the user extra data
-                    EmployerDAO.addUserInformation(userRetrieved!, self.firstNameTextField.text!, self.lastNameTextField.text!, self.emailTextField.text!, self.positionTextField.text!, self.rfcTextField.text!) { (userErrorHandler) in
+                    EmployerDAO.addUserInformation(userRetrieved!, self.firstNameTextField.text!, self.lastNameTextField.text!, self.emailTextField.text!, self.department!, self.rfcTextField.text!) { (userErrorHandler) in
                         
                         // If there was an error storing the user information
                         if userErrorHandler != nil {

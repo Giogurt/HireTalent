@@ -9,11 +9,22 @@
 import UIKit
 
 class SignUpOptionViewController: UIViewController {
+    
+    @IBOutlet weak var employerButton: UIButton!
+    @IBOutlet weak var studentButton: UIButton!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setUpElements()
+    }
+    
+    // Style the elements
+    func setUpElements(){
+        Utilities.styleFilledButton2(employerButton)
+        Utilities.styleHollowButton(studentButton)
     }
     
     // When the employee taps the Sign Up Employer button
