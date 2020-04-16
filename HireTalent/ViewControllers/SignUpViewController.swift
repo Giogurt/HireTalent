@@ -18,70 +18,88 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var address1TextField: UITextField!
     @IBOutlet weak var address2TextField: UITextField!
     @IBOutlet weak var cityTexField: UITextField!
-    @IBOutlet weak var stateTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
-    @IBOutlet weak var positionPicker: UIPickerView!
+    @IBOutlet weak var departmentPicker: UIPickerView!
+    @IBOutlet weak var stateTextField: UITextField!
     
-    var pickerData: [String] = [String]()
-    var department: String?
-    
+    // Variables used for the department picker
+    var departmentData: [String] = [String]()
+    var department: String = "Sales"
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Stylize the UI elements
         setUpElements()
         
-        self.positionPicker.delegate = self
-        self.positionPicker.dataSource = self
-        pickerData = ["IT", "Merchandising", "Help Desk"]
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerData[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        department = pickerData[row]
+        // Initialize the PickerView
+        initPickerViews()
     }
     
     
     // This method is called before the view is actually removed and before any animations are configured.
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        // Hide the navigation bar on other view controllers
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    
+    // Specify the number of columns in the PickerView
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    
+    // Specify the number of rows in the PickerView
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return departmentData.count
+    }
+    
+    
+    // Display the rowth element of the departmentData array in the PickerView
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return departmentData[row]
 
-        // Shows the navigation bar on other view controllers
-        //self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    
+    // Return the current value of the PickerView
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        department = departmentData[row]
     }
 
     
-    // This function is used to stylize the components of the UI
+    // Stylize the UI elements
     func setUpElements() {
         
         // Hide the error label
         errorLabel.alpha = 0
         
         // Style the elements
-        Utilities.styleTextField(firstNameTextField)
-        Utilities.styleTextField(lastNameTextField)
-        Utilities.styleTextField(emailTextField)
-        Utilities.styleTextField(passwordTextField)
-        Utilities.styleTextField(rfcTextField)
-        Utilities.styleTextField(companyTextField)
-        Utilities.styleTextField(address1TextField)
-        Utilities.styleTextField(address2TextField)
-        Utilities.styleTextField(cityTexField)
-        Utilities.styleTextField(stateTextField)
+        Utilities.styleFormTextField(firstNameTextField)
+        Utilities.styleFormTextField(lastNameTextField)
+        Utilities.styleFormTextField(emailTextField)
+        Utilities.styleFormTextField(passwordTextField)
+        Utilities.styleFormTextField(rfcTextField)
+        Utilities.styleFormTextField(companyTextField)
+        Utilities.styleFormTextField(address1TextField)
+        Utilities.styleFormTextField(address2TextField)
+        Utilities.styleFormTextField(cityTexField)
+        Utilities.styleFormTextField(stateTextField)
         Utilities.styleFilledButton(signUpButton)
+    }
+    
+    
+    // Initialize the PickerView
+    func initPickerViews(){
+        
+        // Department
+        self.departmentPicker.delegate = self
+        self.departmentPicker.dataSource = self
+        departmentData = ["Sales", "Export", "IT", "Marketing", "Financial", "Human Resources", "Purchasing", "Logistics"]
     }
     
     
@@ -137,7 +155,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                 else {
                     
                     // Call the function to insert the user extra data
-                    EmployerDAO.addUserInformation(userRetrieved!, self.firstNameTextField.text!, self.lastNameTextField.text!, self.emailTextField.text!, self.department!, self.rfcTextField.text!) { (userErrorHandler) in
+                    EmployerDAO.addUserInformation(userRetrieved!, self.firstNameTextField.text!, self.lastNameTextField.text!, self.emailTextField.text!, self.department, self.rfcTextField.text!) { (userErrorHandler) in
                         
                         // If there was an error storing the user information
                         if userErrorHandler != nil {
