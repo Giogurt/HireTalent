@@ -93,6 +93,7 @@ fastlane/test_output
 *.xcuserstate
 HireTalent.xcworkspace/
 xcuserdata/
+.DS_Store 
 
 iOSInjectionProject/
 >>>>>>> origin/dev
