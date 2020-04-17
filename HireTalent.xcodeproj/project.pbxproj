@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		41C4338524438294000C1C97 /* Test3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C4338424438294000C1C97 /* Test3.swift */; };
 		41C43387244387B8000C1C97 /* SignUpStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C43386244387B8000C1C97 /* SignUpStudentViewController.swift */; };
 		41C43389244388F7000C1C97 /* SignUpOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C43388244388F7000C1C97 /* SignUpOptionViewController.swift */; };
 		41C4338E2443C225000C1C97 /* ExperienceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C4338D2443C225000C1C97 /* ExperienceViewController.swift */; };
@@ -18,6 +17,7 @@
 		8C0D03F1243BB27B00B2BC78 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0D03F0243BB27B00B2BC78 /* SignUpViewController.swift */; };
 		8C0D03F3243BB29300B2BC78 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0D03F2243BB29300B2BC78 /* LoginViewController.swift */; };
 		8C0D03F5243BB2B300B2BC78 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0D03F4243BB2B300B2BC78 /* HomeViewController.swift */; };
+		8C3E4C602448032E008C036F /* profile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8C3E4C5F2448032E008C036F /* profile.jpg */; };
 		8C60EBEF243D07D400E35862 /* mainScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8C60EBEE243D07D400E35862 /* mainScreen.jpg */; };
 		8C7309F3243BDDCC0090C21D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7309F2243BDDCC0090C21D /* Utilities.swift */; };
 		8C867529243ECAF90068B03B /* EmployerDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C867528243ECAF90068B03B /* EmployerDAO.swift */; };
@@ -30,11 +30,11 @@
 		8CE42386243A788A00846E86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CE42384243A788A00846E86 /* LaunchScreen.storyboard */; };
 		8CE71481243E5BE600D08928 /* Employer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE71480243E5BE600D08928 /* Employer.swift */; };
 		8CE71483243E651700D08928 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE71482243E651700D08928 /* Company.swift */; };
+		8CF0A8D52446D6EA00BF615E /* interns.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8CF0A8D42446D6EA00BF615E /* interns.jpg */; };
 		ECDB31FF34CEFE7BEDFCF0A1 /* Pods_HireTalent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5442D0D49DF7F0B372E2D957 /* Pods_HireTalent.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		41C4338424438294000C1C97 /* Test3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test3.swift; sourceTree = "<group>"; };
 		41C43386244387B8000C1C97 /* SignUpStudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStudentViewController.swift; sourceTree = "<group>"; };
 		41C43388244388F7000C1C97 /* SignUpOptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpOptionViewController.swift; sourceTree = "<group>"; };
 		41C4338D2443C225000C1C97 /* ExperienceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +47,7 @@
 		8C0D03F0243BB27B00B2BC78 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		8C0D03F2243BB29300B2BC78 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8C0D03F4243BB2B300B2BC78 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8C3E4C5F2448032E008C036F /* profile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = profile.jpg; sourceTree = "<group>"; };
 		8C60EBEE243D07D400E35862 /* mainScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mainScreen.jpg; sourceTree = "<group>"; };
 		8C7309F2243BDDCC0090C21D /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		8C867528243ECAF90068B03B /* EmployerDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployerDAO.swift; sourceTree = "<group>"; };
@@ -61,6 +62,7 @@
 		8CE42387243A788A00846E86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CE71480243E5BE600D08928 /* Employer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employer.swift; sourceTree = "<group>"; };
 		8CE71482243E651700D08928 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		8CF0A8D42446D6EA00BF615E /* interns.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = interns.jpg; sourceTree = "<group>"; };
 		ADAA34DAC9C1B49D711F053A /* Pods-HireTalent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HireTalent.release.xcconfig"; path = "Target Support Files/Pods-HireTalent/Pods-HireTalent.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,6 +114,8 @@
 			isa = PBXGroup;
 			children = (
 				8C60EBEE243D07D400E35862 /* mainScreen.jpg */,
+				8C3E4C5F2448032E008C036F /* profile.jpg */,
+				8CF0A8D42446D6EA00BF615E /* interns.jpg */,
 			);
 			path = Media;
 			sourceTree = "<group>";
@@ -167,7 +171,6 @@
 				8CE7147F243E5BA600D08928 /* Models */,
 				8CE4237B243A788800846E86 /* SceneDelegate.swift */,
 				8C0D03F6243BB2CC00B2BC78 /* ViewControllers */,
-				41C4338424438294000C1C97 /* Test3.swift */,
 			);
 			path = HireTalent;
 			sourceTree = "<group>";
@@ -243,10 +246,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CE42386243A788A00846E86 /* LaunchScreen.storyboard in Resources */,
+				8CF0A8D52446D6EA00BF615E /* interns.jpg in Resources */,
 				8C0D03EF243A814100B2BC78 /* GoogleService-Info.plist in Resources */,
 				8CE42383243A788A00846E86 /* Assets.xcassets in Resources */,
 				8C60EBEF243D07D400E35862 /* mainScreen.jpg in Resources */,
 				8CE42381243A788800846E86 /* Main.storyboard in Resources */,
+				8C3E4C602448032E008C036F /* profile.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,7 +317,6 @@
 				41C43387244387B8000C1C97 /* SignUpStudentViewController.swift in Sources */,
 				41C4339424441103000C1C97 /* StudentHomeViewController.swift in Sources */,
 				8CE4237C243A788800846E86 /* SceneDelegate.swift in Sources */,
-				41C4338524438294000C1C97 /* Test3.swift in Sources */,
 				41C4338E2443C225000C1C97 /* ExperienceViewController.swift in Sources */,
 				8C0D03F5243BB2B300B2BC78 /* HomeViewController.swift in Sources */,
 				8C867529243ECAF90068B03B /* EmployerDAO.swift in Sources */,
