@@ -22,7 +22,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var stateTextField: UITextField!
     @IBOutlet weak var profilePhotoContainer: UIView!
     @IBOutlet weak var profilePhoto: UIImageView!
-    
+    let userId = EmployerDAO.getUserId()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +34,17 @@ class HomeViewController: UIViewController {
         initProfile()
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "newOffer"{
+            let newOffer = segue.destination as?  CreateOfferViewController
+            EmployerDAO.getCompamnyRfc(userId) { (companyRfc) in
+                if companyRfc != nil {
+                    newOffer?.companyRfc = companyRfc!
+                }
+            }
+        }
+    }
     
     // Stylize the UI elements
     func setupElements(){
@@ -64,9 +75,6 @@ class HomeViewController: UIViewController {
     // Get and display the user information
     func initProfile(){
         
-        // Catch the userId of the user logged in
-        let userId = EmployerDAO.getUserId()
-        
         // Get the employer information
         EmployerDAO.getEmployerInformation(userId) { (error, employer) in
             
@@ -96,5 +104,11 @@ class HomeViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    
+    // If add button is tapped
+    @IBAction func addButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "newOffer", sender: nil)
     }
 }

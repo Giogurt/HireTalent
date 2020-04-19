@@ -38,15 +38,6 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     
-    // This method is called before the view is actually removed and before any animations are configured.
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        // Hide the navigation bar on other view controllers
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
-    
     // Specify the number of columns in the PickerView
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -172,7 +163,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                                 }
                                 else {
                                     
-                                    self.performSegue(withIdentifier: "employerProfileScreen", sender: nil)
+                                    self.performSegue(withIdentifier: "signedInEmployer", sender: nil)
                                 }
                             }
                         }

@@ -23,16 +23,7 @@ class LoginViewController: UIViewController {
         // Hide the navigation bar for the HomeViewController (LoginViewController -> HomeViewController)
         setUpElements()
     }
-    
-    
-    // This method is called before the view is actually removed and before any animations are configured.
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
 
-        // Show the navigation bar on other view controllers
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
     
     func setUpElements() {
         
@@ -90,7 +81,7 @@ class LoginViewController: UIViewController {
                 else {
             
                     // Transition to the home screen
-                    self.performSegue(withIdentifier: "employerProfileScreen", sender: nil)
+                    self.performSegue(withIdentifier: "loggedInEmployer", sender: nil)
                 }
             }
         }
