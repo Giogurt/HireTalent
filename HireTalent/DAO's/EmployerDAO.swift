@@ -55,7 +55,7 @@ class EmployerDAO {
         employer.company_rfc = company_rfc
 
 
-            // Store the information in the database
+        // Store the information in the database
         db.collection("employers").document(userId).setData([
             "firstName": employer.firstName,
             "lastName": employer.lastName,
@@ -80,6 +80,36 @@ class EmployerDAO {
     // Get the user id
     static func getUserId() -> String {
         return Auth.auth().currentUser!.uid
+    }
+    
+    
+    // get the company rfc
+    static func getCompamnyRfc(_ userId: String, completion: @escaping((_ data: String?) -> Void)) {
+        
+        // Establish the connection with the database
+        let db = Firestore.firestore()
+        
+        // Set a reference to the desired document
+        let empRef = db.collection("employers").document(userId)
+        
+        empRef.getDocument { (document, error) in
+            
+            // If the specified document exist
+            if let document = document, document.exists {
+                
+                let empData = document.data()
+                var companyRfc: String
+                
+                companyRfc = empData!["company_rfc"] as? String ?? ""
+                
+                // Returns an object company with all its data
+                completion(companyRfc)
+            } else {
+                
+                // Returns an error message
+                completion("Error retrieving the user data")
+            }
+        }
     }
     
     
