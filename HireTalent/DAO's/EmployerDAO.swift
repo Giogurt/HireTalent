@@ -85,6 +85,7 @@ class EmployerDAO {
     
     // get the company rfc
     static func getCompamnyRfc(_ userId: String, completion: @escaping((_ data: String?) -> Void)) {
+        
         // Establish the connection with the database
         let db = Firestore.firestore()
         

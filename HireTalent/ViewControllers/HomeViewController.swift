@@ -35,7 +35,11 @@ class HomeViewController: UIViewController {
     }
     
     
+    // Prepare the segue transitions
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // If segue identifier is newOffer get the company rfc and pass it to
+        // the CreateOfferViewController
         if segue.identifier == "newOffer"{
             let newOffer = segue.destination as?  CreateOfferViewController
             EmployerDAO.getCompamnyRfc(userId) { (companyRfc) in
