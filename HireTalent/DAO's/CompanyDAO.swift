@@ -12,9 +12,7 @@ import Firebase
 class CompanyDAO {
     
     // Add the company data.
-    // It is used a callback because we depend of the 'result' provided by the setData() function,
-    // so in any of both cases we return a String to the ViewController indicating the result of the
-    // operation.
+    // It is used a callback because we depend of the 'result' provided by the setData() function.
     static func addCompanyInformation(_ rfc: String, _ name: String, _ address_1: String, _ address_2: String, _ city: String, _ state: String, completion: @escaping((_ data: String?) -> Void)) {
         
         // Establish the connection with the database
