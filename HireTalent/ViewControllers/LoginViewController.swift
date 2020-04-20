@@ -79,13 +79,29 @@ class LoginViewController: UIViewController {
                     self.errorLabel.alpha = 1
                 }
                 else {
-            
-                    // Transition to the home screen
-                    self.performSegue(withIdentifier: "loggedInEmployer", sender: nil)
+                    self.getUserType(result!.user.uid)
                 }
             }
         }
 
     }
     
+}
+
+extension LoginViewController {
+    
+    // Get the user type
+    func getUserType(_ userId: String) {
+        UserDAO.getType(userId) { (userType) in
+            
+            if userType == "Employer" {
+                
+                // Transition to the employer home screen
+                self.performSegue(withIdentifier: "loggedInEmployer", sender: nil)
+            }
+            else if userType == "Student" {
+                
+            }
+        }
+    }
 }

@@ -12,10 +12,13 @@ import Firebase
 class JobOffersDAO {
     
     // Insert a new job offer in the database.
+    // It is used a callback because we depend of the 'result' provided by the setData() function.
     static func addNewOffer(_ userId: String, _ companyRfc: String, _ jobTitle: String, _ jobDescription: String, _ vacants: String, _ startDate: String, _ endDate: String, _ salary: String, _ experience: String, completion: @escaping((_ data: String?) -> Void)){
         
+        // Establish the connection with the database
         let db = Firestore.firestore()
         
+        // Use a model to organize the employer information
         var jobOffer = JobOffer()
         
         jobOffer.jobTitle = jobTitle
@@ -26,6 +29,7 @@ class JobOffersDAO {
         jobOffer.salary = Int(salary)!
         jobOffer.experience = Double(experience)!
         
+        // Set the document data
         db.collection("offers").document().setData([
             "userId": userId,
             "companyRfc": companyRfc,

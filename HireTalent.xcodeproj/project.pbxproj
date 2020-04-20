@@ -24,6 +24,7 @@
 		8C7309F3243BDDCC0090C21D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7309F2243BDDCC0090C21D /* Utilities.swift */; };
 		8C867529243ECAF90068B03B /* EmployerDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C867528243ECAF90068B03B /* EmployerDAO.swift */; };
 		8C86752B243EFA880068B03B /* CompanyDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C86752A243EFA880068B03B /* CompanyDAO.swift */; };
+		8CBED0E7244CCA5300E78ED3 /* UserDA0.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBED0E6244CCA5300E78ED3 /* UserDA0.swift */; };
 		8CD3E0E42449748D00B88845 /* CreateOfferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD3E0E32449748D00B88845 /* CreateOfferViewController.swift */; };
 		8CD3E0E62449EAAA00B88845 /* UITextFieldAndDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD3E0E52449EAAA00B88845 /* UITextFieldAndDate.swift */; };
 		8CE4237A243A788800846E86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE42379243A788800846E86 /* AppDelegate.swift */; };
@@ -58,6 +59,7 @@
 		8C7309F2243BDDCC0090C21D /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		8C867528243ECAF90068B03B /* EmployerDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployerDAO.swift; sourceTree = "<group>"; };
 		8C86752A243EFA880068B03B /* CompanyDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDAO.swift; sourceTree = "<group>"; };
+		8CBED0E6244CCA5300E78ED3 /* UserDA0.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDA0.swift; sourceTree = "<group>"; };
 		8CD3E0E32449748D00B88845 /* CreateOfferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOfferViewController.swift; sourceTree = "<group>"; };
 		8CD3E0E52449EAAA00B88845 /* UITextFieldAndDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldAndDate.swift; sourceTree = "<group>"; };
 		8CE42376243A788800846E86 /* HireTalent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HireTalent.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +147,7 @@
 				8C86752A243EFA880068B03B /* CompanyDAO.swift */,
 				41C433912443DDC9000C1C97 /* StudentDAO.swift */,
 				8C3646AB244A16970024153E /* JobOffersDAO.swift */,
+				8CBED0E6244CCA5300E78ED3 /* UserDA0.swift */,
 			);
 			path = "DAO's";
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				8C3646AA244A15520024153E /* JobOffer.swift in Sources */,
 				8CE4237A243A788800846E86 /* AppDelegate.swift in Sources */,
 				8CE71483243E651700D08928 /* Company.swift in Sources */,
+				8CBED0E7244CCA5300E78ED3 /* UserDA0.swift in Sources */,
 				8C7309F3243BDDCC0090C21D /* Utilities.swift in Sources */,
 				8CD3E0E42449748D00B88845 /* CreateOfferViewController.swift in Sources */,
 				8C0D03F1243BB27B00B2BC78 /* SignUpViewController.swift in Sources */,

@@ -53,7 +53,10 @@ class CreateOfferViewController: UIViewController {
     }
     
     
+    // If the 'Create New Offer' button is tapped
     @IBAction func newOfferTapped(_ sender: Any) {
+        
+        // Add a new job offer to the database
         JobOffersDAO.addNewOffer(userId, companyRfc, self.titleTextField.text!, self.descriptionTextView.text!, self.vacantsTextField.text!, self.startDateTextField.text!, self.endDateTextField.text!, self.salaryTextField.text!, self.experienceTextField.text!){ (errorHandler) in
                 if errorHandler != nil {
                     print(errorHandler!)
@@ -63,8 +66,10 @@ class CreateOfferViewController: UIViewController {
     
 }
 
+// Extension of the class used to define the functionalities of date pickers
 extension CreateOfferViewController {
     
+    // Put the selected start date in the date picker 1 into the start date textfield
     @objc func startTapDone(){
         if let datePicker = self.startDateTextField.inputView as? UIDatePicker {
             let dateFormatter = DateFormatter()
@@ -74,6 +79,7 @@ extension CreateOfferViewController {
         self.startDateTextField.resignFirstResponder()
     }
     
+    // Put the selected end date in the date picker 1 into the start date textfield
     @objc func endTapDone(){
         if let datePicker = self.endDateTextField.inputView as? UIDatePicker {
             let dateFormatter = DateFormatter()

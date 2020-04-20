@@ -13,9 +13,7 @@ import FirebaseAuth
 class StudentDAO{
     
     // Create the user adding it to the Authentication Section of Firebase.
-    // It is used a callback because we depend of the 'result' provided by the createUser() function,
-    // so in any of both cases we return a String to the ViewController indicating the result of the
-    // operation.
+    // It is used a callback because we depend of the 'result' provided by the createUser() function.
     static func createStudentCredentials(_ email:String, _ password: String, completion: @escaping((_ data: String?) -> Void)) {
         
         // Create the user
@@ -38,9 +36,7 @@ class StudentDAO{
     
     
     //Insert the student data in the database.
-    // It is used a callback because we depend of the 'result' provided by the createUser() function,
-    // so in any of both cases we return a String to the ViewController indicating the result of the
-    // operation.
+    // It is used a callback because we depend of the 'result' provided by the setData() function.
     static func addStudent(id: String, student: Student, completion: @escaping((_ data: String?) -> Void)){
        
         // Establish the connection with the database

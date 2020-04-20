@@ -144,32 +144,59 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                     self.showError("There was an error creating the user")
                 }
                 else {
-                    
-                    // Call the function to insert the user extra data
-                    EmployerDAO.addUserInformation(userRetrieved!, self.firstNameTextField.text!, self.lastNameTextField.text!, self.emailTextField.text!, self.department, self.rfcTextField.text!) { (userErrorHandler) in
-                        
-                        // If there was an error storing the user information
-                        if userErrorHandler != nil {
-                            self.showError(userErrorHandler!)
-                        }
-                        else {
-                            
-                            // Call the function to add the company information
-                            CompanyDAO.addCompanyInformation(self.rfcTextField.text!, self.companyTextField.text!, self.address1TextField.text!, self.address2TextField.text!, self.cityTexField.text!, self.stateTextField.text!) { (companyErrorHandler) in
-                                
-                                // If there was an error storing the company information
-                                if companyErrorHandler != nil {
-                                    self.showError(companyErrorHandler!)
-                                }
-                                else {
-                                    
-                                    self.performSegue(withIdentifier: "signedInEmployer", sender: nil)
-                                }
-                            }
-                        }
-                    }
+                    self.addUserInformation(userRetrieved)
+                    self.addEmployerInformation(userRetrieved)
                 }
             }
         }
     }
+}
+
+extension SignUpViewController {
+    
+    // Call the function to add a new user and their type
+    func addUserInformation(_ userRetrieved: String?) {
+        
+        UserDAO.addUserInformation(userRetrieved!){ (userErrorHandler) in
+            
+            // If there was an error storing the user information
+            if userErrorHandler != nil {
+                self.showError(userErrorHandler!)
+            }
+        }
+    }
+    
+    
+    // Call the function to insert the user extra data
+    func addEmployerInformation(_ userRetrieved: String?) {
+        
+        EmployerDAO.addEmployerInformation(userRetrieved!, self.firstNameTextField.text!, self.lastNameTextField.text!, self.emailTextField.text!, self.department, self.rfcTextField.text!) { (employerErrorHandler) in
+            
+            // If there was an error storing the employer information
+            if employerErrorHandler != nil {
+                self.showError(employerErrorHandler!)
+            }
+            else {
+                self.addCompanyInformation()
+            }
+        }
+    }
+    
+    
+    // Call the function to add the company information
+    func addCompanyInformation() {
+        
+        CompanyDAO.addCompanyInformation(self.rfcTextField.text!, self.companyTextField.text!, self.address1TextField.text!, self.address2TextField.text!, self.cityTexField.text!, self.stateTextField.text!) { (companyErrorHandler) in
+            
+            // If there was an error storing the company information
+            if companyErrorHandler != nil {
+                self.showError(companyErrorHandler!)
+            }
+            else {
+                self.performSegue(withIdentifier: "signedInEmployer", sender: nil)
+            }
+        }
+    }
+    
+    
 }
