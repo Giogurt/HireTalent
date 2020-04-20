@@ -11,7 +11,7 @@ import UIKit
 
 class Utilities {
     
-    static func styleFormTextField(_ textfield:UITextField) {
+    static func styleFormTextField(_ textfield: UITextField) {
         
         // Create the bottom line
         let bottomLine = CALayer()
@@ -28,7 +28,7 @@ class Utilities {
         
     }
     
-    static func styleDisplayTextField(_ textfield:UITextField) {
+    static func styleDisplayTextField(_ textfield: UITextField) {
         
         // Create the bottom line
         let bottomLine = CALayer()
@@ -45,7 +45,8 @@ class Utilities {
         
     }
     
-    static func styleFilledButton(_ button:UIButton) {
+    
+    static func styleFilledButton(_ button: UIButton) {
         
         // Filled rounded corner style
         button.backgroundColor = UIColor.init(red: 255/255, green: 111/255, blue: 111/255, alpha: 1)
@@ -53,15 +54,15 @@ class Utilities {
         button.tintColor = UIColor.black
     }
     
-    static func styleFilledButton2(_ button:UIButton) {
+    static func styleFilledButton2(_ button: UIButton) {
         
         // Filled rounded corner style
-        button.backgroundColor = UIColor.init(red: 67/255, green: 134/255, blue: 210/255, alpha: 1)
+        button.backgroundColor = UIColor.init(red: 122/255, green: 159/255, blue: 200/255, alpha: 1)
         button.layer.cornerRadius = 25.0
         button.tintColor = UIColor.black
     }
     
-    static func styleHollowButton(_ button:UIButton) {
+    static func styleHollowButton(_ button: UIButton) {
         
         // Hollow rounded corner style
         button.layer.borderWidth = 2
