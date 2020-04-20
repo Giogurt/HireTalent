@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GMK-zY-enV">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -175,7 +175,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Nm-Bw-MPo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1974" y="198"/>
+            <point key="canvasLocation" x="2713" y="-690"/>
         </scene>
         <!--Experience View Controller-->
         <scene sceneID="GKs-Wj-ubQ">
@@ -218,7 +218,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrz-Ct-ylp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2841" y="198"/>
+            <point key="canvasLocation" x="3580" y="-690"/>
         </scene>
         <!--My Profile-->
         <scene sceneID="xC1-Y9-iU9">
@@ -310,7 +310,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gg5-V3-WLU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3743" y="198"/>
+            <point key="canvasLocation" x="4481" y="-690"/>
         </scene>
         <!--Create Employer Account-->
         <scene sceneID="eWa-0W-0Ik">
@@ -475,12 +475,12 @@
                         <outlet property="rfcTextField" destination="UD9-FN-rT5" id="4qb-gb-pRl"/>
                         <outlet property="signUpButton" destination="JRc-T2-JuV" id="heG-X6-3DQ"/>
                         <outlet property="stateTextField" destination="jvE-Dk-Pl5" id="oNe-a3-5Ca"/>
-                        <segue destination="u8n-uq-iaD" kind="show" identifier="signedInEmployer" id="oJl-c2-hG6"/>
+                        <segue destination="u8n-uq-iaD" kind="presentation" identifier="signedInEmployer" modalPresentationStyle="fullScreen" id="oJl-c2-hG6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nan-XQ-PBD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1974" y="-503"/>
+            <point key="canvasLocation" x="2112" y="165"/>
         </scene>
         <!--My Profile-->
         <scene sceneID="A6v-fJ-tnG">
@@ -861,18 +861,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rGA-b8-ZWr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1086" y="537"/>
+            <point key="canvasLocation" x="1086" y="661"/>
         </scene>
         <!--Create a Job Offer-->
         <scene sceneID="DJC-8O-gxh">
             <objects>
-                <viewController id="G8U-aD-8qy" customClass="CreateOfferViewController" customModule="HireTalent" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="G8U-aD-8qy" customClass="CreateOfferViewController" customModule="HireTalent" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fGy-FE-Dm3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="olH-wa-jW4">
-                                <rect key="frame" x="40" y="188" width="334" height="426"/>
+                                <rect key="frame" x="40" y="144" width="334" height="426"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Job Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X3s-nU-i12">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="40"/>
@@ -1030,7 +1030,7 @@
         <!--Navigation Controller-->
         <scene sceneID="BPq-er-MxL">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="u8n-uq-iaD" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="u8n-uq-iaD" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="gZ6-G6-Tcx"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="whl-QC-SIz">
@@ -1040,6 +1040,7 @@
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="cyd-gf-zOI" kind="relationship" relationship="rootViewController" id="Kqf-rX-AmM"/>
+                        <segue destination="cyd-gf-zOI" kind="presentation" modalPresentationStyle="fullScreen" id="16j-IA-qKd"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aL6-ce-A7a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1048,7 +1049,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="AlA-jV-oYy"/>
+        <segue reference="oJl-c2-hG6"/>
+        <segue reference="16j-IA-qKd"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.left" catalog="system" width="128" height="98"/>
