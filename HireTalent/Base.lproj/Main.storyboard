@@ -475,7 +475,7 @@
                         <outlet property="rfcTextField" destination="UD9-FN-rT5" id="4qb-gb-pRl"/>
                         <outlet property="signUpButton" destination="JRc-T2-JuV" id="heG-X6-3DQ"/>
                         <outlet property="stateTextField" destination="jvE-Dk-Pl5" id="oNe-a3-5Ca"/>
-                        <segue destination="u8n-uq-iaD" kind="presentation" identifier="signedInEmployer" id="oJl-c2-hG6"/>
+                        <segue destination="u8n-uq-iaD" kind="presentation" identifier="signedInEmployer" modalPresentationStyle="fullScreen" id="oJl-c2-hG6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nan-XQ-PBD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
