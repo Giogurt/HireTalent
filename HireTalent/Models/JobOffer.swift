@@ -16,6 +16,6 @@ struct JobOffer {
     var startDate: String = ""
     var endDate: String = ""
     var salary: Int = 0
-    var experience: Double = 0.0
+    var experience: Int = 0
     
 }

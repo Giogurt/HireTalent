@@ -17,6 +17,8 @@
 		8C0D03F1243BB27B00B2BC78 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0D03F0243BB27B00B2BC78 /* SignUpViewController.swift */; };
 		8C0D03F3243BB29300B2BC78 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0D03F2243BB29300B2BC78 /* LoginViewController.swift */; };
 		8C0D03F5243BB2B300B2BC78 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0D03F4243BB2B300B2BC78 /* HomeViewController.swift */; };
+		8C2B35802454B4D8009A99D0 /* EmployerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2B357F2454B4D8009A99D0 /* EmployerMenuViewController.swift */; };
+		8C2B35832454BAF8009A99D0 /* Employer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C2B35822454BAF8009A99D0 /* Employer.storyboard */; };
 		8C3646AA244A15520024153E /* JobOffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3646A9244A15520024153E /* JobOffer.swift */; };
 		8C3646AC244A16970024153E /* JobOffersDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3646AB244A16970024153E /* JobOffersDAO.swift */; };
 		8C3E4C602448032E008C036F /* profile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8C3E4C5F2448032E008C036F /* profile.jpg */; };
@@ -52,6 +54,8 @@
 		8C0D03F0243BB27B00B2BC78 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		8C0D03F2243BB29300B2BC78 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8C0D03F4243BB2B300B2BC78 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8C2B357F2454B4D8009A99D0 /* EmployerMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployerMenuViewController.swift; sourceTree = "<group>"; };
+		8C2B35822454BAF8009A99D0 /* Employer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Employer.storyboard; sourceTree = "<group>"; };
 		8C3646A9244A15520024153E /* JobOffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobOffer.swift; sourceTree = "<group>"; };
 		8C3646AB244A16970024153E /* JobOffersDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobOffersDAO.swift; sourceTree = "<group>"; };
 		8C3E4C5F2448032E008C036F /* profile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = profile.jpg; sourceTree = "<group>"; };
@@ -117,8 +121,19 @@
 				41C4338D2443C225000C1C97 /* ExperienceViewController.swift */,
 				41C4339324441103000C1C97 /* StudentHomeViewController.swift */,
 				8CD3E0E32449748D00B88845 /* CreateOfferViewController.swift */,
+				8C2B357F2454B4D8009A99D0 /* EmployerMenuViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8C2B35812454BAC2009A99D0 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				8CE42384243A788A00846E86 /* LaunchScreen.storyboard */,
+				8CE4237F243A788800846E86 /* Main.storyboard */,
+				8C2B35822454BAF8009A99D0 /* Employer.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		8C60EBE7243CFCFD00E35862 /* Media */ = {
@@ -173,14 +188,13 @@
 		8CE42378243A788800846E86 /* HireTalent */ = {
 			isa = PBXGroup;
 			children = (
+				8C2B35812454BAC2009A99D0 /* Storyboards */,
 				8CE42382243A788A00846E86 /* Assets.xcassets */,
 				8CE42379243A788800846E86 /* AppDelegate.swift */,
 				8C867527243ECACA0068B03B /* DAO's */,
 				8C0D03EE243A814100B2BC78 /* GoogleService-Info.plist */,
 				8C7309F4243BDDE60090C21D /* Helpers */,
 				8CE42387243A788A00846E86 /* Info.plist */,
-				8CE42384243A788A00846E86 /* LaunchScreen.storyboard */,
-				8CE4237F243A788800846E86 /* Main.storyboard */,
 				8C60EBE7243CFCFD00E35862 /* Media */,
 				8CE7147F243E5BA600D08928 /* Models */,
 				8CE4237B243A788800846E86 /* SceneDelegate.swift */,
@@ -267,6 +281,7 @@
 				8C60EBEF243D07D400E35862 /* mainScreen.jpg in Resources */,
 				8CE42381243A788800846E86 /* Main.storyboard in Resources */,
 				8C3E4C602448032E008C036F /* profile.jpg in Resources */,
+				8C2B35832454BAF8009A99D0 /* Employer.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +334,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C2B35802454B4D8009A99D0 /* EmployerMenuViewController.swift in Sources */,
 				8C3646AC244A16970024153E /* JobOffersDAO.swift in Sources */,
 				8CE4237E243A788800846E86 /* ViewController.swift in Sources */,
 				8CE71481243E5BE600D08928 /* Employer.swift in Sources */,

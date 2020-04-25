@@ -18,7 +18,6 @@ class CreateOfferViewController: UIViewController {
     @IBOutlet weak var salaryTextField: UITextField!
     @IBOutlet weak var experienceTextField: UITextField!
     @IBOutlet weak var newOfferButton: UIButton!
-    var companyRfc: String = ""
     var userId: String = EmployerDAO.getUserId()
     
     override func viewDidLoad() {
@@ -53,15 +52,38 @@ class CreateOfferViewController: UIViewController {
     }
     
     
-    // If the 'Create New Offer' button is tapped
-    @IBAction func newOfferTapped(_ sender: Any) {
+    // Display alert
+    func displayAlert() {
+        let alertController = UIAlertController(title: "Job Offer Created", message: "Your job offer has been successfully created", preferredStyle: UIAlertController.Style.alert)
         
-        // Add a new job offer to the database
-        JobOffersDAO.addNewOffer(userId, companyRfc, self.titleTextField.text!, self.descriptionTextView.text!, self.vacantsTextField.text!, self.startDateTextField.text!, self.endDateTextField.text!, self.salaryTextField.text!, self.experienceTextField.text!){ (errorHandler) in
+        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { UIAlertAction in
+            self.performSegue(withIdentifier: "reloadJobOffer", sender: nil)
+        })
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    
+    // Add a new Job Offer
+    func addNewOffer(_ companyRfc: String) {
+        
+        JobOffersDAO.addNewOffer(self.userId, companyRfc, self.titleTextField.text!, self.descriptionTextView.text!, self.vacantsTextField.text!, self.startDateTextField.text!, self.endDateTextField.text!, self.salaryTextField.text!, self.experienceTextField.text!){ (errorHandler) in
                 if errorHandler != nil {
                     print(errorHandler!)
                 }
-            }
+                else {
+                    self.displayAlert()
+                }
+        }
+    }
+    
+    
+    // If the 'Create New Offer' button is tapped
+    @IBAction func newOfferTapped(_ sender: Any) {
+        
+        EmployerDAO.getCompamnyRfc(userId) { (companyRfc) in
+            self.addNewOffer(companyRfc!)
+        }
     }
     
 }
