@@ -27,7 +27,7 @@ class JobOffersDAO {
         jobOffer.startDate  = startDate
         jobOffer.endDate = endDate
         jobOffer.salary = Int(salary)!
-        jobOffer.experience = Double(experience)!
+        jobOffer.experience = Int(experience)!
         
         // Set the document data
         db.collection("offers").document().setData([
