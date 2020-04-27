@@ -35,6 +35,23 @@ class UserDAO {
             // If the insertion was executed correctly return nil
             completion(nil)
         }
+        
+        
+        // Store the information in the database
+        db.collection("users").document(userId).setData([
+            "type": "Student"
+        ]) { (error) in
+
+            // Check for errors
+            if error != nil {
+
+                // There was an error adding the user data to the database
+                completion("Error creating the user")
+            }
+            
+            // If the insertion was executed correctly return nil
+            completion(nil)
+        }
     }
     
     

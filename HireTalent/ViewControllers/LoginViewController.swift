@@ -83,9 +83,7 @@ class LoginViewController: UIViewController {
                 }
             }
         }
-
     }
-    
 }
 
 extension LoginViewController {
@@ -99,8 +97,11 @@ extension LoginViewController {
                 // Transition to the employer home screen
                 self.performSegue(withIdentifier: "loggedInEmployer", sender: nil)
             }
+                
             else if userType == "Student" {
                 
+                //Transition to the studen home screen
+                self.performSegue(withIdentifier: "loggedInStudent", sender: nil)
             }
         }
     }
