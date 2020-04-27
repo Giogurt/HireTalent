@@ -89,7 +89,7 @@ class JobOffersDAO {
                     jobOffers.append(offer)
                 }
                 
-                completion("Offers Retrieved", jobOffers)
+                completion(nil, jobOffers)
             } else {
                 completion("Failed to retrieve offers from employer", nil)
             }
