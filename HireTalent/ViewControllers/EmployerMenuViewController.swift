@@ -37,7 +37,7 @@ class EmployerMenuViewController: UITableViewController {
         case 1:
             performSegue(withIdentifier: "newJobOffer", sender: nil)
         case 2:
-            performSegue(withIdentifier: "", sender: nil)
+            performSegue(withIdentifier: "myJobOffers", sender: nil)
         case 3:
             performSegue(withIdentifier: "", sender: nil)
         default:

@@ -342,6 +342,9 @@
                                                 <constraint firstItem="hHM-mG-nXZ" firstAttribute="leading" secondItem="ztD-Ui-8gz" secondAttribute="trailing" constant="15" id="qVi-Lg-amY"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="iyY-dY-6ev" kind="presentation" identifier="myJobOffers" id="fbE-25-UWk"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="50" id="PMf-HL-wdP">
                                         <rect key="frame" x="0.0" y="178" width="414" height="50"/>
@@ -390,6 +393,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ltM-lg-dY6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6980" y="1144"/>
+        </scene>
+        <!--Job Offers View Controller-->
+        <scene sceneID="ASA-tC-HVu">
+            <objects>
+                <tableViewController id="iyY-dY-6ev" customClass="JobOffersViewController" customModule="HireTalent" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="65a-ZM-Bg0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="JobOfferCell" textLabel="JYa-bS-xMN" style="IBUITableViewCellStyleDefault" id="BKQ-Ua-rO1">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BKQ-Ua-rO1" id="tCf-xL-Hbp">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JYa-bS-xMN">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="iyY-dY-6ev" id="6YX-hZ-54r"/>
+                            <outlet property="delegate" destination="iyY-dY-6ev" id="2bf-v6-4Ib"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="1Rc-t1-Tsn"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o6r-Lm-Tdf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7890" y="1171"/>
         </scene>
         <!--Create a Job Offer-->
         <scene sceneID="cfd-6u-4CB">
@@ -598,8 +639,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="R7h-c1-Cg4"/>
-        <segue reference="bgt-A6-45m"/>
+        <segue reference="ZUk-Ef-Yhl"/>
+        <segue reference="x7l-YN-Oq7"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="checkmark.seal.fill" catalog="system" width="128" height="122"/>

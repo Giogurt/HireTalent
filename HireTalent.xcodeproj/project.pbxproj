@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01F9C37C2456602000E6DEC7 /* JobOffersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F9C37B2456602000E6DEC7 /* JobOffersViewController.swift */; };
 		41C43387244387B8000C1C97 /* SignUpStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C43386244387B8000C1C97 /* SignUpStudentViewController.swift */; };
 		41C43389244388F7000C1C97 /* SignUpOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C43388244388F7000C1C97 /* SignUpOptionViewController.swift */; };
 		41C4338E2443C225000C1C97 /* ExperienceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C4338D2443C225000C1C97 /* ExperienceViewController.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01F9C37B2456602000E6DEC7 /* JobOffersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobOffersViewController.swift; sourceTree = "<group>"; };
 		41C43386244387B8000C1C97 /* SignUpStudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStudentViewController.swift; sourceTree = "<group>"; };
 		41C43388244388F7000C1C97 /* SignUpOptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpOptionViewController.swift; sourceTree = "<group>"; };
 		41C4338D2443C225000C1C97 /* ExperienceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				41C4339324441103000C1C97 /* StudentHomeViewController.swift */,
 				8CD3E0E32449748D00B88845 /* CreateOfferViewController.swift */,
 				8C2B357F2454B4D8009A99D0 /* EmployerMenuViewController.swift */,
+				01F9C37B2456602000E6DEC7 /* JobOffersViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				41C433922443DDC9000C1C97 /* StudentDAO.swift in Sources */,
 				8C86752B243EFA880068B03B /* CompanyDAO.swift in Sources */,
 				8C0D03F3243BB29300B2BC78 /* LoginViewController.swift in Sources */,
+				01F9C37C2456602000E6DEC7 /* JobOffersViewController.swift in Sources */,
 				41C43387244387B8000C1C97 /* SignUpStudentViewController.swift in Sources */,
 				8CD3E0E62449EAAA00B88845 /* UITextFieldAndDate.swift in Sources */,
 				41C4339424441103000C1C97 /* StudentHomeViewController.swift in Sources */,
