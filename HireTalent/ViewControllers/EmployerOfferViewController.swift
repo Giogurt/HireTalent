@@ -11,7 +11,6 @@ import UIKit
 class EmployerOfferViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var studentsButton: UIButton!
     
     var offer: JobOffer = JobOffer()
     
@@ -21,5 +20,17 @@ class EmployerOfferViewController: UIViewController {
         titleLabel.text = self.offer.jobTitle
     }
 
+    @IBAction func clickStudentButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "interestedStudents", sender: nil)
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "interestedStudents" {
+            let navigationController = segue.destination as? UINavigationController
+            let destinationController = navigationController?.topViewController as! ShowStudentsInOfferViewController
+            
+            destinationController.students = offer.interestedStudents
+        }
+    }
 }

@@ -62,7 +62,6 @@ class JobOffersViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        print(indexPath.row)
         
         cellSelected = indexPath.row
         performSegue(withIdentifier: "myOffer", sender: nil)
@@ -70,11 +69,6 @@ class JobOffersViewController: UITableViewController {
     
     //This function allow us to pass information between views
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if let vc = segue.destination as? EmployerOfferViewController {
-            print(offers[cellSelected].jobTitle)
-            vc.offer = offers[cellSelected]
-        }
         
         if segue.identifier == "myOffer" {
             let navigationController = segue.destination as? UINavigationController

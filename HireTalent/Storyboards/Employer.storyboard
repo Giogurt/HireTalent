@@ -480,17 +480,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJK-ay-Tp0">
-                                <rect key="frame" x="186" y="99" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJK-ay-Tp0">
+                                <rect key="frame" x="20" y="99" width="374" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jOJ-CJ-mnP">
-                                <rect key="frame" x="20" y="175" width="46" height="30"/>
+                                <rect key="frame" x="-24" y="175" width="135" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Interested Students"/>
+                                <connections>
+                                    <action selector="clickStudentButton:" destination="IgV-lx-1OU" eventType="touchUpInside" id="4uZ-ji-KDV"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -506,19 +509,18 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="studentsButton" destination="jOJ-CJ-mnP" id="ABO-iI-mbM"/>
                         <outlet property="titleLabel" destination="JJK-ay-Tp0" id="PLu-cK-xnf"/>
-                        <segue destination="ngC-xf-daF" kind="presentation" identifier="InterestedStudents" modalPresentationStyle="fullScreen" id="ve5-Jx-ANg"/>
+                        <segue destination="ngC-xf-daF" kind="presentation" identifier="interestedStudents" modalPresentationStyle="fullScreen" id="ve5-Jx-ANg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ocQ-yS-Jty" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="11258" y="1150"/>
+            <point key="canvasLocation" x="11257.971014492754" y="1149.1071428571429"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Show Students In Offer-->
         <scene sceneID="I47-QQ-TRh">
             <objects>
-                <tableViewController id="4aL-qP-GY9" customClass="ShowStudentsInOfferViewController" customModule="HireTalent" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Show Students In Offer" id="4aL-qP-GY9" customClass="ShowStudentsInOfferViewController" customModule="HireTalent" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8zf-Ji-jRT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -545,6 +547,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="table" destination="8zf-Ji-jRT" id="xcT-az-o2Q"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nLA-Lj-zK0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -773,7 +778,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ve5-Jx-ANg"/>
         <segue reference="R7h-c1-Cg4"/>
         <segue reference="UKq-k7-xFp"/>
         <segue reference="4cs-dy-bsc"/>

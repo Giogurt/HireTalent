@@ -9,10 +9,27 @@
 import UIKit
 
 class ShowStudentsInOfferViewController: UITableViewController {
-
+    
+    @IBOutlet var table: UITableView!
+    
+    var students: [String] = []
+    var studentsNames: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        for studentId in students {
+            StudentDAO.getStudent(studentId) { (error, student) in
+                if error != nil {
+                    
+                } else {
+                    let completeName = "\(student?.firstName) \(student?.lastName)"
+                    self.studentsNames.append(student!.firstName)
+                }
+            }
+        }
+        
+        self.table.reloadData()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -23,24 +40,25 @@ class ShowStudentsInOfferViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        let columns = 1
+        return columns
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        let rows = students.count
+        return rows
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "StudentCell", for: indexPath)
+        
+        if studentsNames.count != 0 {
+            cell.textLabel?.text = studentsNames[indexPath.row]
+        }
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
