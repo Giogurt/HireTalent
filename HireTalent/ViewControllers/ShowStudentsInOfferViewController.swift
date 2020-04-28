@@ -14,29 +14,43 @@ class ShowStudentsInOfferViewController: UITableViewController {
     
     var students: [String] = []
     var studentsNames: [String] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        for studentId in students {
-            StudentDAO.getStudent(studentId) { (error, student) in
-                if error != nil {
-                    
-                } else {
-                    let completeName = "\(student?.firstName) \(student?.lastName)"
-                    self.studentsNames.append(student!.firstName)
-                }
-            }
-        }
         
-        self.table.reloadData()
+        getStudents()
+        
+//        sem.wait()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    func getStudents(){
+        var c = 0
+        students.shuffle()
+        for studentId in students {
+           
+            StudentDAO.getStudent(studentId) { (error, student) in
+                if error != nil {
+                    print("fucked up")
+                } else {
+                    let completeName = student!.firstName + student!.lastName
+                    self.studentsNames.append(completeName)
+                    c += 1
+                    print("c\(c)")
+                    if c == self.students.count{
+                        self.table.reloadData()
+                    }
+                }
+            }
+        
+            
+        }
+        
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -45,7 +59,7 @@ class ShowStudentsInOfferViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let rows = students.count
+        let rows = studentsNames.count
         return rows
     }
 
@@ -76,7 +90,7 @@ class ShowStudentsInOfferViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     */
 
