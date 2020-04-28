@@ -35,7 +35,12 @@ class UserDAO {
             // If the insertion was executed correctly return nil
             completion(nil)
         }
+    }
+    
+     static func addStudentInUsers(_ userId: String, completion: @escaping((_ data: String?) -> Void)){
         
+        // Establish the connection with the database
+        let db = Firestore.firestore()
         
         // Store the information in the database
         db.collection("users").document(userId).setData([

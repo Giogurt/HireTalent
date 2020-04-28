@@ -228,7 +228,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="yqw-Uc-u1E">
-                                <rect key="frame" x="14" y="157" width="386" height="248"/>
+                                <rect key="frame" x="14" y="113" width="386" height="248"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full        Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEo-cd-GWo">
                                         <rect key="frame" x="139.5" y="0.0" width="107" height="20.5"/>
@@ -592,7 +592,6 @@
                                         <state key="normal" title="Login"/>
                                         <connections>
                                             <action selector="loginButtonTapped:" destination="TUe-mH-E9n" eventType="touchUpInside" id="fbT-TK-HgF"/>
-                                            <segue destination="fhp-at-t7J" kind="show" identifier="loggedInStudent" id="3OF-6w-P0f"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIh-bX-ISc">
@@ -621,6 +620,7 @@
                         <outlet property="loginButton" destination="YDa-B1-r3n" id="jbu-do-bdd"/>
                         <outlet property="passwordTextField" destination="D3J-QC-YGP" id="K4f-eO-1UF"/>
                         <segue destination="hFY-4Z-8ki" kind="presentation" identifier="loggedInEmployer" id="vho-UW-V3V"/>
+                        <segue destination="fhp-at-t7J" kind="presentation" identifier="loggedInStudent" modalPresentationStyle="fullScreen" id="qxa-yP-mol"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rGA-b8-ZWr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -643,6 +643,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="vho-UW-V3V"/>
-        <segue reference="3OF-6w-P0f"/>
+        <segue reference="qxa-yP-mol"/>
     </inferredMetricsTieBreakers>
 </document>

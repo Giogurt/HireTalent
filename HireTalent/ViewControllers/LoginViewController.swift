@@ -100,7 +100,7 @@ extension LoginViewController {
                 
             else if userType == "Student" {
                 
-                //Transition to the studen home screen
+                //Transition to the student home screen
                 self.performSegue(withIdentifier: "loggedInStudent", sender: nil)
             }
         }
