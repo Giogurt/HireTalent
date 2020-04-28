@@ -23,16 +23,7 @@ class LoginViewController: UIViewController {
         // Hide the navigation bar for the HomeViewController (LoginViewController -> HomeViewController)
         setUpElements()
     }
-    
-    
-    // This method is called before the view is actually removed and before any animations are configured.
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
 
-        // Show the navigation bar on other view controllers
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
     
     func setUpElements() {
         
@@ -40,8 +31,8 @@ class LoginViewController: UIViewController {
         errorLabel.alpha = 0
         
         // Style the elements
-        Utilities.styleTextField(emailTextField)
-        Utilities.styleTextField(passwordTextField)
+        Utilities.styleFormTextField(emailTextField)
+        Utilities.styleFormTextField(passwordTextField)
         Utilities.styleFilledButton(loginButton)
     }
     
@@ -88,13 +79,30 @@ class LoginViewController: UIViewController {
                     self.errorLabel.alpha = 1
                 }
                 else {
-            
-                    // Transition to the home screen
-                    self.performSegue(withIdentifier: "employerProfileScreen", sender: nil)
+                    self.getUserType(result!.user.uid)
                 }
             }
         }
-
     }
+}
+
+extension LoginViewController {
     
+    // Get the user type
+    func getUserType(_ userId: String) {
+        UserDAO.getType(userId) { (userType) in
+            
+            if userType == "Employer" {
+                
+                // Transition to the employer home screen
+                self.performSegue(withIdentifier: "loggedInEmployer", sender: nil)
+            }
+                
+            else if userType == "Student" {
+                
+                //Transition to the student home screen
+                self.performSegue(withIdentifier: "loggedInStudent", sender: nil)
+            }
+        }
+    }
 }

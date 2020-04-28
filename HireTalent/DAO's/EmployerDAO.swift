@@ -13,9 +13,7 @@ import Firebase
 class EmployerDAO {
     
     // Create the user adding it to the Authentication Section of Firebase.
-    // It is used a callback because we depend of the 'result' provided by the createUser() function,
-    // so in any of both cases we return a String to the ViewController indicating the result of the
-    // operation.
+    // It is used a callback because we depend of the 'result' provided by the createUser() function.
     static func createUser(_ email:String, _ password: String, completion: @escaping((_ data: String?) -> Void)) {
         
         // Create the user
@@ -37,10 +35,8 @@ class EmployerDAO {
     
     
     // Insert extra data about the user in the database.
-    // It is used a callback because we depend of the 'result' provided by the createUser() function,
-    // so in any of both cases we return a String to the ViewController indicating the result of the
-    // operation.
-    static func addUserInformation(_ userId: String, _ firstName: String, _ lastName: String, _ email: String, _ position: String, _ company_rfc: String, completion: @escaping((_ data: String?) -> Void)){
+    // It is used a callback because we depend of the 'result' provided by the setData() function.
+    static func addEmployerInformation(_ userId: String, _ firstName: String, _ lastName: String, _ email: String, _ position: String, _ company_rfc: String, completion: @escaping((_ data: String?) -> Void)){
         
         // Establish the connection with the database
         let db = Firestore.firestore()
@@ -55,7 +51,7 @@ class EmployerDAO {
         employer.company_rfc = company_rfc
 
 
-            // Store the information in the database
+        // Store the information in the database
         db.collection("employers").document(userId).setData([
             "firstName": employer.firstName,
             "lastName": employer.lastName,
@@ -80,6 +76,36 @@ class EmployerDAO {
     // Get the user id
     static func getUserId() -> String {
         return Auth.auth().currentUser!.uid
+    }
+    
+    
+    // Get the company rfc
+    static func getCompamnyRfc(_ userId: String, completion: @escaping((_ data: String?) -> Void)) {
+        
+        // Establish the connection with the database
+        let db = Firestore.firestore()
+        
+        // Set a reference to the desired document
+        let empRef = db.collection("employers").document(userId)
+        
+        empRef.getDocument { (document, error) in
+            
+            // If the specified document exist
+            if let document = document, document.exists {
+                
+                let empData = document.data()
+                var companyRfc: String
+                
+                companyRfc = empData!["company_rfc"] as? String ?? ""
+                
+                // Returns an object company with all its data
+                completion(companyRfc)
+            } else {
+                
+                // Returns an error message
+                completion("Error retrieving the user data")
+            }
+        }
     }
     
     
