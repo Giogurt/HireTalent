@@ -12,7 +12,11 @@ import Firebase
 class JobOffersViewController: UITableViewController {
     
     let employer = EmployerDAO.getUserId()
-
+    var offers: [JobOffer] = []
+    
+    
+    @IBOutlet var table: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +25,17 @@ class JobOffersViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        JobOffersDAO.getOffers(employer) { (error, jobOffers) in
+            if error != nil {
+                
+            } else {
+                self.offers = jobOffers!
+                self.table.reloadData()
+            }
+        }
+        
     }
+    
 
     // MARK: - Table view data source
 
@@ -31,28 +45,16 @@ class JobOffersViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var numberOfRows: Int = 0
-        JobOffersDAO.getOffers(employer) { (error, jobOffers) in
-            if error != nil {
-                
-            } else {
-                numberOfRows = jobOffers!.count
-            }
-        }
-        return numberOfRows
+       
+        return offers.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "JobOfferCell", for: indexPath)
         
-        JobOffersDAO.getOffers(employer) { (error, jobOffers) in
-            if error != nil {
-                
-            } else {
-                cell.textLabel?.text = jobOffers![indexPath.row].jobTitle
-            }
-        }
+        
+        cell.textLabel?.text = offers[indexPath.row].jobTitle
 
         return cell
     }
