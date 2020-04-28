@@ -1,23 +1,15 @@
 //
-//  JobOffersViewController.swift
+//  ShowStudentsInOfferViewController.swift
 //  HireTalent
 //
-//  Created by user168029 on 4/26/20.
+//  Created by user168029 on 4/28/20.
 //  Copyright © 2020 Dream Team. All rights reserved.
 //
 
 import UIKit
-import Firebase
 
-class JobOffersViewController: UITableViewController {
-    
-    let employer = EmployerDAO.getUserId()
-    var offers: [JobOffer] = []
-    var cellSelected: Int = 0
-    
-    
-    @IBOutlet var table: UITableView!
-    
+class ShowStudentsInOfferViewController: UITableViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,63 +18,29 @@ class JobOffersViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        JobOffersDAO.getOffers(employer) { (error, jobOffers) in
-            if error != nil {
-                
-            } else {
-                self.offers = jobOffers!
-                self.table.reloadData()
-            }
-        }
-        
     }
-    
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        let numberOfColumns: Int = 1
-        return numberOfColumns
+        // #warning Incomplete implementation, return the number of sections
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       
-        return offers.count
+        // #warning Incomplete implementation, return the number of rows
+        return 0
     }
 
-    
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "JobOfferCell", for: indexPath)
-        
-        
-        cell.textLabel?.text = offers[indexPath.row].jobTitle
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
 
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        print(indexPath.row)
-        
-        cellSelected = indexPath.row
-        performSegue(withIdentifier: "myOffer", sender: nil)
-    }
-    
-    //This function allow us to pass information between views
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if let vc = segue.destination as? EmployerOfferViewController {
-            print(offers[cellSelected].jobTitle)
-            vc.offer = offers[cellSelected]
-        }
-        
-        if segue.identifier == "myOffer" {
-            let navigationController = segue.destination as? UINavigationController
-            let destinationController = navigationController?.topViewController as! EmployerOfferViewController
-            
-            destinationController.offer = offers[cellSelected]
-        }
-    }
+    */
 
     /*
     // Override to support conditional editing of the table view.

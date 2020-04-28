@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0141D56D2457E39E00F03A56 /* EmployerOfferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0141D56C2457E39E00F03A56 /* EmployerOfferViewController.swift */; };
+		0141D56F2457E44F00F03A56 /* ShowStudentsInOfferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0141D56E2457E44F00F03A56 /* ShowStudentsInOfferViewController.swift */; };
 		01F9C37C2456602000E6DEC7 /* JobOffersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F9C37B2456602000E6DEC7 /* JobOffersViewController.swift */; };
 		41C43387244387B8000C1C97 /* SignUpStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C43386244387B8000C1C97 /* SignUpStudentViewController.swift */; };
 		41C43389244388F7000C1C97 /* SignUpOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C43388244388F7000C1C97 /* SignUpOptionViewController.swift */; };
@@ -43,6 +45,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0141D56C2457E39E00F03A56 /* EmployerOfferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployerOfferViewController.swift; sourceTree = "<group>"; };
+		0141D56E2457E44F00F03A56 /* ShowStudentsInOfferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowStudentsInOfferViewController.swift; sourceTree = "<group>"; };
 		01F9C37B2456602000E6DEC7 /* JobOffersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobOffersViewController.swift; sourceTree = "<group>"; };
 		41C43386244387B8000C1C97 /* SignUpStudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStudentViewController.swift; sourceTree = "<group>"; };
 		41C43388244388F7000C1C97 /* SignUpOptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpOptionViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +129,8 @@
 				8CD3E0E32449748D00B88845 /* CreateOfferViewController.swift */,
 				8C2B357F2454B4D8009A99D0 /* EmployerMenuViewController.swift */,
 				01F9C37B2456602000E6DEC7 /* JobOffersViewController.swift */,
+				0141D56C2457E39E00F03A56 /* EmployerOfferViewController.swift */,
+				0141D56E2457E44F00F03A56 /* ShowStudentsInOfferViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -354,7 +360,9 @@
 				8C0D03F3243BB29300B2BC78 /* LoginViewController.swift in Sources */,
 				01F9C37C2456602000E6DEC7 /* JobOffersViewController.swift in Sources */,
 				41C43387244387B8000C1C97 /* SignUpStudentViewController.swift in Sources */,
+				0141D56F2457E44F00F03A56 /* ShowStudentsInOfferViewController.swift in Sources */,
 				8CD3E0E62449EAAA00B88845 /* UITextFieldAndDate.swift in Sources */,
+				0141D56D2457E39E00F03A56 /* EmployerOfferViewController.swift in Sources */,
 				41C4339424441103000C1C97 /* StudentHomeViewController.swift in Sources */,
 				8CE4237C243A788800846E86 /* SceneDelegate.swift in Sources */,
 				41C4338E2443C225000C1C97 /* ExperienceViewController.swift in Sources */,
