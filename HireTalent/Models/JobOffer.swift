@@ -18,4 +18,6 @@ struct JobOffer {
     var salary: Int = 0
     var experience: Int = 0
     
+    var interestedStudents: [String] = []
+    
 }

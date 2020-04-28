@@ -39,7 +39,8 @@ class JobOffersDAO {
             "startDate": jobOffer.startDate,
             "endDate": jobOffer.endDate,
             "salary": jobOffer.salary,
-            "experience": jobOffer.experience
+            "experience": jobOffer.experience,
+            "interestedStudents": jobOffer.interestedStudents
         ]) { (error) in
             
             // Check for erros
@@ -52,4 +53,48 @@ class JobOffersDAO {
             completion(nil)
         }
     }
+    
+    
+    // Retrieve the offers of an employer from the database.
+    // It is used a callback because we depend of the 'result' provided by the setData() function.
+    static func getOffers(_ userId: String, completion: @escaping(((String?), ([JobOffer]?)) -> Void)){
+        
+        // Establish the connection with the database
+        let db = Firestore.firestore()
+        
+        // Queries for the documents owned by the current employer
+        let offersRef = db.collection("offers").whereField("userId", isEqualTo: userId)
+
+        offersRef.getDocuments { (snapshot, error ) in
+            
+            //There is an error
+            if error == nil && snapshot != nil {
+                
+                // Use a model to organize the offer information
+                var jobOffers: [JobOffer] = []
+                
+                for document in snapshot!.documents {
+                    let offerData = document.data()
+                    var offer = JobOffer()
+                    
+                    offer.endDate = offerData["endDate"] as? String ?? ""
+                    offer.experience = offerData["experience"] as? Int ?? 0
+                    offer.jobDescription = offerData["jobDescription"] as? String ?? ""
+                    offer.jobTitle = offerData["jobTitle"] as? String ?? ""
+                    offer.salary = offerData["salary"] as? Int ?? 0
+                    offer.startDate = offerData["jobDescription"] as? String ?? ""
+                    offer.vacants = offerData["vacants"] as? Int ?? 0
+                    offer.interestedStudents = offerData["interestedStudents"] as? [String] ?? []
+                    
+                    jobOffers.append(offer)
+                }
+                
+                completion(nil, jobOffers)
+            } else {
+                completion("Failed to retrieve offers from employer", nil)
+            }
+        }
+    }
+    
+   
 }

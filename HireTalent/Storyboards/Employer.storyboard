@@ -2,8 +2,9 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9gg-mb-DK4">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+       <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -385,11 +386,192 @@
                     <connections>
                         <segue destination="9gg-mb-DK4" kind="presentation" identifier="myProfile" modalPresentationStyle="fullScreen" id="cdr-GZ-fcV"/>
                         <segue destination="9va-q2-F4K" kind="presentation" identifier="newJobOffer" modalPresentationStyle="fullScreen" id="ZUk-Ef-Yhl"/>
+                        <segue destination="gie-xv-LLH" kind="presentation" identifier="myJobOffers" modalPresentationStyle="fullScreen" id="Itf-fV-0uG"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ltM-lg-dY6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6980" y="1144"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="er2-UH-3yU">
+            <objects>
+                <navigationController id="gie-xv-LLH" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EMs-hi-Myq">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="iyY-dY-6ev" kind="relationship" relationship="rootViewController" id="fcn-GH-i35"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MZw-tz-tSj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8075" y="1144"/>
+        </scene>
+        <!--My Job Offers-->
+        <scene sceneID="ASA-tC-HVu">
+            <objects>
+                <tableViewController modalPresentationStyle="fullScreen" id="iyY-dY-6ev" customClass="JobOffersViewController" customModule="HireTalent" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="65a-ZM-Bg0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="JobOfferCell" textLabel="JYa-bS-xMN" style="IBUITableViewCellStyleDefault" id="BKQ-Ua-rO1">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BKQ-Ua-rO1" id="tCf-xL-Hbp">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JYa-bS-xMN">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="iyY-dY-6ev" id="6YX-hZ-54r"/>
+                            <outlet property="delegate" destination="iyY-dY-6ev" id="2bf-v6-4Ib"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="My Job Offers" id="1Rc-t1-Tsn">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="line.horizontal.3" catalog="system" id="MIy-VP-YuX">
+                            <connections>
+                                <segue destination="4ws-8p-2Iu" kind="presentation" modalPresentationStyle="fullScreen" id="UKq-k7-xFp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="table" destination="65a-ZM-Bg0" id="3vM-VK-Y17"/>
+                        <segue destination="HrE-SW-kPx" kind="presentation" identifier="myOffer" modalPresentationStyle="fullScreen" id="POG-np-mMv"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o6r-Lm-Tdf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9274" y="1144"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xud-5f-jot">
+            <objects>
+                <navigationController id="HrE-SW-kPx" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Rb4-lQ-yVf">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="IgV-lx-1OU" kind="relationship" relationship="rootViewController" id="NiI-RC-uCV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DAv-iQ-kAB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10274" y="1150"/>
+        </scene>
+        <!--Employer Offer View Controller-->
+        <scene sceneID="nxd-jd-Bf6">
+            <objects>
+                <viewController id="IgV-lx-1OU" customClass="EmployerOfferViewController" customModule="HireTalent" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mjT-te-wr2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJK-ay-Tp0">
+                                <rect key="frame" x="20" y="99" width="374" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jOJ-CJ-mnP">
+                                <rect key="frame" x="107" y="171" width="242" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Interested Students"/>
+                                <connections>
+                                    <action selector="clickStudentButton:" destination="IgV-lx-1OU" eventType="touchUpInside" id="4uZ-ji-KDV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="PPi-nL-6Ck"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="ia8-9e-G6c">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="CXZ-Yr-Rim">
+                            <connections>
+                                <segue destination="gie-xv-LLH" kind="presentation" identifier="ReloadAllOffers" modalPresentationStyle="fullScreen" id="t64-Be-15x"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="titleLabel" destination="JJK-ay-Tp0" id="PLu-cK-xnf"/>
+                        <segue destination="ngC-xf-daF" kind="presentation" identifier="interestedStudents" modalPresentationStyle="fullScreen" id="ve5-Jx-ANg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ocQ-yS-Jty" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11257.971014492754" y="1149.1071428571429"/>
+        </scene>
+        <!--Show Students In Offer-->
+        <scene sceneID="I47-QQ-TRh">
+            <objects>
+                <tableViewController title="Show Students In Offer" id="4aL-qP-GY9" customClass="ShowStudentsInOfferViewController" customModule="HireTalent" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8zf-Ji-jRT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StudentCell" id="8pt-HJ-u9B">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8pt-HJ-u9B" id="8m7-DD-uqY">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="4aL-qP-GY9" id="T8P-w0-NxB"/>
+                            <outlet property="delegate" destination="4aL-qP-GY9" id="OIk-Zo-3eJ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="9TM-1y-PtG">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="gWe-8i-iom">
+                            <connections>
+                                <segue destination="HrE-SW-kPx" kind="presentation" identifier="ReloadOffer" modalPresentationStyle="fullScreen" id="4cs-dy-bsc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="table" destination="8zf-Ji-jRT" id="xcT-az-o2Q"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nLA-Lj-zK0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11258" y="1967"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="MN0-gR-sbJ">
+            <objects>
+                <navigationController id="ngC-xf-daF" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Pa7-Jl-Lpj">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="4aL-qP-GY9" kind="relationship" relationship="rootViewController" id="c2B-je-Jaq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b4u-Bf-KOX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10342" y="1967"/>
         </scene>
         <!--Create a Job Offer-->
         <scene sceneID="cfd-6u-4CB">
@@ -597,6 +779,16 @@
             <point key="canvasLocation" x="6979.7101449275369" y="180.80357142857142"/>
         </scene>
     </scenes>
+<<<<<<< HEAD
+    <inferredMetricsTieBreakers>
+        <segue reference="ve5-Jx-ANg"/>
+        <segue reference="R7h-c1-Cg4"/>
+        <segue reference="UKq-k7-xFp"/>
+        <segue reference="4cs-dy-bsc"/>
+        <segue reference="t64-Be-15x"/>
+    </inferredMetricsTieBreakers>
+=======
+>>>>>>> dev
     <resources>
         <image name="checkmark.seal.fill" catalog="system" width="64" height="60"/>
         <image name="line.horizontal.3" catalog="system" width="64" height="32"/>
