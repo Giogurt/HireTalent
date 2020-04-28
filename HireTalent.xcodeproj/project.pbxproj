@@ -41,6 +41,7 @@
 		8CE71481243E5BE600D08928 /* Employer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE71480243E5BE600D08928 /* Employer.swift */; };
 		8CE71483243E651700D08928 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE71482243E651700D08928 /* Company.swift */; };
 		8CF0A8D52446D6EA00BF615E /* interns.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8CF0A8D42446D6EA00BF615E /* interns.jpg */; };
+		C3976E432458B6BB0058C1F9 /* studentProfile.png in Resources */ = {isa = PBXBuildFile; fileRef = C3976E422458B6BA0058C1F9 /* studentProfile.png */; };
 		ECDB31FF34CEFE7BEDFCF0A1 /* Pods_HireTalent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5442D0D49DF7F0B372E2D957 /* Pods_HireTalent.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +85,7 @@
 		8CE71482243E651700D08928 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		8CF0A8D42446D6EA00BF615E /* interns.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = interns.jpg; sourceTree = "<group>"; };
 		ADAA34DAC9C1B49D711F053A /* Pods-HireTalent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HireTalent.release.xcconfig"; path = "Target Support Files/Pods-HireTalent/Pods-HireTalent.release.xcconfig"; sourceTree = "<group>"; };
+		C3976E422458B6BA0058C1F9 /* studentProfile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = studentProfile.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 		8C60EBE7243CFCFD00E35862 /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				C3976E422458B6BA0058C1F9 /* studentProfile.png */,
 				8C60EBEE243D07D400E35862 /* mainScreen.jpg */,
 				8C3E4C5F2448032E008C036F /* profile.jpg */,
 				8CF0A8D42446D6EA00BF615E /* interns.jpg */,
@@ -283,6 +286,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3976E432458B6BB0058C1F9 /* studentProfile.png in Resources */,
 				8CE42386243A788A00846E86 /* LaunchScreen.storyboard in Resources */,
 				8CF0A8D52446D6EA00BF615E /* interns.jpg in Resources */,
 				8C0D03EF243A814100B2BC78 /* GoogleService-Info.plist in Resources */,

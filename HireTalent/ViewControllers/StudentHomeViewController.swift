@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import UIKit
 
 class StudentHomeViewController: UIViewController {
 
@@ -19,17 +21,20 @@ class StudentHomeViewController: UIViewController {
     @IBOutlet weak var navBar: UINavigationItem!
     
     @IBOutlet weak var emailLabel: UILabel!
+    let userId = StudentDAO.getStudentId()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Get and display the student information
         initProfile()
-        // Do any additional setup after loading the view.
+        
     }
     
+    // Get and display the student information
     func initProfile(){
           
-        let userId = StudentDAO.getStudentId()
-          
+        // Get the student information
         StudentDAO.getStudent(userId) { (error, student) in
               
             if error != nil {
