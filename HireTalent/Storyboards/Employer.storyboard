@@ -779,7 +779,7 @@
             <point key="canvasLocation" x="6979.7101449275369" y="180.80357142857142"/>
         </scene>
     </scenes>
-<<<<<<< HEAD
+
     <inferredMetricsTieBreakers>
         <segue reference="ve5-Jx-ANg"/>
         <segue reference="R7h-c1-Cg4"/>
@@ -787,8 +787,7 @@
         <segue reference="4cs-dy-bsc"/>
         <segue reference="t64-Be-15x"/>
     </inferredMetricsTieBreakers>
-=======
->>>>>>> dev
+
     <resources>
         <image name="checkmark.seal.fill" catalog="system" width="64" height="60"/>
         <image name="line.horizontal.3" catalog="system" width="64" height="32"/>
