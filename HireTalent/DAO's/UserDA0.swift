@@ -37,6 +37,28 @@ class UserDAO {
         }
     }
     
+     static func addStudentInUsers(_ userId: String, completion: @escaping((_ data: String?) -> Void)){
+        
+        // Establish the connection with the database
+        let db = Firestore.firestore()
+        
+        // Store the information in the database
+        db.collection("users").document(userId).setData([
+            "type": "Student"
+        ]) { (error) in
+
+            // Check for errors
+            if error != nil {
+
+                // There was an error adding the user data to the database
+                completion("Error creating the user")
+            }
+            
+            // If the insertion was executed correctly return nil
+            completion(nil)
+        }
+    }
+    
     
     // Get the type of the user
     static func getType(_ userId: String, completion: @escaping((_ data: String?) -> Void)) {
