@@ -40,6 +40,8 @@ class ExperienceViewController: UIViewController, UITextViewDelegate{
         experience = experienceTextView.text
     }
     
+    
+    
     @IBAction func signUp(_ sender: UIBarButtonItem) {
         
         // Use a model to organize the employer information
@@ -76,6 +78,23 @@ class ExperienceViewController: UIViewController, UITextViewDelegate{
                         print("success saving it")
                     }
                 }
+                
+                self.addStudentInUsers(userRetrieved)
+            }
+        }
+    }
+}
+
+extension ExperienceViewController {
+
+    // Call the function to add a new user and their type
+    func addStudentInUsers(_ userRetrieved: String?) {
+        
+        UserDAO.addStudentInUsers(userRetrieved!){ (userErrorHandler) in
+            
+            // If there was an error storing the user information
+            if userErrorHandler != nil {
+                print("error al añadirlo a la coleccion")
             }
         }
     }
