@@ -729,7 +729,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g0j-Fr-Tnj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="7hG-ke-cPL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="7889.8550724637689" y="180.80357142857142"/>
+            <point key="canvasLocation" x="8055" y="181"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zDx-Ue-Pns">
@@ -788,9 +788,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="NiI-RC-uCV"/>
-        <segue reference="R7h-c1-Cg4"/>
-        <segue reference="UKq-k7-xFp"/>
+        <segue reference="ZUk-Ef-Yhl"/>
+        <segue reference="x7l-YN-Oq7"/>
         <segue reference="4cs-dy-bsc"/>
         <segue reference="Itf-fV-0uG"/>
     </inferredMetricsTieBreakers>
