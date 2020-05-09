@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class StudentMenuViewController: UITableViewController {
 
@@ -43,8 +44,21 @@ class StudentMenuViewController: UITableViewController {
             performSegue(withIdentifier: "studentProfile", sender: nil)
         case 1:
             performSegue(withIdentifier: "otherScreen", sender: nil)
+        case 3:
+            performSegue(withIdentifier: "logoutStudent", sender: nil)
         default:
             break
+        }
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "logoutStudent" {
+            do {
+                try Auth.auth().signOut()
+            } catch let signOutError as NSError {
+              print ("Error signing out: %@", signOutError)
+            }
         }
     }
 
