@@ -16,7 +16,7 @@ class EmployerOfferViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.title = offer.jobTitle
         titleLabel.text = self.offer.jobTitle
     }
 

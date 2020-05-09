@@ -116,6 +116,16 @@
 			path = Delegates;
 			sourceTree = "<group>";
 		};
+		41B7ED35246771A400EBE3B8 /* Offer */ = {
+			isa = PBXGroup;
+			children = (
+				0141D56E2457E44F00F03A56 /* ShowStudentsInOfferViewController.swift */,
+				0141D56C2457E39E00F03A56 /* EmployerOfferViewController.swift */,
+				8CD3E0E32449748D00B88845 /* CreateOfferViewController.swift */,
+			);
+			path = Offer;
+			sourceTree = "<group>";
+		};
 		4A8623E2BFEF9BB5F1D0A924 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,13 +189,11 @@
 		8C7DF531246382C900417CC9 /* Employer */ = {
 			isa = PBXGroup;
 			children = (
+				41B7ED35246771A400EBE3B8 /* Offer */,
 				8C0D03F0243BB27B00B2BC78 /* SignUpViewController.swift */,
 				8C0D03F4243BB2B300B2BC78 /* HomeViewController.swift */,
 				8C2B357F2454B4D8009A99D0 /* EmployerMenuViewController.swift */,
-				8CD3E0E32449748D00B88845 /* CreateOfferViewController.swift */,
 				01F9C37B2456602000E6DEC7 /* JobOffersViewController.swift */,
-				0141D56E2457E44F00F03A56 /* ShowStudentsInOfferViewController.swift */,
-				0141D56C2457E39E00F03A56 /* EmployerOfferViewController.swift */,
 			);
 			path = Employer;
 			sourceTree = "<group>";
