@@ -75,7 +75,7 @@ class ExperienceViewController: UIViewController, UITextViewDelegate{
                     else {
                         
                         self.performSegue(withIdentifier: "studentProfileIdentifier", sender: nil)
-                        print("success saving it")
+                        print("success saving student")
                     }
                 }
                 
