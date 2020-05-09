@@ -67,6 +67,10 @@ class SignUpStudentViewController: UIViewController, UITextFieldDelegate, UIImag
         }
         
         //Validate passwords
+        if passwordTextField.text!.count<6{
+            errorLabel.text = "Password must be at least 6 char"
+            return
+        }
         if(passwordTextField.text != confirmPasswordTextField.text){
             errorLabel.isHidden = false
 
