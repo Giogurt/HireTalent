@@ -66,7 +66,35 @@ class StudentDAO{
             completion(nil)
         }
     }
-    
+    static func editStudent(id: String, student: Student, completion: @escaping((_ data: String?) -> Void)){
+       
+        // Establish the connection with the database
+        let db = Firestore.firestore()
+        
+            // Store the information in the database
+       
+        db.collection("students").document("\(id)").updateData([
+            "firstName": student.firstName,
+            "lastName": student.lastName,
+            "city": student.city,
+            "state": student.state,
+            "school": student.school,
+            "major": student.major,
+            "semester": student.semester,
+            "experience": student.experience,
+        ]) { (error) in
+
+            // Check for errors
+            if error != nil {
+
+                // There was an error adding the user data to the database
+                completion("Error creating the user")
+            }
+
+            // If the insertion was executed correctly return nil
+            completion(nil)
+        }
+    }
     
     // Get the user id
     static func getStudentId() -> String {
