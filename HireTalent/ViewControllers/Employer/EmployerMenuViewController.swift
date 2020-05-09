@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class EmployerMenuViewController: UITableViewController {
 
@@ -30,7 +31,6 @@ class EmployerMenuViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        print(indexPath.row)
         switch (indexPath.row){
         case 0:
             performSegue(withIdentifier: "myProfile", sender: nil)
@@ -39,21 +39,21 @@ class EmployerMenuViewController: UITableViewController {
         case 2:
             performSegue(withIdentifier: "myJobOffers", sender: nil)
         case 3:
-            performSegue(withIdentifier: "", sender: nil)
+            performSegue(withIdentifier: "logout", sender: nil)
         default:
             break
         }
     }
 
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "logout" {
+            do {
+                try Auth.auth().signOut()
+            } catch let signOutError as NSError {
+              print ("Error signing out: %@", signOutError)
+            }
+        }
     }
-    */
 
 }
