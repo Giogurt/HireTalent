@@ -787,7 +787,12 @@
             <point key="canvasLocation" x="6979.7101449275369" y="180.80357142857142"/>
         </scene>
     </scenes>
-
+    <inferredMetricsTieBreakers>
+        <segue reference="ZUk-Ef-Yhl"/>
+        <segue reference="UKq-k7-xFp"/>
+        <segue reference="POG-np-mMv"/>
+        <segue reference="Itf-fV-0uG"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="checkmark.seal.fill" catalog="system" width="128" height="122"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>

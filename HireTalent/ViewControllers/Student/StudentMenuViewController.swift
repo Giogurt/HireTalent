@@ -43,7 +43,7 @@ class StudentMenuViewController: UITableViewController {
         case 0:
             performSegue(withIdentifier: "studentProfile", sender: nil)
         case 1:
-            performSegue(withIdentifier: "otherScreen", sender: nil)
+            performSegue(withIdentifier: "viewJobOffers", sender: nil)
         case 3:
             performSegue(withIdentifier: "logoutStudent", sender: nil)
         default:

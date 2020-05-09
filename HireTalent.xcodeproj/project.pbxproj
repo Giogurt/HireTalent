@@ -30,6 +30,7 @@
 		8C3E4C602448032E008C036F /* profile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8C3E4C5F2448032E008C036F /* profile.jpg */; };
 		8C60EBEF243D07D400E35862 /* mainScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8C60EBEE243D07D400E35862 /* mainScreen.jpg */; };
 		8C7309F3243BDDCC0090C21D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7309F2243BDDCC0090C21D /* Utilities.swift */; };
+		8C786395246775E4007A4A7C /* ViewStudentOffersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C786394246775E4007A4A7C /* ViewStudentOffersController.swift */; };
 		8C7DF535246383B400417CC9 /* StudentMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7DF534246383B400417CC9 /* StudentMenuViewController.swift */; };
 		8C867529243ECAF90068B03B /* EmployerDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C867528243ECAF90068B03B /* EmployerDAO.swift */; };
 		8C86752B243EFA880068B03B /* CompanyDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C86752A243EFA880068B03B /* CompanyDAO.swift */; };
@@ -75,6 +76,7 @@
 		8C3E4C5F2448032E008C036F /* profile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = profile.jpg; sourceTree = "<group>"; };
 		8C60EBEE243D07D400E35862 /* mainScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mainScreen.jpg; sourceTree = "<group>"; };
 		8C7309F2243BDDCC0090C21D /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		8C786394246775E4007A4A7C /* ViewStudentOffersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStudentOffersController.swift; sourceTree = "<group>"; };
 		8C7DF534246383B400417CC9 /* StudentMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentMenuViewController.swift; sourceTree = "<group>"; };
 		8C867528243ECAF90068B03B /* EmployerDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployerDAO.swift; sourceTree = "<group>"; };
 		8C86752A243EFA880068B03B /* CompanyDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDAO.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				41C4339324441103000C1C97 /* StudentHomeViewController.swift */,
 				8C7DF534246383B400417CC9 /* StudentMenuViewController.swift */,
 				41B7ED3024673C4500EBE3B8 /* EditStudentViewController.swift */,
+				8C786394246775E4007A4A7C /* ViewStudentOffersController.swift */,
 			);
 			path = Student;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				8CE71483243E651700D08928 /* Company.swift in Sources */,
 				8CBED0E7244CCA5300E78ED3 /* UserDA0.swift in Sources */,
 				8C7309F3243BDDCC0090C21D /* Utilities.swift in Sources */,
+				8C786395246775E4007A4A7C /* ViewStudentOffersController.swift in Sources */,
 				8CD3E0E42449748D00B88845 /* CreateOfferViewController.swift in Sources */,
 				41B7ED3124673C4500EBE3B8 /* EditStudentViewController.swift in Sources */,
 				8C0D03F1243BB27B00B2BC78 /* SignUpViewController.swift in Sources */,
