@@ -68,7 +68,7 @@ class EditOfferViewController: UIViewController {
         offer!.experience = Int(experienceTextField.text!)!
     }
     func saveData(){
-        JobOffersDAO.editOffer(id: "",jobOffer: offer! ){
+        JobOffersDAO.editOffer(jobOffer: offer! ){
             (error) in
             if(error != nil){
                 print("error editing user")

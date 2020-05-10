@@ -58,7 +58,7 @@ class JobOffersDAO {
         }
     }
     
-    static func editOffer( id: String, jobOffer:JobOffer, completion: @escaping((_ data: String?) -> Void)){
+    static func editOffer( jobOffer:JobOffer, completion: @escaping((_ data: String?) -> Void)){
        
         // Establish the connection with the database
         let db = Firestore.firestore()
@@ -87,7 +87,17 @@ class JobOffersDAO {
             completion(nil)
         }
     }
-    
+    static func deleteOffer(offer: JobOffer){
+        let db = Firestore.firestore()
+        
+        db.collection("offers").document(offer.offerKey).delete { (error) in
+            //Some code
+            if error != nil{
+                print("error deleting offer: " + offer.offerKey)
+            }
+            
+        }
+    }
     // Retrieve the offers of an employer from the database.
     // It is used a callback because we depend of the 'result' provided by the setData() function.
     static func getOffers(_ userId: String, completion: @escaping(((String?), ([JobOffer]?)) -> Void)){
