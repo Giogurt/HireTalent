@@ -12,14 +12,28 @@ class EmployerOfferViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     
-    var offer: JobOffer = JobOffer()
+    @IBOutlet weak var salaryLabel: UILabel!
+    @IBOutlet weak var startLabel: UILabel!
+    @IBOutlet weak var endLabel: UILabel!
+    @IBOutlet weak var experienceLabel: UILabel!
+    @IBOutlet weak var vacantslabel: UILabel!
+
+    @IBOutlet var jobDescription:UITextView!
+    
+    var offer: JobOffer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = offer.jobTitle
-        titleLabel.text = self.offer.jobTitle
+        loadData()
     }
 
+    func loadData(){
+        titleLabel.text = offer.jobTitle
+        salaryLabel.text = offer.salary
+        startLabel.text = offer.startDate
+        
+    }
     @IBAction func clickStudentButton(_ sender: UIButton) {
         performSegue(withIdentifier: "interestedStudents", sender: nil)
     }

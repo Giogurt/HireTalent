@@ -579,7 +579,7 @@
                                 <rect key="frame" x="20" y="413" width="374" height="220"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -606,7 +606,13 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="endLabel" destination="Sa8-El-anW" id="k8O-Uj-Sb8"/>
+                        <outlet property="experienceLabel" destination="a7A-r3-1Ci" id="G4T-7C-Ctm"/>
+                        <outlet property="jobDescription" destination="i2x-Ic-c38" id="ykD-gP-TxE"/>
+                        <outlet property="salaryLabel" destination="Iab-gC-F1O" id="n1u-i2-cfs"/>
+                        <outlet property="startLabel" destination="gZP-xX-gd6" id="4z9-IJ-cNk"/>
                         <outlet property="titleLabel" destination="JJK-ay-Tp0" id="PLu-cK-xnf"/>
+                        <outlet property="vacantslabel" destination="Jh4-sH-ATO" id="NGq-Oe-mOW"/>
                         <segue destination="ngC-xf-daF" kind="presentation" identifier="interestedStudents" modalPresentationStyle="fullScreen" id="ve5-Jx-ANg"/>
                     </connections>
                 </viewController>
