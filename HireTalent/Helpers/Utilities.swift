@@ -46,6 +46,21 @@ class Utilities {
     }
     
     
+    static func styleDisplayLabel(_ label: UILabel) {
+        
+        // Create the bottom line
+        let bottomLine = CALayer()
+        
+        bottomLine.frame = CGRect(x: 0, y: label.frame.height + 5, width: label.frame.width, height: 1)
+        
+        bottomLine.backgroundColor = UIColor.init(red: 196/255, green: 196/255, blue: 196/255, alpha: 1).cgColor
+        
+        // Add the line to the text field
+        label.layer.addSublayer(bottomLine)
+        
+    }
+    
+    
     static func styleFilledButton(_ button: UIButton) {
         
         // Filled rounded corner style

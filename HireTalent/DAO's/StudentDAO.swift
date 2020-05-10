@@ -34,7 +34,7 @@ class StudentDAO{
     }
     
     
-    //Insert the student data in the database.
+    // Insert the student data in the database.
     // It is used a callback because we depend of the 'result' provided by the setData() function.
     static func addStudent(id: String, student: Student, completion: @escaping((_ data: String?) -> Void)){
        
@@ -66,6 +66,8 @@ class StudentDAO{
             completion(nil)
         }
     }
+    
+    
     static func editStudent(id: String, student: Student, completion: @escaping((_ data: String?) -> Void)){
        
         // Establish the connection with the database
@@ -138,4 +140,5 @@ class StudentDAO{
             }
         }
     }
+
 }

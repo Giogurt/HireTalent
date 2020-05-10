@@ -96,5 +96,40 @@ class JobOffersDAO {
         }
     }
     
+    
+    // Get all the Job Offers
+    static func getAllJobOffers(completion: @escaping(([JobOffer]?)->Void)){
+        
+        // Establish the connection with the database
+        let db = Firestore.firestore()
+        
+        // Set a reference to the desired collection
+        db.collection("offers").getDocuments() { (querySnapshot, err) in
+            
+            if let err = err {
+                
+                print("Error getting the documents: \(err)")
+                completion(nil)
+                
+            } else {
+                
+                var jobOffers: [JobOffer] = []
+                var jobOffer = JobOffer()
+                for document in querySnapshot!.documents {
+                    
+                    jobOffer.jobTitle = document.data()["jobTitle"] as? String ?? ""
+                    jobOffer.jobDescription = document.data()["jobDescription"] as? String ?? ""
+                    jobOffer.vacants = document.data()["vacants"] as? Int ?? 0
+                    jobOffer.startDate = document.data()["startDate"] as? String ?? ""
+                    jobOffer.endDate = document.data()["endDate"] as? String ?? ""
+                    jobOffer.salary = document.data()["salary"] as? Int ?? 0
+                    jobOffer.experience = document.data()["experience"] as? Int ?? 0
+                    jobOffers.append(jobOffer)
+                }
+                
+                completion(jobOffers)
+            }
+        }
+    }
    
 }

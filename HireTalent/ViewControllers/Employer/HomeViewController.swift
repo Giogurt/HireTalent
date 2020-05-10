@@ -35,7 +35,7 @@ class HomeViewController: UIViewController {
     }
     
     
-    // Stylize the UI elements
+    // Initialize the elements
     func setupElements(){
         
         // Stylize the TextFields

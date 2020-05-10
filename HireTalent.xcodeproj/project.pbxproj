@@ -31,6 +31,8 @@
 		8C60EBEF243D07D400E35862 /* mainScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8C60EBEE243D07D400E35862 /* mainScreen.jpg */; };
 		8C7309F3243BDDCC0090C21D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7309F2243BDDCC0090C21D /* Utilities.swift */; };
 		8C786395246775E4007A4A7C /* ViewStudentOffersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C786394246775E4007A4A7C /* ViewStudentOffersController.swift */; };
+		8C78639724679D92007A4A7C /* JobOfferDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C78639624679D92007A4A7C /* JobOfferDetailViewController.swift */; };
+		8C7863992467AFBC007A4A7C /* google_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C7863982467AFBC007A4A7C /* google_logo.png */; };
 		8C7DF535246383B400417CC9 /* StudentMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7DF534246383B400417CC9 /* StudentMenuViewController.swift */; };
 		8C867529243ECAF90068B03B /* EmployerDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C867528243ECAF90068B03B /* EmployerDAO.swift */; };
 		8C86752B243EFA880068B03B /* CompanyDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C86752A243EFA880068B03B /* CompanyDAO.swift */; };
@@ -77,6 +79,8 @@
 		8C60EBEE243D07D400E35862 /* mainScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mainScreen.jpg; sourceTree = "<group>"; };
 		8C7309F2243BDDCC0090C21D /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		8C786394246775E4007A4A7C /* ViewStudentOffersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStudentOffersController.swift; sourceTree = "<group>"; };
+		8C78639624679D92007A4A7C /* JobOfferDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobOfferDetailViewController.swift; sourceTree = "<group>"; };
+		8C7863982467AFBC007A4A7C /* google_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = google_logo.png; sourceTree = "<group>"; };
 		8C7DF534246383B400417CC9 /* StudentMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentMenuViewController.swift; sourceTree = "<group>"; };
 		8C867528243ECAF90068B03B /* EmployerDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployerDAO.swift; sourceTree = "<group>"; };
 		8C86752A243EFA880068B03B /* CompanyDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDAO.swift; sourceTree = "<group>"; };
@@ -164,6 +168,7 @@
 				C3976E422458B6BA0058C1F9 /* studentProfile.png */,
 				8C60EBEE243D07D400E35862 /* mainScreen.jpg */,
 				8C3E4C5F2448032E008C036F /* profile.jpg */,
+				8C7863982467AFBC007A4A7C /* google_logo.png */,
 				8CF0A8D42446D6EA00BF615E /* interns.jpg */,
 			);
 			path = Media;
@@ -201,6 +206,7 @@
 				8C7DF534246383B400417CC9 /* StudentMenuViewController.swift */,
 				41B7ED3024673C4500EBE3B8 /* EditStudentViewController.swift */,
 				8C786394246775E4007A4A7C /* ViewStudentOffersController.swift */,
+				8C78639624679D92007A4A7C /* JobOfferDetailViewController.swift */,
 			);
 			path = Student;
 			sourceTree = "<group>";
@@ -333,6 +339,7 @@
 				8CE42383243A788A00846E86 /* Assets.xcassets in Resources */,
 				8C60EBEF243D07D400E35862 /* mainScreen.jpg in Resources */,
 				8CE42381243A788800846E86 /* Main.storyboard in Resources */,
+				8C7863992467AFBC007A4A7C /* google_logo.png in Resources */,
 				8C3E4C602448032E008C036F /* profile.jpg in Resources */,
 				8C2B35832454BAF8009A99D0 /* Employer.storyboard in Resources */,
 			);
@@ -409,6 +416,7 @@
 				0141D56F2457E44F00F03A56 /* ShowStudentsInOfferViewController.swift in Sources */,
 				8CD3E0E62449EAAA00B88845 /* UITextFieldAndDate.swift in Sources */,
 				0141D56D2457E39E00F03A56 /* EmployerOfferViewController.swift in Sources */,
+				8C78639724679D92007A4A7C /* JobOfferDetailViewController.swift in Sources */,
 				41C4339424441103000C1C97 /* StudentHomeViewController.swift in Sources */,
 				8C7DF535246383B400417CC9 /* StudentMenuViewController.swift in Sources */,
 				8CE4237C243A788800846E86 /* SceneDelegate.swift in Sources */,
