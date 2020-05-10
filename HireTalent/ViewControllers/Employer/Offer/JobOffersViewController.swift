@@ -66,7 +66,18 @@ class JobOffersViewController: UITableViewController {
         cellSelected = indexPath.row
         performSegue(withIdentifier: "myOffer", sender: nil)
     }
-    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            JobOffersDAO.deleteOffer(offer: offers[indexPath.row])
+            offers.remove(at: indexPath.row)
+            tableView.beginUpdates()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.endUpdates()
+        }
+    }
     //This function allow us to pass information between views
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
