@@ -82,7 +82,7 @@ class JobOffersDAO {
                     offer.jobDescription = offerData["jobDescription"] as? String ?? ""
                     offer.jobTitle = offerData["jobTitle"] as? String ?? ""
                     offer.salary = offerData["salary"] as? Int ?? 0
-                    offer.startDate = offerData["jobDescription"] as? String ?? ""
+                    offer.startDate = offerData["startDate"] as? String ?? ""
                     offer.vacants = offerData["vacants"] as? Int ?? 0
                     offer.interestedStudents = offerData["interestedStudents"] as? [String] ?? []
                     

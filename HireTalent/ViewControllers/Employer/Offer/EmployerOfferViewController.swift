@@ -8,7 +8,11 @@
 
 import UIKit
 
-class EmployerOfferViewController: UIViewController {
+class EmployerOfferViewController: UIViewController,OfferDelegate {
+    func updateOfferView(controller: AnyObject, newOffer: JobOffer) {
+        loadData()
+    }
+    
 
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -24,18 +28,25 @@ class EmployerOfferViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = offer.jobTitle
+        self.title = offer!.jobTitle
         loadData()
     }
 
     func loadData(){
-        titleLabel.text = offer.jobTitle
-        salaryLabel.text = offer.salary
-        startLabel.text = offer.startDate
+        titleLabel.text = offer!.jobTitle
+        salaryLabel.text = String(offer!.salary)
+        startLabel.text = offer!.startDate
+        endLabel.text = offer!.endDate
+        experienceLabel.text = String(offer!.experience)
+        vacantslabel.text = String(offer!.vacants)
+        jobDescription.text = offer!.jobDescription
         
     }
     @IBAction func clickStudentButton(_ sender: UIButton) {
         performSegue(withIdentifier: "interestedStudents", sender: nil)
+    }
+    @IBAction func editOfferPressed(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "EditOfferSegue", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -44,7 +55,13 @@ class EmployerOfferViewController: UIViewController {
             let navigationController = segue.destination as? UINavigationController
             let destinationController = navigationController?.topViewController as! ShowStudentsInOfferViewController
             
-            destinationController.students = offer.interestedStudents
+            destinationController.students = offer!.interestedStudents
+        }
+        
+        if segue.identifier == "EditOfferSegue"{
+            let destination = segue.destination as! EditOfferViewController
+            destination.offer = offer
+            destination.delegate = self
         }
     }
 }
