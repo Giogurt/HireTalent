@@ -633,6 +633,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Here goes title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQo-wv-wjO">
+                                <rect key="frame" x="10" y="10" width="374" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Job Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xc2-KK-0fm">
                                 <rect key="frame" x="20" y="154" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -772,6 +779,13 @@
                                             <constraint firstAttribute="trailing" secondItem="szL-me-fFX" secondAttribute="trailing" id="zbq-k3-Ndk"/>
                                         </constraints>
                                     </stackView>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Error" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDD-Hi-5JC">
+                                        <rect key="frame" x="20" y="138" width="386" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
@@ -795,6 +809,7 @@
                     <connections>
                         <outlet property="descriptionTextView" destination="szL-me-fFX" id="GY5-Xt-5lM"/>
                         <outlet property="endDateTextField" destination="uJv-OC-ExR" id="0vf-G1-Cvh"/>
+                        <outlet property="errorLabel" destination="bDD-Hi-5JC" id="l2D-ME-XKY"/>
                         <outlet property="experienceTextField" destination="7Qg-8E-3AO" id="Ohj-gr-NVG"/>
                         <outlet property="salaryTextField" destination="HAf-3e-TKP" id="HhA-2C-iR6"/>
                         <outlet property="startDateTextField" destination="pqI-LE-bpw" id="q6E-DX-ubl"/>
@@ -1067,6 +1082,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="ve5-Jx-ANg"/>
         <segue reference="R7h-c1-Cg4"/>
         <segue reference="UKq-k7-xFp"/>
         <segue reference="uRm-p0-erx"/>

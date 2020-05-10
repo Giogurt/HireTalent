@@ -17,6 +17,8 @@ class EditOfferViewController: UIViewController {
        @IBOutlet weak var salaryTextField: UITextField!
        @IBOutlet weak var experienceTextField: UITextField!
     
+    @IBOutlet weak var errorLabel: UILabel!
+    
     var offer: JobOffer?
     var delegate: OfferDelegate?
     
@@ -41,7 +43,42 @@ class EditOfferViewController: UIViewController {
         
     }
     @IBAction func savePressed(_ sender: UIBarButtonItem) {
-        
+        if infoMissing(){
+            errorLabel.isHidden = false
+            errorLabel.text = "can't leave empty"
+            return
+        }
+        readData()
+        saveData()
+    }
+    func infoMissing()->Bool{
+        if titleTextField.text!.isEmpty || descriptionTextView.text!.isEmpty || startDateTextField.text!.isEmpty || endDateTextField.text!.isEmpty || vacantsTextField.text!.isEmpty || salaryTextField.text!.isEmpty || experienceTextField.text!.isEmpty{
+            return true
+        }else{
+            return false
+        }
+    }
+    func readData(){
+        offer!.jobTitle = titleTextField.text!
+        offer!.jobDescription = descriptionTextView.text!
+        offer!.startDate = startDateTextField.text!
+        offer!.endDate = endDateTextField.text!
+        offer!.vacants = Int(vacantsTextField.text!)!
+         offer!.salary = Int(salaryTextField.text!)!
+        offer!.experience = Int(experienceTextField.text!)!
+    }
+    func saveData(){
+        JobOffersDAO.editOffer(id: "",jobOffer: offer! ){
+            (error) in
+            if(error != nil){
+                print("error editing user")
+                self.errorLabel.text = "error with firebase"
+            }else{
+                self.delegate?.updateOfferView(controller: self, newOffer: self.offer!)
+                self.navigationController?.popViewController(animated: true)
+
+            }
+        }
     }
     // Add the functionality to date pickers
     func initDatePickers(){

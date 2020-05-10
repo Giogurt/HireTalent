@@ -10,6 +10,7 @@ import UIKit
 
 class EmployerOfferViewController: UIViewController,OfferDelegate {
     func updateOfferView(controller: AnyObject, newOffer: JobOffer) {
+        offer = newOffer
         loadData()
     }
     
