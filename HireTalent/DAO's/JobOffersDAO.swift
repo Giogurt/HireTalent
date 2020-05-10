@@ -28,9 +28,13 @@ class JobOffersDAO {
         jobOffer.endDate = endDate
         jobOffer.salary = Int(salary)!
         jobOffer.experience = Int(experience)!
+        let collection = db.collection("offers")
+        let newDoc = collection.document()
+        let key = newDoc.documentID
+        let dataKey = ["offerKey": key]
         
         // Set the document data
-        db.collection("offers").document().setData([
+        db.collection("offers").document(key).setData([
             "userId": userId,
             "companyRfc": companyRfc,
             "jobTitle": jobOffer.jobTitle,
@@ -49,11 +53,40 @@ class JobOffersDAO {
                 // There was an error adding the offer to the database
                 completion("Error")
             }
-            
+            newDoc.setData(dataKey, merge: true)
             completion(nil)
         }
     }
     
+    static func editOffer( id: String, jobOffer:JobOffer, completion: @escaping((_ data: String?) -> Void)){
+       
+        // Establish the connection with the database
+        let db = Firestore.firestore()
+        
+            // Store the information in the database
+        
+        db.collection("offers").document(jobOffer.offerKey).updateData([
+              "jobTitle": jobOffer.jobTitle,
+                      "jobDescription": jobOffer.jobDescription,
+                      "vacants": jobOffer.vacants,
+                      "startDate": jobOffer.startDate,
+                      "endDate": jobOffer.endDate,
+                      "salary": jobOffer.salary,
+                      "experience": jobOffer.experience,
+            
+        ]) { (error) in
+
+            // Check for errors
+            if error != nil {
+
+                // There was an error adding the user data to the database
+                completion("Error editing the offer")
+            }
+
+            // If the insertion was executed correctly return nil
+            completion(nil)
+        }
+    }
     
     // Retrieve the offers of an employer from the database.
     // It is used a callback because we depend of the 'result' provided by the setData() function.
@@ -77,12 +110,13 @@ class JobOffersDAO {
                     let offerData = document.data()
                     var offer = JobOffer()
                     
+                    offer.offerKey = offerData["offerKey"] as? String ?? ""
                     offer.endDate = offerData["endDate"] as? String ?? ""
                     offer.experience = offerData["experience"] as? Int ?? 0
                     offer.jobDescription = offerData["jobDescription"] as? String ?? ""
                     offer.jobTitle = offerData["jobTitle"] as? String ?? ""
                     offer.salary = offerData["salary"] as? Int ?? 0
-                    offer.startDate = offerData["jobDescription"] as? String ?? ""
+                    offer.startDate = offerData["startDate"] as? String ?? ""
                     offer.vacants = offerData["vacants"] as? Int ?? 0
                     offer.interestedStudents = offerData["interestedStudents"] as? [String] ?? []
                     
