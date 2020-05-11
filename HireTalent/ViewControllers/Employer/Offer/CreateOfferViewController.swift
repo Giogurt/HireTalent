@@ -22,7 +22,7 @@ class CreateOfferViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Stylize the UI elements
         setUpElements()
         
