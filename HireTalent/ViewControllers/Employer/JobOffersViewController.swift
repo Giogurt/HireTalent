@@ -68,8 +68,7 @@ class JobOffersViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "myOffer" {
-            let navigationController = segue.destination as? UINavigationController
-            let destinationController = navigationController?.topViewController as! EmployerOfferViewController
+            let destinationController = segue.destination as! EmployerOfferViewController
             
             destinationController.offer = offers[cellSelected]
         }

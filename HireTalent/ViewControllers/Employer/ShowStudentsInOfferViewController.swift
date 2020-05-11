@@ -40,7 +40,6 @@ class ShowStudentsInOfferViewController: UITableViewController {
                     let completeName = student!.firstName + student!.lastName
                     self.studentsNames.append(completeName)
                     c += 1
-                    print("c\(c)")
                     if c == self.students.count{
                         self.table.reloadData()
                     }

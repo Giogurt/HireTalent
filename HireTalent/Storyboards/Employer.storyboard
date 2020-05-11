@@ -483,30 +483,14 @@
                     </navigationItem>
                     <connections>
                         <outlet property="table" destination="65a-ZM-Bg0" id="3vM-VK-Y17"/>
-                        <segue destination="HrE-SW-kPx" kind="presentation" identifier="myOffer" modalPresentationStyle="fullScreen" id="POG-np-mMv"/>
+                        <segue destination="IgV-lx-1OU" kind="show" identifier="myOffer" id="ZhV-7n-dTZ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o6r-Lm-Tdf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7932" y="-725"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="xud-5f-jot">
-            <objects>
-                <navigationController id="HrE-SW-kPx" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Rb4-lQ-yVf">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="IgV-lx-1OU" kind="relationship" relationship="rootViewController" id="NiI-RC-uCV"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DAv-iQ-kAB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="8865" y="-725"/>
-        </scene>
-        <!--Employer Offer View Controller-->
+        <!--Job Offer Detail-->
         <scene sceneID="nxd-jd-Bf6">
             <objects>
                 <viewController id="IgV-lx-1OU" customClass="EmployerOfferViewController" customModule="HireTalent" customModuleProvider="target" sceneMemberID="viewController">
@@ -535,22 +519,16 @@
                         <viewLayoutGuide key="safeArea" id="PPi-nL-6Ck"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="ia8-9e-G6c">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="CXZ-Yr-Rim">
-                            <connections>
-                                <segue destination="gie-xv-LLH" kind="presentation" identifier="ReloadAllOffers" modalPresentationStyle="fullScreen" id="t64-Be-15x"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Job Offer Detail" id="5lB-bW-fTs"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="titleLabel" destination="JJK-ay-Tp0" id="PLu-cK-xnf"/>
-                        <segue destination="ngC-xf-daF" kind="presentation" identifier="interestedStudents" modalPresentationStyle="fullScreen" id="ve5-Jx-ANg"/>
+                        <segue destination="4aL-qP-GY9" kind="show" identifier="interestedStudents" id="QcW-2D-Ycs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ocQ-yS-Jty" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9880" y="-725"/>
+            <point key="canvasLocation" x="9026" y="-725"/>
         </scene>
         <!--Show Students In Offer-->
         <scene sceneID="I47-QQ-TRh">
@@ -575,36 +553,13 @@
                             <outlet property="delegate" destination="4aL-qP-GY9" id="OIk-Zo-3eJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="9TM-1y-PtG">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="gWe-8i-iom">
-                            <connections>
-                                <segue destination="HrE-SW-kPx" kind="presentation" identifier="ReloadOffer" modalPresentationStyle="fullScreen" id="4cs-dy-bsc"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <connections>
                         <outlet property="table" destination="8zf-Ji-jRT" id="xcT-az-o2Q"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nLA-Lj-zK0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="11846" y="-725"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="MN0-gR-sbJ">
-            <objects>
-                <navigationController id="ngC-xf-daF" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Pa7-Jl-Lpj">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="4aL-qP-GY9" kind="relationship" relationship="rootViewController" id="c2B-je-Jaq"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="b4u-Bf-KOX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="10855" y="-725"/>
+            <point key="canvasLocation" x="10080" y="-725"/>
         </scene>
         <!--Create a Job Offer-->
         <scene sceneID="cfd-6u-4CB">
@@ -815,8 +770,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="R7h-c1-Cg4"/>
         <segue reference="UKq-k7-xFp"/>
-        <segue reference="POG-np-mMv"/>
-        <segue reference="t64-Be-15x"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="checkmark.seal.fill" catalog="system" width="128" height="122"/>
