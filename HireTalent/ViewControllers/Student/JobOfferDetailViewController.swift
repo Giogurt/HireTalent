@@ -10,7 +10,7 @@ import UIKit
 
 class JobOfferDetailViewController: UIViewController {
 
-    var jobOffer = JobOffer()
+    @IBOutlet weak var applyButton: UIButton!
     @IBOutlet weak var jobTitleTextField: UITextField!
     @IBOutlet weak var jobDescriptionLabel: UILabel!
     @IBOutlet weak var vacantsTextField: UITextField!
@@ -18,7 +18,8 @@ class JobOfferDetailViewController: UIViewController {
     @IBOutlet weak var startDateTextField: UITextField!
     @IBOutlet weak var endDateTextField: UITextField!
     @IBOutlet weak var experienceTextField: UITextField!
-    
+    var jobOffer = JobOffer()
+    var studentId = StudentDAO.getStudentId()
     
     
     override func viewDidLoad() {
@@ -48,7 +49,8 @@ class JobOfferDetailViewController: UIViewController {
         endDateTextField.isUserInteractionEnabled = false
         experienceTextField.isUserInteractionEnabled = false
         
-        // Descripton text field must have multiline
+        // Change the position of the imagei in the button
+        applyButton.semanticContentAttribute = UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft ? .forceLeftToRight : .forceRightToLeft
     }
 
     
@@ -62,5 +64,26 @@ class JobOfferDetailViewController: UIViewController {
         experienceTextField.text = String(jobOffer.experience)
         
     }
-
+    
+    
+    
+    @IBAction func applyButtonIsTapped(_ sender: Any) {
+        
+        jobOffer.interestedStudents.append(studentId)
+        
+        JobOffersDAO.addANewInterestedStudentToAJobOffer(jobOffer.jobOfferId, jobOffer.interestedStudents) { (errorHandler) in
+            
+            if errorHandler != nil {
+                print(errorHandler!)
+            } else {
+                let alert = UIAlertController(title: "Thank you!", message: "You have applied succesffully to this job offer", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) {
+                    UIAlertAction in
+                    self.performSegue(withIdentifier: "applicationSent", sender: nil)
+                })
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
 }

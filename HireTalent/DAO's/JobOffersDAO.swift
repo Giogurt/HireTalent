@@ -77,6 +77,7 @@ class JobOffersDAO {
                     let offerData = document.data()
                     var offer = JobOffer()
                     
+                    offer.jobOfferId = document.documentID
                     offer.endDate = offerData["endDate"] as? String ?? ""
                     offer.experience = offerData["experience"] as? Int ?? 0
                     offer.jobDescription = offerData["jobDescription"] as? String ?? ""
@@ -117,6 +118,7 @@ class JobOffersDAO {
                 var jobOffer = JobOffer()
                 for document in querySnapshot!.documents {
                     
+                    jobOffer.jobOfferId = document.documentID
                     jobOffer.jobTitle = document.data()["jobTitle"] as? String ?? ""
                     jobOffer.jobDescription = document.data()["jobDescription"] as? String ?? ""
                     jobOffer.vacants = document.data()["vacants"] as? Int ?? 0
@@ -124,10 +126,31 @@ class JobOffersDAO {
                     jobOffer.endDate = document.data()["endDate"] as? String ?? ""
                     jobOffer.salary = document.data()["salary"] as? Int ?? 0
                     jobOffer.experience = document.data()["experience"] as? Int ?? 0
+                    jobOffer.interestedStudents = document.data()["interestedStudents"] as? [String] ?? []
                     jobOffers.append(jobOffer)
                 }
                 
                 completion(jobOffers)
+            }
+        }
+    }
+    
+    // Add a interested student in a job offer
+    static func addANewInterestedStudentToAJobOffer(_ documentId: String, _ interestedStudents: [String], completion: @escaping(String?) -> Void){
+        
+        // Establish the connection with the database
+        let db = Firestore.firestore()
+        
+        // Set a reference to the desired document
+        let ref = db.collection("offers").document(documentId)
+        
+        ref.updateData([
+            "interestedStudents": interestedStudents
+        ]) { err in
+            if err != nil{
+                completion("There was some error adding the student")
+            } else {
+                completion(nil)
             }
         }
     }

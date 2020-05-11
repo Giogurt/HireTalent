@@ -12,6 +12,7 @@ import Firebase
 class JobOffersViewController: UITableViewController {
     
     let employer = EmployerDAO.getUserId()
+    var studentsPerOffer: [Int] = []
     var offers: [JobOffer] = []
     var cellSelected: Int = 0
     
@@ -29,8 +30,8 @@ class JobOffersViewController: UITableViewController {
                 self.table.reloadData()
             }
         }
-        
     }
+
     
 
     // MARK: - Table view data source
@@ -47,10 +48,11 @@ class JobOffersViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "JobOfferCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "JobOfferCell", for: indexPath) as! JobOffersCell
         
+        cell.jobOfferTitle.text = offers[indexPath.row].jobTitle
+        cell.numberOfInteresed.text = String(offers[indexPath.row].interestedStudents.count)
         
-        cell.textLabel?.text = offers[indexPath.row].jobTitle
 
         return cell
     }

@@ -71,13 +71,6 @@
                                 <rect key="frame" x="116" y="119" width="180" height="180"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEJ-uk-HMX">
-                                <rect key="frame" x="150" y="51" width="109" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Full Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWX-eF-LDf">
                                 <rect key="frame" x="37" y="317" width="333" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -665,17 +658,20 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8R3-hZ-ujx">
-                                                <rect key="frame" x="374" y="15" width="25" height="25"/>
+                                                <rect key="frame" x="299" y="15" width="100" height="25"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="25" id="a4F-8b-KG6"/>
+                                                    <constraint firstAttribute="width" constant="100" id="a4F-8b-KG6"/>
                                                     <constraint firstAttribute="height" constant="25" id="cGd-gh-Z8c"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                 <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" image="plus.app.fill" catalog="system">
+                                                <state key="normal" title="Apply " image="plus.app.fill" catalog="system">
                                                     <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="applyButtonIsTapped:" destination="gws-2I-dye" eventType="touchUpInside" id="ng5-qB-Bfy"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -736,6 +732,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="l2K-xi-84V"/>
                     <connections>
+                        <outlet property="applyButton" destination="8R3-hZ-ujx" id="4eh-z9-tPZ"/>
                         <outlet property="endDateTextField" destination="f43-gt-Ux9" id="kr4-QJ-b27"/>
                         <outlet property="experienceTextField" destination="bYi-Eo-O3W" id="VBG-og-EEe"/>
                         <outlet property="jobDescriptionLabel" destination="gE8-Ke-DnE" id="SnG-em-lbt"/>
@@ -743,6 +740,7 @@
                         <outlet property="salaryTextField" destination="9Wk-ul-Efe" id="o9p-1g-hmb"/>
                         <outlet property="startDateTextField" destination="biF-tZ-Uls" id="mOu-e1-11y"/>
                         <outlet property="vacantsTextField" destination="Obd-zC-HSW" id="PBg-dE-OSI"/>
+                        <segue destination="VZf-j0-LCC" kind="presentation" identifier="applicationSent" modalPresentationStyle="fullScreen" id="ESh-Pt-Q8E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Mi-hU-FtL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -770,6 +768,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="F3o-mB-Rfy"/>
+        <segue reference="ESh-Pt-Q8E"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bag.fill" catalog="system" width="128" height="128"/>

@@ -77,7 +77,6 @@ class CreateOfferViewController: UIViewController {
         }
     }
     
-    
     // If the 'Create New Offer' button is tapped
     @IBAction func newOfferTapped(_ sender: Any) {
         
