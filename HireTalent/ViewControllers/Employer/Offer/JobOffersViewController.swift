@@ -32,6 +32,17 @@ class JobOffersViewController: UITableViewController {
         }
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+         JobOffersDAO.getOffers(employer) { (error, jobOffers) in
+                   if error != nil {
+                       
+                   } else {
+                       self.offers = jobOffers!
+                       self.table.reloadData()
+                   }
+               }
+        
+    }
     
 
     // MARK: - Table view data source
