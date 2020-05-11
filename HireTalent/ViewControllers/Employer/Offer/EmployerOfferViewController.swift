@@ -53,8 +53,7 @@ class EmployerOfferViewController: UIViewController,OfferDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "interestedStudents" {
-            let navigationController = segue.destination as? UINavigationController
-            let destinationController = navigationController?.topViewController as! ShowStudentsInOfferViewController
+            let destinationController = segue.destination as! ShowStudentsInOfferViewController
             
             destinationController.students = offer!.interestedStudents
         }
@@ -66,3 +65,4 @@ class EmployerOfferViewController: UIViewController,OfferDelegate {
         }
     }
 }
+

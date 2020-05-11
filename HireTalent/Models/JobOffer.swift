@@ -10,6 +10,7 @@ import Foundation
 
 struct JobOffer {
     
+    var jobOfferId: String = ""
     var jobTitle: String = ""
     var jobDescription: String = ""
     var vacants: Int = 0

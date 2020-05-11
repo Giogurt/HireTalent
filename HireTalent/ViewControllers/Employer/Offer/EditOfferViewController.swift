@@ -42,15 +42,18 @@ class EditOfferViewController: UIViewController {
         experienceTextField.text = String(offer!.experience)
         
     }
+    
     @IBAction func savePressed(_ sender: UIBarButtonItem) {
         if infoMissing(){
             errorLabel.isHidden = false
             errorLabel.text = "can't leave empty"
             return
         }
+        
         readData()
         saveData()
     }
+    
     func infoMissing()->Bool{
         if titleTextField.text!.isEmpty || descriptionTextView.text!.isEmpty || startDateTextField.text!.isEmpty || endDateTextField.text!.isEmpty || vacantsTextField.text!.isEmpty || salaryTextField.text!.isEmpty || experienceTextField.text!.isEmpty{
             return true
@@ -58,6 +61,7 @@ class EditOfferViewController: UIViewController {
             return false
         }
     }
+    
     func readData(){
         offer!.jobTitle = titleTextField.text!
         offer!.jobDescription = descriptionTextView.text!
@@ -67,6 +71,7 @@ class EditOfferViewController: UIViewController {
          offer!.salary = Int(salaryTextField.text!)!
         offer!.experience = Int(experienceTextField.text!)!
     }
+    
     func saveData(){
         JobOffersDAO.editOffer(jobOffer: offer! ){
             (error) in

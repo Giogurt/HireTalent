@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9gg-mb-DK4">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -240,7 +240,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0O4-Rn-0cf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6037.68115942029" y="181.47321428571428"/>
+            <point key="canvasLocation" x="5270" y="181"/>
         </scene>
         <!--Options-->
         <scene sceneID="jlg-md-rXr">
@@ -391,7 +391,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ltM-lg-dY6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6980" y="1144"/>
+            <point key="canvasLocation" x="7933" y="181"/>
         </scene>
         <!--Main-->
         <scene sceneID="x5q-pf-Icb">
@@ -399,7 +399,7 @@
                 <viewControllerPlaceholder storyboardName="Main" id="XU1-8l-ANH" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eor-HS-X1y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8056" y="1144"/>
+            <point key="canvasLocation" x="7932" y="800"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="er2-UH-3yU">
@@ -415,7 +415,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MZw-tz-tSj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6980" y="1967"/>
+            <point key="canvasLocation" x="6980" y="-725"/>
         </scene>
         <!--My Job Offers-->
         <scene sceneID="ASA-tC-HVu">
@@ -426,22 +426,47 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="JobOfferCell" textLabel="JYa-bS-xMN" style="IBUITableViewCellStyleDefault" id="BKQ-Ua-rO1">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="JobOfferCell" id="BKQ-Ua-rO1" customClass="JobOffersCell" customModule="HireTalent" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BKQ-Ua-rO1" id="tCf-xL-Hbp">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JYa-bS-xMN">
-                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="mDN-RF-3ql">
+                                            <rect key="frame" x="369" y="5" width="35" height="34"/>
+                                            <color key="tintColor" red="0.70330715673575128" green="0.2712290454187532" blue="0.23682404425044973" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="35" id="dEB-WQ-RJp"/>
+                                                <constraint firstAttribute="height" constant="35" id="f52-LC-in9"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01I-NB-3hE">
+                                            <rect key="frame" x="382.5" y="12" width="9" height="20"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pka-1w-fCk">
+                                            <rect key="frame" x="20" y="11.5" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="mDN-RF-3ql" secondAttribute="trailing" constant="10" id="0pV-Ff-RZG"/>
+                                        <constraint firstItem="pka-1w-fCk" firstAttribute="centerY" secondItem="tCf-xL-Hbp" secondAttribute="centerY" id="VmU-3J-BJv"/>
+                                        <constraint firstItem="01I-NB-3hE" firstAttribute="centerY" secondItem="tCf-xL-Hbp" secondAttribute="centerY" id="mFT-sg-PPB"/>
+                                        <constraint firstAttribute="trailing" secondItem="01I-NB-3hE" secondAttribute="trailing" constant="22.5" id="t8H-a7-6Hg"/>
+                                        <constraint firstItem="pka-1w-fCk" firstAttribute="leading" secondItem="tCf-xL-Hbp" secondAttribute="leading" constant="20" id="w0J-PK-3bI"/>
+                                        <constraint firstItem="mDN-RF-3ql" firstAttribute="centerY" secondItem="tCf-xL-Hbp" secondAttribute="centerY" id="zJz-xh-0PS"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="jobOfferTitle" destination="pka-1w-fCk" id="yPl-3t-RQj"/>
+                                    <outlet property="numberOfInteresed" destination="01I-NB-3hE" id="xOA-pq-h4o"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -458,30 +483,14 @@
                     </navigationItem>
                     <connections>
                         <outlet property="table" destination="65a-ZM-Bg0" id="3vM-VK-Y17"/>
-                        <segue destination="HrE-SW-kPx" kind="presentation" identifier="myOffer" modalPresentationStyle="fullScreen" id="POG-np-mMv"/>
+                        <segue destination="IgV-lx-1OU" kind="show" identifier="myOffer" id="ZhV-7n-dTZ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o6r-Lm-Tdf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8467" y="1649"/>
+            <point key="canvasLocation" x="7932" y="-725"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="xud-5f-jot">
-            <objects>
-                <navigationController id="HrE-SW-kPx" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Rb4-lQ-yVf">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="IgV-lx-1OU" kind="relationship" relationship="rootViewController" id="NiI-RC-uCV"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DAv-iQ-kAB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="9423" y="1383"/>
-        </scene>
-        <!--Some title-->
+        <!--Job Offer Detail-->
         <scene sceneID="nxd-jd-Bf6">
             <objects>
                 <viewController id="IgV-lx-1OU" customClass="EmployerOfferViewController" customModule="HireTalent" customModuleProvider="target" sceneMemberID="viewController">
@@ -502,7 +511,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Interested Students"/>
                                 <connections>
-                                    <action selector="clickStudentButton:" destination="IgV-lx-1OU" eventType="touchUpInside" id="4uZ-ji-KDV"/>
+                                    <action selector="clickStudentButton:" destination="IgV-lx-1OU" eventType="touchUpInside" id="z7f-TE-Ojk"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Salary:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jt8-Mi-S8G">
@@ -533,7 +542,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Salary:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZP-xX-gd6">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="start date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZP-xX-gd6">
                                 <rect key="frame" x="104" y="229" width="167" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -561,14 +570,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Salary:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7A-r3-1Ci">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="experience" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7A-r3-1Ci">
                                 <rect key="frame" x="124" y="290" width="270" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Salary:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jh4-sH-ATO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="vacants" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jh4-sH-ATO">
                                 <rect key="frame" x="104" y="319" width="167" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -596,29 +605,24 @@
                         <viewLayoutGuide key="safeArea" id="PPi-nL-6Ck"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Some title" id="ia8-9e-G6c">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="CXZ-Yr-Rim">
+                    <navigationItem key="navigationItem" title="Job Offer Detail" id="5lB-bW-fTs">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="OMf-jX-6nV">
                             <connections>
-                                <segue destination="gie-xv-LLH" kind="presentation" identifier="ReloadAllOffers" modalPresentationStyle="fullScreen" id="t64-Be-15x"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="1rY-Pc-GJj">
-                            <connections>
-                                <action selector="editOfferPressed:" destination="IgV-lx-1OU" id="fYb-cD-IeV"/>
+                                <action selector="editOfferPressed:" destination="IgV-lx-1OU" id="Id2-HH-CnR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="endLabel" destination="Sa8-El-anW" id="k8O-Uj-Sb8"/>
-                        <outlet property="experienceLabel" destination="a7A-r3-1Ci" id="G4T-7C-Ctm"/>
-                        <outlet property="jobDescription" destination="i2x-Ic-c38" id="ykD-gP-TxE"/>
-                        <outlet property="salaryLabel" destination="Iab-gC-F1O" id="n1u-i2-cfs"/>
-                        <outlet property="startLabel" destination="gZP-xX-gd6" id="4z9-IJ-cNk"/>
-                        <outlet property="titleLabel" destination="JJK-ay-Tp0" id="PLu-cK-xnf"/>
-                        <outlet property="vacantslabel" destination="Jh4-sH-ATO" id="NGq-Oe-mOW"/>
-                        <segue destination="ngC-xf-daF" kind="presentation" identifier="interestedStudents" modalPresentationStyle="fullScreen" id="ve5-Jx-ANg"/>
-                        <segue destination="vCC-tQ-8D3" kind="show" identifier="EditOfferSegue" id="OFl-R9-qlp"/>
+                        <outlet property="endLabel" destination="Sa8-El-anW" id="Jzo-5A-KII"/>
+                        <outlet property="experienceLabel" destination="a7A-r3-1Ci" id="ByP-Cz-TZI"/>
+                        <outlet property="jobDescription" destination="i2x-Ic-c38" id="VAd-UM-4kD"/>
+                        <outlet property="salaryLabel" destination="Iab-gC-F1O" id="7Yw-XM-Ocu"/>
+                        <outlet property="startLabel" destination="gZP-xX-gd6" id="GAo-lm-ej6"/>
+                        <outlet property="titleLabel" destination="JJK-ay-Tp0" id="zl6-pI-RfZ"/>
+                        <outlet property="vacantslabel" destination="Jh4-sH-ATO" id="puf-Ld-Gd4"/>
+                        <segue destination="4aL-qP-GY9" kind="show" identifier="interestedStudents" id="qvt-GU-fQH"/>
+                        <segue destination="vCC-tQ-8D3" kind="show" identifier="EditOfferSegue" id="EYu-rb-Rrg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ocQ-yS-Jty" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -844,36 +848,13 @@
                             <outlet property="delegate" destination="4aL-qP-GY9" id="OIk-Zo-3eJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="9TM-1y-PtG">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="gWe-8i-iom">
-                            <connections>
-                                <segue destination="iyY-dY-6ev" kind="show" identifier="ReloadOffer" id="uRm-p0-erx"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <connections>
                         <outlet property="table" destination="8zf-Ji-jRT" id="xcT-az-o2Q"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nLA-Lj-zK0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="12086" y="1383"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="MN0-gR-sbJ">
-            <objects>
-                <navigationController id="ngC-xf-daF" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Pa7-Jl-Lpj">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="4aL-qP-GY9" kind="relationship" relationship="rootViewController" id="c2B-je-Jaq"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="b4u-Bf-KOX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="11146" y="1383"/>
+            <point key="canvasLocation" x="10080" y="-725"/>
         </scene>
         <!--Create a Job Offer-->
         <scene sceneID="cfd-6u-4CB">
@@ -1023,7 +1004,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g0j-Fr-Tnj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="7hG-ke-cPL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="8055" y="181"/>
+            <point key="canvasLocation" x="11551" y="179"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zDx-Ue-Pns">
@@ -1042,7 +1023,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="azb-GA-oI9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5070" y="181"/>
+            <point key="canvasLocation" x="4301" y="180"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NT9-jj-dM1">
@@ -1060,7 +1041,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="khK-Ye-3CS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6132" y="1144"/>
+            <point key="canvasLocation" x="6980" y="181"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zAd-7i-YIs">
@@ -1078,18 +1059,16 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="msf-aY-gwO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6979.7101449275369" y="180.80357142857142"/>
+            <point key="canvasLocation" x="9600" y="181"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ve5-Jx-ANg"/>
         <segue reference="R7h-c1-Cg4"/>
         <segue reference="UKq-k7-xFp"/>
-        <segue reference="uRm-p0-erx"/>
-        <segue reference="t64-Be-15x"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="checkmark.seal.fill" catalog="system" width="128" height="122"/>
+        <image name="circle.fill" catalog="system" width="128" height="121"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="power" catalog="system" width="128" height="124"/>
