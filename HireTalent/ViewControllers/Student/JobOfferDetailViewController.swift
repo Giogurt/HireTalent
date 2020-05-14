@@ -17,7 +17,10 @@ class JobOfferDetailViewController: UIViewController {
     @IBOutlet weak var salaryTextField: UITextField!
     @IBOutlet weak var startDateTextField: UITextField!
     @IBOutlet weak var endDateTextField: UITextField!
+    @IBOutlet weak var companyNameLabel: UILabel!
     @IBOutlet weak var experienceTextField: UITextField!
+    
+    
     var jobOffer = JobOffer()
     var studentId = StudentDAO.getStudentId()
     
@@ -62,6 +65,7 @@ class JobOfferDetailViewController: UIViewController {
         startDateTextField.text = jobOffer.startDate
         endDateTextField.text = jobOffer.endDate
         experienceTextField.text = String(jobOffer.experience)
+        companyNameLabel.text = jobOffer.companyName
         
     }
     

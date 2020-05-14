@@ -13,7 +13,7 @@ class JobOffersDAO {
     
     // Insert a new job offer in the database.
     // It is used a callback because we depend of the 'result' provided by the setData() function.
-    static func addNewOffer(_ userId: String, _ companyRfc: String, _ jobTitle: String, _ jobDescription: String, _ vacants: String, _ startDate: String, _ endDate: String, _ salary: String, _ experience: String, completion: @escaping((_ data: String?) -> Void)){
+    static func addNewOffer(_ userId: String, _ companyRfc: String, _ jobTitle: String, _ jobDescription: String, _ vacants: String, _ startDate: String, _ endDate: String, _ salary: String, _ experience: String,_ companyName: String, completion: @escaping((_ data: String?) -> Void)){
         
         // Establish the connection with the database
         let db = Firestore.firestore()
@@ -37,6 +37,7 @@ class JobOffersDAO {
         db.collection("offers").document(key).setData([
             "userId": userId,
             "companyRfc": companyRfc,
+            "companyName": companyName,
             "jobTitle": jobOffer.jobTitle,
             "jobDescription": jobOffer.jobDescription,
             "vacants": jobOffer.vacants,
@@ -122,6 +123,7 @@ class JobOffersDAO {
                 
                     offer.jobOfferId = document.documentID
                     offer.offerKey = offerData["offerKey"] as? String ?? ""
+                    offer.companyName = offerData["companyName"] as? String ?? ""
                     offer.endDate = offerData["endDate"] as? String ?? ""
                     offer.experience = offerData["experience"] as? Int ?? 0
                     offer.jobDescription = offerData["jobDescription"] as? String ?? ""
@@ -168,6 +170,7 @@ class JobOffersDAO {
                     jobOffer.vacants = document.data()["vacants"] as? Int ?? 0
                     jobOffer.startDate = document.data()["startDate"] as? String ?? ""
                     jobOffer.endDate = document.data()["endDate"] as? String ?? ""
+                    jobOffer.companyName = document.data()["companyName"] as? String ?? ""
                     jobOffer.salary = document.data()["salary"] as? Int ?? 0
                     jobOffer.experience = document.data()["experience"] as? Int ?? 0
                     jobOffer.interestedStudents = document.data()["interestedStudents"] as? [String] ?? []

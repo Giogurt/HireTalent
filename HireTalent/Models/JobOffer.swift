@@ -19,7 +19,7 @@ struct JobOffer {
     var salary: Int = 0
     var experience: Int = 0
     var offerKey: String = ""
-    
+    var companyName:String = ""
     var interestedStudents: [String] = []
     
 }
