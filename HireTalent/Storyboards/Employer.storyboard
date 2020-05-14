@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9gg-mb-DK4">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -506,7 +506,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jOJ-CJ-mnP">
-                                <rect key="frame" x="86" y="641" width="242" height="75"/>
+                                <rect key="frame" x="66" y="693" width="242" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Interested Students"/>
@@ -600,6 +600,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Offer open" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uiQ-43-bnx">
+                                <rect key="frame" x="30" y="664" width="83" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="opy-D4-Jcp">
+                                <rect key="frame" x="142" y="659" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="openSwitchPressed:" destination="IgV-lx-1OU" eventType="valueChanged" id="PVZ-CA-T3G"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="PPi-nL-6Ck"/>
@@ -617,6 +631,7 @@
                         <outlet property="endLabel" destination="Sa8-El-anW" id="Jzo-5A-KII"/>
                         <outlet property="experienceLabel" destination="a7A-r3-1Ci" id="ByP-Cz-TZI"/>
                         <outlet property="jobDescription" destination="i2x-Ic-c38" id="VAd-UM-4kD"/>
+                        <outlet property="openSwitch" destination="opy-D4-Jcp" id="Urg-oe-7ht"/>
                         <outlet property="salaryLabel" destination="Iab-gC-F1O" id="7Yw-XM-Ocu"/>
                         <outlet property="startLabel" destination="gZP-xX-gd6" id="GAo-lm-ej6"/>
                         <outlet property="titleLabel" destination="JJK-ay-Tp0" id="zl6-pI-RfZ"/>

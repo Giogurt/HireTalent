@@ -45,7 +45,8 @@ class JobOffersDAO {
             "endDate": jobOffer.endDate,
             "salary": jobOffer.salary,
             "experience": jobOffer.experience,
-            "interestedStudents": jobOffer.interestedStudents
+            "interestedStudents": jobOffer.interestedStudents,
+            "open": true
         ]) { (error) in
             
             // Check for erros
@@ -87,6 +88,29 @@ class JobOffersDAO {
             // If the insertion was executed correctly return nil
             completion(nil)
         }
+    }
+    static func editOpen(jobOffer: JobOffer, completion: @escaping((_ data: String?) -> Void)){
+    
+     // Establish the connection with the database
+     let db = Firestore.firestore()
+     
+         // Store the information in the database
+     
+     db.collection("offers").document(jobOffer.offerKey).updateData([
+           "open": jobOffer.open
+         
+     ]) { (error) in
+
+         // Check for errors
+         if error != nil {
+
+             // There was an error adding the user data to the database
+             completion("Error editing the offer opennes in dao")
+         }
+
+         // If the insertion was executed correctly return nil
+         completion(nil)
+     }
     }
     static func deleteOffer(offer: JobOffer){
         let db = Firestore.firestore()
@@ -131,6 +155,7 @@ class JobOffersDAO {
                     offer.salary = offerData["salary"] as? Int ?? 0
                     offer.startDate = offerData["startDate"] as? String ?? ""
                     offer.vacants = offerData["vacants"] as? Int ?? 0
+                    offer.open = offerData["open"] as? Bool ?? false
                     offer.interestedStudents = offerData["interestedStudents"] as? [String] ?? []
                     
                     jobOffers.append(offer)
@@ -165,6 +190,8 @@ class JobOffersDAO {
                 for document in querySnapshot!.documents {
                     
                     jobOffer.jobOfferId = document.documentID
+                    jobOffer.offerKey = document.data()["offerKey"] as? String ?? ""
+
                     jobOffer.jobTitle = document.data()["jobTitle"] as? String ?? ""
                     jobOffer.jobDescription = document.data()["jobDescription"] as? String ?? ""
                     jobOffer.vacants = document.data()["vacants"] as? Int ?? 0
@@ -172,6 +199,7 @@ class JobOffersDAO {
                     jobOffer.endDate = document.data()["endDate"] as? String ?? ""
                     jobOffer.companyName = document.data()["companyName"] as? String ?? ""
                     jobOffer.salary = document.data()["salary"] as? Int ?? 0
+                    jobOffer.open = document.data()["open"] as? Bool ?? false
                     jobOffer.experience = document.data()["experience"] as? Int ?? 0
                     jobOffer.interestedStudents = document.data()["interestedStudents"] as? [String] ?? []
                     jobOffers.append(jobOffer)

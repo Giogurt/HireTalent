@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Firebase
 class JobOfferDetailViewController: UIViewController {
 
     @IBOutlet weak var applyButton: UIButton!
@@ -72,10 +72,26 @@ class JobOfferDetailViewController: UIViewController {
     
     
     @IBAction func applyButtonIsTapped(_ sender: Any) {
+        // Establish the connection with the database
+            let db = Firestore.firestore()
+            
+                // Store the information in the database
+        var open = true
+            
         
-        jobOffer.interestedStudents.append(studentId)
+        let docRef = db.collection("offers").document(jobOffer.offerKey)
+        docRef.getDocument{
+            (document, error) in
+            if let document = document, document.exists {
+                open = document.data()?["open"] as? Bool ?? true
+                
+            
+        if(open){
+            
         
-        JobOffersDAO.addANewInterestedStudentToAJobOffer(jobOffer.jobOfferId, jobOffer.interestedStudents) { (errorHandler) in
+            self.jobOffer.interestedStudents.append(self.studentId)
+        
+            JobOffersDAO.addANewInterestedStudentToAJobOffer(self.jobOffer.jobOfferId, self.jobOffer.interestedStudents) { (errorHandler) in
             
             if errorHandler != nil {
                 print(errorHandler!)
@@ -89,5 +105,17 @@ class JobOfferDetailViewController: UIViewController {
             }
         }
     }
-    
+    else{
+    let alert = UIAlertController(title: "Sorry", message: "Offer is no longer open", preferredStyle: UIAlertController.Style.alert)
+    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) {
+        UIAlertAction in
+    })
+    self.present(alert, animated: true, completion: nil)
+    }
+                }else{
+                        print("isOfferOpen in dao not working")
+                    }
+                 
+                }
+    }
 }

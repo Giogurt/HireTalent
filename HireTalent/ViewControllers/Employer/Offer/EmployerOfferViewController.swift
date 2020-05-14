@@ -23,6 +23,8 @@ class EmployerOfferViewController: UIViewController,OfferDelegate {
     @IBOutlet weak var experienceLabel: UILabel!
     @IBOutlet weak var vacantslabel: UILabel!
 
+    @IBOutlet weak var openSwitch: UISwitch!
+    
     @IBOutlet var jobDescription:UITextView!
     
     var offer: JobOffer?
@@ -32,7 +34,12 @@ class EmployerOfferViewController: UIViewController,OfferDelegate {
         self.title = offer!.jobTitle
         loadData()
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        self.title = offer!.jobTitle
+        loadData()
+    }
+    
+    
     func loadData(){
         titleLabel.text = offer!.jobTitle
         salaryLabel.text = String(offer!.salary)
@@ -41,15 +48,47 @@ class EmployerOfferViewController: UIViewController,OfferDelegate {
         experienceLabel.text = String(offer!.experience)
         vacantslabel.text = String(offer!.vacants)
         jobDescription.text = offer!.jobDescription
+        openSwitch.isOn = offer!.open
         
     }
+    @IBAction func openSwitchPressed(_ sender: UISwitch) {
+        offer!.open = sender.isOn
+        displayAlert()
+    
+        JobOffersDAO.editOpen(jobOffer: offer! ){
+            (error) in
+            if error != nil{
+                print("couldn't update the open in employerofferviewcontroller")
+            }
+        }
+        
+        
+    }
+    
+    
     @IBAction func clickStudentButton(_ sender: UIButton) {
         performSegue(withIdentifier: "interestedStudents", sender: nil)
     }
     @IBAction func editOfferPressed(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "EditOfferSegue", sender: nil)
     }
-    
+    // Display alert
+    func displayAlert() {
+        let alert = UIAlertController()
+        if(offer!.open){
+            alert.title = "Offer opened"
+            alert.message = "Offer has been opened"
+        }else{
+            alert.title = "Offer closed"
+            alert.message = "Offer has been closeed"
+        }
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { UIAlertAction in
+            
+        })
+        
+        self.present(alert, animated: true, completion: nil)
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "interestedStudents" {

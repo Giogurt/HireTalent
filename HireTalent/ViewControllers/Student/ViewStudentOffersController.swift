@@ -17,18 +17,29 @@ class ViewStudentOffersController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        }
+    override func viewWillAppear(_ animated: Bool) {
+        loadData()
+    }
+    func loadData(){
+        jobOffers.removeAll()
         JobOffersDAO.getAllJobOffers(){ (jobOffersReturned) in
             
             if jobOffersReturned == nil {
                 
             } else {
-                self.jobOffers = jobOffersReturned!
+                for offer in jobOffersReturned!{
+                    
+                    if offer.open == true{
+                        self.jobOffers.append(offer)
+                    }
+                
                 self.jobOffersTable.reloadData()
             }
         }
     }
-
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -55,7 +66,10 @@ class ViewStudentOffersController: UITableViewController {
         
         jobOffersTable.deselectRow(at: indexPath, animated: true)
         jobOffer = indexPath.row
-        performSegue(withIdentifier: "jobOfferDetail", sender: nil)
+        if(jobOffers[jobOffer].open){
+           performSegue(withIdentifier: "jobOfferDetail", sender: nil)
+        }
+        
         
     }
     
