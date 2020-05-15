@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignUpStudentViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+class SignUpStudentViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -19,9 +19,8 @@ class SignUpStudentViewController: UIViewController, UITextFieldDelegate, UIImag
     @IBOutlet weak var cityTextField: UITextField!
     @IBOutlet weak var stateTextField: UITextField!
     @IBOutlet weak var schoolTextField: UITextField!
-    @IBOutlet weak var majorTextField: UITextField!
+    @IBOutlet weak var majorPicker: UIPickerView!
     @IBOutlet weak var semesterTextField: UITextField!
-    
     
     var lastName: String?
     var firstName: String?
@@ -31,27 +30,57 @@ class SignUpStudentViewController: UIViewController, UITextFieldDelegate, UIImag
     var city: String?
     var state: String?
     var school: String?
-    var major: String?
     var semester: String?
     
+    // Variables used for the department picker
+    var majorData: [String] = [String]()
+    var major: String = "Sales"
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-        lastNameTextField.delegate = self
-        firstNameTextField.delegate = self
-        emailTextField.delegate = self
-        passwordTextField.delegate = self
-        confirmPasswordTextField.delegate = self
-        cityTextField.delegate = self
-        stateTextField.delegate = self
-        schoolTextField.delegate = self
-        majorTextField.delegate = self
-        semesterTextField.delegate = self
+        delegateTextFields()
 
+        initPickerViews()
         errorLabel.isHidden = true
     }
+    
+    
+    // Specify the number of columns in the PickerView
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    
+    // Specify the number of rows in the PickerView
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return majorData.count
+    }
+    
+    
+    // Display the rowth element of the departmentData array in the PickerView
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return majorData[row]
+
+    }
+    
+    
+    // Return the current value of the PickerView
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        major = majorData[row]
+    }
+    
+    
+    // Initialize the PickerView
+    func initPickerViews(){
+        
+        // Department
+        self.majorPicker.delegate = self
+        self.majorPicker.dataSource = self
+        majorData = ["Sales", "Export", "IT", "Marketing", "Financial", "Human Resources", "Purchasing", "Logistics"]
+    }
+    
     
     // Check the fields and validate that the data is correct.
     // Otherwise, it returns the error message.
@@ -59,7 +88,7 @@ class SignUpStudentViewController: UIViewController, UITextFieldDelegate, UIImag
         getValues()
         
         // Check that all fields are filled in
-        if(lastName == "" || firstName == "" || email == "" || password == "" || confirmPassword == "" || city == "" || state == "" || school == "" || major == "" || semester == ""){
+        if(lastName == "" || firstName == "" || email == "" || password == "" || confirmPassword == "" || city == "" || state == "" || school == "" || semester == ""){
             
             errorLabel.isHidden = false
             errorLabel.text = "Fill in all the fields"
@@ -67,6 +96,11 @@ class SignUpStudentViewController: UIViewController, UITextFieldDelegate, UIImag
         }
         
         //Validate passwords
+        if passwordTextField.text!.count<6{
+            errorLabel.text = "Password must be at least 6 char"
+            return
+        }
+        
         if(passwordTextField.text != confirmPasswordTextField.text){
             errorLabel.isHidden = false
 
@@ -77,6 +111,14 @@ class SignUpStudentViewController: UIViewController, UITextFieldDelegate, UIImag
         //Prepare for segue and perform segue to experienceViewController
         performSegue(withIdentifier: "experienceIdentifier", sender: self)
         
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.resignFirstResponder()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -94,13 +136,9 @@ class SignUpStudentViewController: UIViewController, UITextFieldDelegate, UIImag
         }
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        textField.resignFirstResponder()
-    }
+}
+
+extension SignUpStudentViewController {
     
     func getValues() {
         lastName = lastNameTextField.text ?? ""
@@ -111,7 +149,22 @@ class SignUpStudentViewController: UIViewController, UITextFieldDelegate, UIImag
         city = cityTextField.text ?? ""
         state = stateTextField.text ?? ""
         school = schoolTextField.text ?? ""
-        major = majorTextField.text  ?? ""
         semester = semesterTextField.text ?? ""
     }
+    
+    func delegateTextFields(){
+        
+        // Do any additional setup after loading the view.
+        lastNameTextField.delegate = self
+        firstNameTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        confirmPasswordTextField.delegate = self
+        cityTextField.delegate = self
+        stateTextField.delegate = self
+        schoolTextField.delegate = self
+        semesterTextField.delegate = self
+    }
+    
+
 }

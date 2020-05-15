@@ -10,6 +10,7 @@ import UIKit
 import AVKit
 import FirebaseDatabase
 
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var signUpButton: UIButton!

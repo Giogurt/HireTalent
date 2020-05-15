@@ -75,7 +75,7 @@ class CompanyDAO {
                 
                 let compData = document.data()
                 var company = Company()
-                
+                company.rfc = rfc
                 company.name = compData!["name"] as? String ?? ""
                 company.address_1 = compData!["address_1"] as? String ?? ""
                 company.address_2 = compData!["address_2"] as? String ?? ""

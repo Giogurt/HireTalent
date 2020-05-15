@@ -18,7 +18,6 @@ class StudentDAO{
         
         // Create the user
         Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
-            print("email \(email) password \(password)")
             
             // Check for errors
             if err != nil {
@@ -35,7 +34,7 @@ class StudentDAO{
     }
     
     
-    //Insert the student data in the database.
+    // Insert the student data in the database.
     // It is used a callback because we depend of the 'result' provided by the setData() function.
     static func addStudent(id: String, student: Student, completion: @escaping((_ data: String?) -> Void)){
        
@@ -68,6 +67,36 @@ class StudentDAO{
         }
     }
     
+    
+    static func editStudent(id: String, student: Student, completion: @escaping((_ data: String?) -> Void)){
+       
+        // Establish the connection with the database
+        let db = Firestore.firestore()
+        
+            // Store the information in the database
+       
+        db.collection("students").document("\(id)").updateData([
+            "firstName": student.firstName,
+            "lastName": student.lastName,
+            "city": student.city,
+            "state": student.state,
+            "school": student.school,
+            "major": student.major,
+            "semester": student.semester,
+            "experience": student.experience,
+        ]) { (error) in
+
+            // Check for errors
+            if error != nil {
+
+                // There was an error adding the user data to the database
+                completion("Error creating the user")
+            }
+
+            // If the insertion was executed correctly return nil
+            completion(nil)
+        }
+    }
     
     // Get the user id
     static func getStudentId() -> String {
@@ -108,8 +137,8 @@ class StudentDAO{
                 
                 // Returns an error message
                 completion("Error retrieving the user data getStudent", nil)
-                print("Error retrieving the user data getStudent")
             }
         }
     }
+
 }

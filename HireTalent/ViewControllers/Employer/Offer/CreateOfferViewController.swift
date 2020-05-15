@@ -19,15 +19,18 @@ class CreateOfferViewController: UIViewController {
     @IBOutlet weak var experienceTextField: UITextField!
     @IBOutlet weak var newOfferButton: UIButton!
     var userId: String = EmployerDAO.getUserId()
+    var employer: Employer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Stylize the UI elements
         setUpElements()
         
         // Add the functionality to date pickers
         initDatePickers()
+        
+        
     }
     
     
@@ -65,9 +68,9 @@ class CreateOfferViewController: UIViewController {
     
     
     // Add a new Job Offer
-    func addNewOffer(_ companyRfc: String) {
+    func addNewOffer(_ company: Company) {
         
-        JobOffersDAO.addNewOffer(self.userId, companyRfc, self.titleTextField.text!, self.descriptionTextView.text!, self.vacantsTextField.text!, self.startDateTextField.text!, self.endDateTextField.text!, self.salaryTextField.text!, self.experienceTextField.text!){ (errorHandler) in
+        JobOffersDAO.addNewOffer(self.userId, company.rfc, self.titleTextField.text!, self.descriptionTextView.text!, self.vacantsTextField.text!, self.startDateTextField.text!, self.endDateTextField.text!, self.salaryTextField.text!, self.experienceTextField.text!, company.name){ (errorHandler) in
                 if errorHandler != nil {
                     print(errorHandler!)
                 }
@@ -77,12 +80,20 @@ class CreateOfferViewController: UIViewController {
         }
     }
     
-    
     // If the 'Create New Offer' button is tapped
     @IBAction func newOfferTapped(_ sender: Any) {
         
         EmployerDAO.getCompamnyRfc(userId) { (companyRfc) in
-            self.addNewOffer(companyRfc!)
+            CompanyDAO.getCompanyInformation(companyRfc!){
+                (error, company) in
+                if error != nil{
+                    print("error retrieving company Information at create offer view controller in student")
+                }
+
+                
+                self.addNewOffer(company!)
+                
+            }
         }
     }
     
