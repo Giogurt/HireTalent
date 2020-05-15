@@ -191,7 +191,6 @@ class JobOffersDAO {
                     
                     jobOffer.jobOfferId = document.documentID
                     jobOffer.offerKey = document.data()["offerKey"] as? String ?? ""
-
                     jobOffer.jobTitle = document.data()["jobTitle"] as? String ?? ""
                     jobOffer.jobDescription = document.data()["jobDescription"] as? String ?? ""
                     jobOffer.vacants = document.data()["vacants"] as? Int ?? 0

@@ -76,7 +76,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Kmo-OP-cLJ">
-                                <rect key="frame" x="40" y="116" width="334" height="566.5"/>
+                                <rect key="frame" x="40" y="116" width="334" height="512.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xnE-kC-AAc">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="20.5"/>
@@ -127,18 +127,17 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Major" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jWy-1X-EwS">
-                                        <rect key="frame" x="0.0" y="478.5" width="334" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Semester" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fpv-Ul-6sv">
-                                        <rect key="frame" x="0.0" y="532.5" width="334" height="34"/>
+                                        <rect key="frame" x="0.0" y="478.5" width="334" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                             </stackView>
+                            <pickerView tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Upl-Gq-ylz">
+                                <rect key="frame" x="0.0" y="636" width="414" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -164,7 +163,7 @@
                         <outlet property="errorLabel" destination="xnE-kC-AAc" id="8fW-XK-XrA"/>
                         <outlet property="firstNameTextField" destination="0xt-pU-IF5" id="9lk-lM-fV7"/>
                         <outlet property="lastNameTextField" destination="DAp-sy-Pff" id="ett-42-9Z2"/>
-                        <outlet property="majorTextField" destination="jWy-1X-EwS" id="qK9-ru-Obo"/>
+                        <outlet property="majorPicker" destination="Upl-Gq-ylz" id="6WJ-Jq-tnW"/>
                         <outlet property="passwordTextField" destination="tNr-wj-cHE" id="mJy-Eo-XDg"/>
                         <outlet property="schoolTextField" destination="A8l-iU-bbT" id="L21-bs-AUU"/>
                         <outlet property="semesterTextField" destination="Fpv-Ul-6sv" id="Y2r-RI-mjo"/>
@@ -553,7 +552,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vho-UW-V3V"/>
+        <segue reference="Etf-6X-seS"/>
         <segue reference="9gg-Vi-r6X"/>
     </inferredMetricsTieBreakers>
     <resources>

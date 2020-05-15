@@ -19,9 +19,11 @@ class ViewStudentOffersController: UITableViewController {
         super.viewDidLoad()
         
         }
+    
     override func viewWillAppear(_ animated: Bool) {
         loadData()
     }
+    
     func loadData(){
         jobOffers.removeAll()
         JobOffersDAO.getAllJobOffers(){ (jobOffersReturned) in
