@@ -18,8 +18,13 @@ class CreateOfferViewController: UIViewController {
     @IBOutlet weak var salaryTextField: UITextField!
     @IBOutlet weak var experienceTextField: UITextField!
     @IBOutlet weak var newOfferButton: UIButton!
+    @IBOutlet weak var specialityPicker: UIPickerView!
     var userId: String = EmployerDAO.getUserId()
     var employer: Employer?
+    
+    // Variables used for the speciality picker
+    var speciality: String = "Sales"
+    var specialityData: [String] = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +35,8 @@ class CreateOfferViewController: UIViewController {
         // Add the functionality to date pickers
         initDatePickers()
         
-        
+        // Add the functionality to speciality picker
+        initPickerView()
     }
     
     
@@ -70,7 +76,7 @@ class CreateOfferViewController: UIViewController {
     // Add a new Job Offer
     func addNewOffer(_ company: Company) {
         
-        JobOffersDAO.addNewOffer(self.userId, company.rfc, self.titleTextField.text!, self.descriptionTextView.text!, self.vacantsTextField.text!, self.startDateTextField.text!, self.endDateTextField.text!, self.salaryTextField.text!, self.experienceTextField.text!, company.name){ (errorHandler) in
+        JobOffersDAO.addNewOffer(self.userId, company.rfc, self.titleTextField.text!, self.descriptionTextView.text!, self.vacantsTextField.text!, self.startDateTextField.text!, self.endDateTextField.text!, self.salaryTextField.text!, self.experienceTextField.text!, company.name, speciality){ (errorHandler) in
                 if errorHandler != nil {
                     print(errorHandler!)
                 }
@@ -122,4 +128,36 @@ extension CreateOfferViewController {
         self.endDateTextField.resignFirstResponder()
     }
 
+}
+
+extension CreateOfferViewController : UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    // Specify the number of columns in the PickerView
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // Specify the number of rows in the PickerView
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return specialityData.count
+    }
+    
+    // Display the rowth element of the departmentData array in the PickerView
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return specialityData[row]
+    }
+    
+    // Return the current value of the PickerView
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        speciality = specialityData[row]
+    }
+    
+    // Initialize the PickerView
+    func initPickerView(){
+        
+        // Department
+        self.specialityPicker.delegate = self
+        self.specialityPicker.dataSource = self
+        specialityData = ["Sales", "Export", "IT", "Marketing", "Financial", "Human Resources", "Purchasing", "Logistics"]
+    }
 }
