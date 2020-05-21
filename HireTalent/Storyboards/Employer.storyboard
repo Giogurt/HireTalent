@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9gg-mb-DK4">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -880,7 +880,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="peU-Hx-uzJ">
-                                <rect key="frame" x="40" y="188" width="334" height="450"/>
+                                <rect key="frame" x="40" y="138" width="334" height="686"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Job Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aee-I2-gfK">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="40"/>
@@ -972,8 +972,11 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="axy-Dx-ahh">
+                                        <rect key="frame" x="0.0" y="400" width="334" height="216"/>
+                                    </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YPr-0H-USF">
-                                        <rect key="frame" x="0.0" y="400" width="334" height="50"/>
+                                        <rect key="frame" x="0.0" y="636" width="334" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="gCL-aY-bc1"/>
                                         </constraints>
@@ -993,7 +996,7 @@
                         <constraints>
                             <constraint firstItem="97s-hR-tuK" firstAttribute="trailing" secondItem="peU-Hx-uzJ" secondAttribute="trailing" constant="40" id="CWY-Ji-YYD"/>
                             <constraint firstItem="peU-Hx-uzJ" firstAttribute="leading" secondItem="97s-hR-tuK" secondAttribute="leading" constant="40" id="nit-L9-Cv7"/>
-                            <constraint firstItem="peU-Hx-uzJ" firstAttribute="top" secondItem="97s-hR-tuK" secondAttribute="top" constant="100" id="xyQ-8p-2Qc"/>
+                            <constraint firstItem="peU-Hx-uzJ" firstAttribute="top" secondItem="97s-hR-tuK" secondAttribute="top" constant="50" id="xyQ-8p-2Qc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="97s-hR-tuK"/>
                     </view>
@@ -1010,6 +1013,7 @@
                         <outlet property="experienceTextField" destination="TkQ-Ke-894" id="8ul-Ee-wgj"/>
                         <outlet property="newOfferButton" destination="YPr-0H-USF" id="4xO-GQ-cZX"/>
                         <outlet property="salaryTextField" destination="Vqx-6u-SIK" id="sv1-t0-GvQ"/>
+                        <outlet property="specialityPicker" destination="axy-Dx-ahh" id="kuh-36-xrX"/>
                         <outlet property="startDateTextField" destination="cE1-7k-N8o" id="oLR-HK-h4h"/>
                         <outlet property="titleTextField" destination="Aee-I2-gfK" id="xGV-qv-Iz8"/>
                         <outlet property="vacantsTextField" destination="oPa-an-9aP" id="uJj-EI-4bD"/>
@@ -1079,7 +1083,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="R7h-c1-Cg4"/>
-        <segue reference="UKq-k7-xFp"/>
+        <segue reference="bgt-A6-45m"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="checkmark.seal.fill" catalog="system" width="128" height="122"/>

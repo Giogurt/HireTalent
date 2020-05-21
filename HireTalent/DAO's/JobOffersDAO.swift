@@ -13,7 +13,7 @@ class JobOffersDAO {
     
     // Insert a new job offer in the database.
     // It is used a callback because we depend of the 'result' provided by the setData() function.
-    static func addNewOffer(_ userId: String, _ companyRfc: String, _ jobTitle: String, _ jobDescription: String, _ vacants: String, _ startDate: String, _ endDate: String, _ salary: String, _ experience: String,_ companyName: String, completion: @escaping((_ data: String?) -> Void)){
+    static func addNewOffer(_ userId: String, _ companyRfc: String, _ jobTitle: String, _ jobDescription: String, _ vacants: String, _ startDate: String, _ endDate: String, _ salary: String, _ experience: String, _ companyName: String, _ specialityField: String, completion: @escaping((_ data: String?) -> Void)){
         
         // Establish the connection with the database
         let db = Firestore.firestore()
@@ -28,6 +28,7 @@ class JobOffersDAO {
         jobOffer.endDate = endDate
         jobOffer.salary = Int(salary)!
         jobOffer.experience = Int(experience)!
+        jobOffer.specialityField = specialityField
         let collection = db.collection("offers")
         let newDoc = collection.document()
         let key = newDoc.documentID
@@ -45,6 +46,7 @@ class JobOffersDAO {
             "endDate": jobOffer.endDate,
             "salary": jobOffer.salary,
             "experience": jobOffer.experience,
+            "specialityField": jobOffer.specialityField,
             "interestedStudents": jobOffer.interestedStudents,
             "open": true
         ]) { (error) in
@@ -89,6 +91,8 @@ class JobOffersDAO {
             completion(nil)
         }
     }
+    
+    
     static func editOpen(jobOffer: JobOffer, completion: @escaping((_ data: String?) -> Void)){
     
      // Establish the connection with the database
@@ -112,6 +116,8 @@ class JobOffersDAO {
          completion(nil)
      }
     }
+    
+    
     static func deleteOffer(offer: JobOffer){
         let db = Firestore.firestore()
         
