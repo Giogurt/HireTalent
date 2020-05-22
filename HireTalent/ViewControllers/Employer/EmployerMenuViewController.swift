@@ -40,6 +40,8 @@ class EmployerMenuViewController: UITableViewController {
             performSegue(withIdentifier: "myJobOffers", sender: nil)
         case 3:
             performSegue(withIdentifier: "logout", sender: nil)
+        //case 4:
+            //performSegue(withIdentifier: "deleteEmployer", sender: nil)
         default:
             break
         }
@@ -54,6 +56,13 @@ class EmployerMenuViewController: UITableViewController {
               print ("Error signing out: %@", signOutError)
             }
         }
+        
+        /*if segue.identifier == "deleteEmployer" {
+            do {
+                try Auth.auth().currentUser?.delete(completion: <#T##UserProfileChangeCallback?##UserProfileChangeCallback?##(Error?) -> Void#>)
+            } catch let deleteError as NSError {
+              print ("Error signing out: %@", deleteError)
+            }
+        }*/
     }
-
 }

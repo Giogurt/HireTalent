@@ -46,6 +46,8 @@ class StudentMenuViewController: UITableViewController {
             performSegue(withIdentifier: "viewJobOffers", sender: nil)
         case 3:
             performSegue(withIdentifier: "logoutStudent", sender: nil)
+        case 4:
+            performSegue(withIdentifier: "deleteStudent", sender: nil)
         default:
             break
         }
@@ -60,6 +62,14 @@ class StudentMenuViewController: UITableViewController {
               print ("Error signing out: %@", signOutError)
             }
         }
+        
+        /*if segue.identifier == "deleteStudent" {
+            do {
+                try Auth.auth().currentUser?.delete(completion: <#T##UserProfileChangeCallback?##UserProfileChangeCallback?##(Error?) -> Void#>)
+            } catch let deleteError as NSError {
+                print("Error deleting: %@", deleteError)
+            }
+        }*/
     }
 
 }
