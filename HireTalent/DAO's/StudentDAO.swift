@@ -53,6 +53,7 @@ class StudentDAO{
             "major": student.major,
             "semester": student.semester,
             "experience": student.experience,
+            "notifications": student.notifications
         ]) { (error) in
 
             // Check for errors
@@ -84,6 +85,7 @@ class StudentDAO{
             "major": student.major,
             "semester": student.semester,
             "experience": student.experience,
+            "notifications": student.notifications
         ]) { (error) in
 
             // Check for errors
