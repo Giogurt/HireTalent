@@ -23,5 +23,6 @@ struct JobOffer {
     var specialityField: String = ""
     var open: Bool = true
     var interestedStudents: [String] = []
+    var userId: String = ""
     
 }

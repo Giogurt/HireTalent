@@ -11,38 +11,84 @@ import UIKit
 class StudentNotificationsViewController: UITableViewController {
 
     var notifications: [String] = []
+    var offers: [JobOffer] = []
+    var employers: [Employer] = []
+    var dataLoaded: Bool = false
+    
+    @IBOutlet var table: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        prepareView()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    func prepareView() {
+        var c = 0
+        for offerId in notifications {
+            JobOffersDAO.getJobOffer(offerId) { (error, offer) in
+                if error != nil {
+                    print("Couldnt retrieve the job offer")
+                } else {
+                    self.offers.insert(offer!, at: 0)
+                    EmployerDAO.getEmployerInformation(offer!.userId) { (err, employer) in
+                        if err != nil {
+                            print("couldnt retrieve the employer")
+                        } else {
+                            self.employers.insert(employer!, at: 0)
+                            
+                            c += 1
+                            if c == self.notifications.count{
+                                self.dataLoaded = true
+                                self.table.reloadData()
+                            }
+                        }
+                    }
+                }
+            }
+        
+            
+        }
+    }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        let numColumns = 1
+        return numColumns
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        let numRows = notifications.count
+        return numRows
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "notificationCell", for: indexPath)
+        let thisRow = indexPath.row
+        
         // Configure the cell...
+        
+        //We wait for all the database data to be loaded into the view to srart configuring the table
+        if dataLoaded {
+            let employerName = "\(employers[thisRow].firstName) \(employers[thisRow].lastName)"
+            let offerName = offers[thisRow].jobTitle
+            let companyName = offers[thisRow].companyName
+            let employerMail = employers[thisRow].email
+            
+            cell.textLabel?.numberOfLines = 0
+            cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+            cell.textLabel?.text = "\(employerName) is interested in you for the internship '\(offerName)' at \(companyName)!\nSend your curriculum to the email below as soon as posible.\n\(employerMail)"
+        }
+        
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
