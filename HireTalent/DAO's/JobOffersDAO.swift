@@ -13,7 +13,7 @@ class JobOffersDAO {
     
     // Insert a new job offer in the database.
     // It is used a callback because we depend of the 'result' provided by the setData() function.
-    static func addNewOffer(_ userId: String, _ companyRfc: String, _ jobTitle: String, _ jobDescription: String, _ vacants: String, _ startDate: String, _ endDate: String, _ salary: String, _ experience: String,_ companyName: String, completion: @escaping((_ data: String?) -> Void)){
+    static func addNewOffer(_ userId: String, _ companyRfc: String, _ jobTitle: String, _ jobDescription: String, _ vacants: String, _ startDate: String, _ endDate: String, _ salary: String, _ experience: String, _ companyName: String, _ specialityField: String, completion: @escaping((_ data: String?) -> Void)){
         
         // Establish the connection with the database
         let db = Firestore.firestore()
@@ -28,6 +28,7 @@ class JobOffersDAO {
         jobOffer.endDate = endDate
         jobOffer.salary = Int(salary)!
         jobOffer.experience = Int(experience)!
+        jobOffer.specialityField = specialityField
         let collection = db.collection("offers")
         let newDoc = collection.document()
         let key = newDoc.documentID
@@ -45,6 +46,7 @@ class JobOffersDAO {
             "endDate": jobOffer.endDate,
             "salary": jobOffer.salary,
             "experience": jobOffer.experience,
+            "specialityField": jobOffer.specialityField,
             "interestedStudents": jobOffer.interestedStudents,
             "open": true
         ]) { (error) in
@@ -89,6 +91,8 @@ class JobOffersDAO {
             completion(nil)
         }
     }
+    
+    
     static func editOpen(jobOffer: JobOffer, completion: @escaping((_ data: String?) -> Void)){
     
      // Establish the connection with the database
@@ -112,6 +116,8 @@ class JobOffersDAO {
          completion(nil)
      }
     }
+    
+    
     static func deleteOffer(offer: JobOffer){
         let db = Firestore.firestore()
         
@@ -135,7 +141,7 @@ class JobOffersDAO {
 
         offersRef.getDocuments { (snapshot, error ) in
             
-            //There is an error
+            //There is not an error
             if error == nil && snapshot != nil {
                 
                 // Use a model to organize the offer information
@@ -225,6 +231,53 @@ class JobOffersDAO {
                 completion("There was some error adding the student")
             } else {
                 completion(nil)
+            }
+        }
+    }
+    
+    
+    // Filter the job offers given a speciality field
+    static func filterJobOffers(_ specialityField: String, completion: @escaping([JobOffer]?) -> Void){
+        
+        // Establish the connection with the database
+        let db = Firestore.firestore()
+        
+        // Filter the job offers based on the speciality field
+        db.collection("offers").whereField("specialityField", isEqualTo: specialityField).getDocuments() { (querySnapshot, error) in
+            
+            if let err = error {
+                print("Error getting the document: \(err)")
+                completion(nil)
+            } else {
+                
+                // Use a model to organize the offer information
+                var jobOffers: [JobOffer] = []
+                
+                for document in querySnapshot!.documents {
+                    let offerData = document.data()
+                    var offer = JobOffer()
+                
+                    offer.open = offerData["open"] as? Bool ?? false
+                    
+                    if offer.open {
+                        offer.jobOfferId = document.documentID
+                        offer.offerKey = offerData["offerKey"] as? String ?? ""
+                        offer.companyName = offerData["companyName"] as? String ?? ""
+                        offer.endDate = offerData["endDate"] as? String ?? ""
+                        offer.experience = offerData["experience"] as? Int ?? 0
+                        offer.jobDescription = offerData["jobDescription"] as? String ?? ""
+                        offer.jobTitle = offerData["jobTitle"] as? String ?? ""
+                        offer.salary = offerData["salary"] as? Int ?? 0
+                        offer.startDate = offerData["startDate"] as? String ?? ""
+                        offer.vacants = offerData["vacants"] as? Int ?? 0
+                        
+                        offer.interestedStudents = offerData["interestedStudents"] as? [String] ?? []
+                        
+                        jobOffers.append(offer)
+                    }
+                    
+                }
+                completion(jobOffers)
             }
         }
     }

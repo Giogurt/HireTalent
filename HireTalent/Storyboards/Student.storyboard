@@ -516,8 +516,14 @@
                                 <segue destination="1qw-UV-2lv" kind="presentation" modalPresentationStyle="fullScreen" id="0yZ-kG-WVv"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Filter" id="clA-uQ-e8e">
+                            <connections>
+                                <action selector="filterButtonTapped:" destination="Xyi-9Z-S17" id="1dm-1g-s6z"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="filterButton" destination="clA-uQ-e8e" id="5Be-YS-5L4"/>
                         <outlet property="jobOffersTable" destination="iU8-nw-CtU" id="3Kb-Or-W9m"/>
                         <segue destination="gws-2I-dye" kind="show" identifier="jobOfferDetail" id="VQO-Eh-Xsy"/>
                     </connections>
