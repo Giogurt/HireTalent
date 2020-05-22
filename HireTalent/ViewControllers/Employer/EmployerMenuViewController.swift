@@ -41,7 +41,16 @@ class EmployerMenuViewController: UITableViewController {
         case 3:
             performSegue(withIdentifier: "logout", sender: nil)
         case 4:
-            performSegue(withIdentifier: "deleteEmployer", sender: nil)
+            // Show alert to make sure you want to delete the account
+            let alert = UIAlertController(title: "Are you sure?", message: "Your account will be permanently deleted.", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) {
+                UIAlertAction in
+                self.performSegue(withIdentifier: "deleteEmployer", sender: nil)
+            })
+            self.present(alert, animated: true, completion: nil)
+            
+            let employerID = EmployerDAO.getUserId()
+            EmployerDAO.deleteEmployer(employerID)
         default:
             break
         }
@@ -56,13 +65,5 @@ class EmployerMenuViewController: UITableViewController {
               print ("Error signing out: %@", signOutError)
             }
         }
-        
-        /*if segue.identifier == "deleteEmployer" {
-            do {
-                try Auth.auth().currentUser?.delete(completion: <#T##UserProfileChangeCallback?##UserProfileChangeCallback?##(Error?) -> Void#>)
-            } catch let deleteError as NSError {
-              print ("Error signing out: %@", deleteError)
-            }
-        }*/
     }
 }

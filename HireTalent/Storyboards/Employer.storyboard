@@ -402,9 +402,6 @@
                                                 <constraint firstItem="pIh-Tw-wGB" firstAttribute="leading" secondItem="Ejc-1h-DqS" secondAttribute="trailing" constant="15" id="r6A-C5-hAs"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="XU1-8l-ANH" kind="presentation" identifier="deleteEmployer" trigger="accessoryAction" modalPresentationStyle="fullScreen" id="uqP-iN-C7c"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -420,6 +417,7 @@
                         <segue destination="9va-q2-F4K" kind="presentation" identifier="newJobOffer" modalPresentationStyle="fullScreen" id="ZUk-Ef-Yhl"/>
                         <segue destination="gie-xv-LLH" kind="presentation" identifier="myJobOffers" modalPresentationStyle="fullScreen" id="Itf-fV-0uG"/>
                         <segue destination="XU1-8l-ANH" kind="presentation" identifier="logout" modalPresentationStyle="fullScreen" id="sPg-4v-K99"/>
+                        <segue destination="XU1-8l-ANH" kind="presentation" identifier="deleteEmployer" modalPresentationStyle="fullScreen" id="YoV-FD-pj6"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ltM-lg-dY6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1117,7 +1115,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="ZUk-Ef-Yhl"/>
         <segue reference="bgt-A6-45m"/>
-        <segue reference="uqP-iN-C7c"/>
+        <segue reference="YoV-FD-pj6"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="checkmark.seal.fill" catalog="system" width="128" height="122"/>

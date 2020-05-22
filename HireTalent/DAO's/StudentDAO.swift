@@ -97,7 +97,7 @@ class StudentDAO{
         }
     }
     
-    
+    // Delete student account
     static func deleteStudent(id: String) {
         
         // Establish the connection with the database
