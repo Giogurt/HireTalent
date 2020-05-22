@@ -24,7 +24,7 @@ class EmployerMenuViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let numberOfRows: Int = 4
+        let numberOfRows: Int = 5
         
         return numberOfRows
     }
@@ -40,8 +40,8 @@ class EmployerMenuViewController: UITableViewController {
             performSegue(withIdentifier: "myJobOffers", sender: nil)
         case 3:
             performSegue(withIdentifier: "logout", sender: nil)
-        //case 4:
-            //performSegue(withIdentifier: "deleteEmployer", sender: nil)
+        case 4:
+            performSegue(withIdentifier: "deleteEmployer", sender: nil)
         default:
             break
         }

@@ -424,9 +424,6 @@
                                                 <constraint firstItem="ZRh-TT-1jX" firstAttribute="leading" secondItem="fOy-lF-RoP" secondAttribute="trailing" constant="15" id="uz8-wD-mtW"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="hA5-Mm-oyx" kind="presentation" identifier="deleteStudent" trigger="accessoryAction" modalPresentationStyle="fullScreen" id="d2z-xY-5lG"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -441,6 +438,7 @@
                         <segue destination="VZf-j0-LCC" kind="presentation" identifier="studentProfile" modalPresentationStyle="fullScreen" id="nH6-cc-9K8"/>
                         <segue destination="hA5-Mm-oyx" kind="presentation" identifier="logoutStudent" modalPresentationStyle="fullScreen" id="Kcb-qE-Wm1"/>
                         <segue destination="amB-Ge-ECt" kind="presentation" identifier="viewJobOffers" modalPresentationStyle="fullScreen" id="jaE-b8-pNZ"/>
+                        <segue destination="hA5-Mm-oyx" kind="presentation" identifier="deleteStudent" modalPresentationStyle="fullScreen" id="t1p-jc-4AD"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OCv-py-DVB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -804,7 +802,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="jaE-b8-pNZ"/>
         <segue reference="0yZ-kG-WVv"/>
-        <segue reference="d2z-xY-5lG"/>
+        <segue reference="t1p-jc-4AD"/>
         <segue reference="nH6-cc-9K8"/>
     </inferredMetricsTieBreakers>
     <resources>

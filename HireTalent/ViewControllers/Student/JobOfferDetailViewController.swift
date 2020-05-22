@@ -75,7 +75,7 @@ class JobOfferDetailViewController: UIViewController {
         // Establish the connection with the database
             let db = Firestore.firestore()
             
-                // Store the information in the database
+        // Store the information in the database
         var open = true
             
         
@@ -112,10 +112,10 @@ class JobOfferDetailViewController: UIViewController {
     })
     self.present(alert, animated: true, completion: nil)
     }
-                }else{
-                        print("isOfferOpen in dao not working")
-                    }
-                 
-                }
+        }else{
+                print("isOfferOpen in dao not working")
+            }
+         
+        }
     }
 }
