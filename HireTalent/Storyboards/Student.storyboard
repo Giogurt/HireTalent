@@ -125,11 +125,18 @@
                                 <segue destination="1qw-UV-2lv" kind="presentation" modalPresentationStyle="fullScreen" id="F3o-mB-Rfy"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="gqI-ab-Shh">
-                            <connections>
-                                <action selector="editPressed:" destination="L9a-J3-nX0" id="kNX-LL-kXa"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Edit" id="gqI-ab-Shh">
+                                <connections>
+                                    <action selector="editPressed:" destination="L9a-J3-nX0" id="kNX-LL-kXa"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="bell.fill" catalog="system" id="LQg-Zk-Dn7">
+                                <connections>
+                                    <action selector="showNotifications:" destination="L9a-J3-nX0" id="Lw8-fF-mRm"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="emailLabel" destination="bRv-Au-bCA" id="ZxA-AK-C5B"/>
@@ -138,14 +145,49 @@
                         <outlet property="locationLabel" destination="j3N-Kd-e9f" id="svb-x4-VkO"/>
                         <outlet property="majorLabel" destination="5gz-qm-5sh" id="dJS-zI-KJm"/>
                         <outlet property="navBar" destination="QaA-NL-5JG" id="NWi-3z-Q4X"/>
+                        <outlet property="notificationsBtn" destination="LQg-Zk-Dn7" id="1xH-0l-iLy"/>
                         <outlet property="schoolLabel" destination="eQO-pE-FsO" id="h2h-To-aGB"/>
                         <outlet property="semesterLabel" destination="3iT-Uw-JOv" id="Efa-6M-8jM"/>
                         <segue destination="iXv-7Q-MUX" kind="show" identifier="EditStudentSegue" id="zfw-gG-hup"/>
+                        <segue destination="rzI-nF-SSq" kind="show" identifier="myNotifications" id="eIF-3I-34e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SCR-fL-IoE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5389.8550724637689" y="-690.40178571428567"/>
+        </scene>
+        <!--Student Notifications View Controller-->
+        <scene sceneID="Q6k-x0-Pu9">
+            <objects>
+                <tableViewController id="rzI-nF-SSq" customClass="StudentNotificationsViewController" customModule="HireTalent" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="mPU-Fz-P2C">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="separatorColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="notificationCell" id="Mhb-cV-M0R">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mhb-cV-M0R" id="zIz-TK-9BY">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="rzI-nF-SSq" id="cNs-tj-PD9"/>
+                            <outlet property="delegate" destination="rzI-nF-SSq" id="PHg-Zq-i7I"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Dbe-ZG-Pl4"/>
+                    <connections>
+                        <outlet property="table" destination="mPU-Fz-P2C" id="TDT-7D-PP6"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f0I-6P-Klf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4567" y="134"/>
         </scene>
         <!--Edit Student View Controller-->
         <scene sceneID="e1v-qP-sH9">
@@ -775,10 +817,11 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="F3o-mB-Rfy"/>
-        <segue reference="ESh-Pt-Q8E"/>
+        <segue reference="nH6-cc-9K8"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bag.fill" catalog="system" width="128" height="128"/>
+        <image name="bell.fill" catalog="system" width="128" height="124"/>
         <image name="google_logo.png" width="1024" height="1024"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="pencil" catalog="system" width="128" height="113"/>

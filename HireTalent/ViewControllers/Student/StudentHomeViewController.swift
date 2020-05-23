@@ -27,6 +27,7 @@ class StudentHomeViewController: UIViewController, StudentDelegate {
     @IBOutlet weak var navBar: UINavigationItem!
     
     @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var notificationsBtn: UIBarButtonItem!
     let userId = StudentDAO.getStudentId()
     
     var student: Student?
@@ -62,10 +63,18 @@ class StudentHomeViewController: UIViewController, StudentDelegate {
         self.majorLabel.text = student!.self.major
         self.semesterLabel.text = student!.self.semester
         self.experienceLabel.text = student!.self.experience
+        
+        if (student!.notifications.count > 0) {
+            self.notificationsBtn.tintColor = UIColor.red
+        }
     }
     @IBAction func editPressed(_ sender: UIBarButtonItem) {
         
         performSegue(withIdentifier: "EditStudentSegue", sender: self)
+    }
+    
+    @IBAction func showNotifications(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "myNotifications", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -73,6 +82,11 @@ class StudentHomeViewController: UIViewController, StudentDelegate {
             let destination = segue.destination as! EditStudentViewController
             destination.student = student
             destination.delegate = self
+        } else if (segue.identifier == "myNotifications") {
+            let destination = segue.destination as! StudentNotificationsViewController
+            if (student!.notifications.count > 0) {
+                destination.notifications = student!.notifications
+            }
         }
     }
     

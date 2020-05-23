@@ -53,6 +53,7 @@ class StudentDAO{
             "major": student.major,
             "semester": student.semester,
             "experience": student.experience,
+            "notifications": student.notifications
         ]) { (error) in
 
             // Check for errors
@@ -84,6 +85,7 @@ class StudentDAO{
             "major": student.major,
             "semester": student.semester,
             "experience": student.experience,
+            "notifications": student.notifications
         ]) { (error) in
 
             // Check for errors
@@ -152,7 +154,7 @@ class StudentDAO{
                 student.major = empData!["major"] as? String ?? ""
                 student.semester = empData!["semester"] as? String ?? ""
                 student.experience = empData!["experience"] as? String ?? ""
-                
+                student.notifications = empData!["notifications"] as? [String] ?? []
                 // Returns an object employer with all their data
                 completion(nil, student)
             } else {

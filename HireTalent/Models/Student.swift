@@ -23,4 +23,6 @@ struct Student {
     
     var experience: String = ""
     var profilePicture: UIImage?
+    
+    var notifications: [String] = []
 }
