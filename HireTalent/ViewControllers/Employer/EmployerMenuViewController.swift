@@ -24,7 +24,7 @@ class EmployerMenuViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let numberOfRows: Int = 4
+        let numberOfRows: Int = 5
         
         return numberOfRows
     }
@@ -40,6 +40,17 @@ class EmployerMenuViewController: UITableViewController {
             performSegue(withIdentifier: "myJobOffers", sender: nil)
         case 3:
             performSegue(withIdentifier: "logout", sender: nil)
+        case 4:
+            // Show alert to make sure you want to delete the account
+            let alert = UIAlertController(title: "Are you sure?", message: "Your account will be permanently deleted.", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) {
+                UIAlertAction in
+                self.performSegue(withIdentifier: "deleteEmployer", sender: nil)
+            })
+            self.present(alert, animated: true, completion: nil)
+            
+            let employerID = EmployerDAO.getUserId()
+            EmployerDAO.deleteEmployer(employerID)
         default:
             break
         }
@@ -55,5 +66,4 @@ class EmployerMenuViewController: UITableViewController {
             }
         }
     }
-
 }

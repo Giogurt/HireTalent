@@ -74,8 +74,7 @@ class StudentDAO{
         // Establish the connection with the database
         let db = Firestore.firestore()
         
-            // Store the information in the database
-       
+        // Store the information in the database
         db.collection("students").document("\(id)").updateData([
             "firstName": student.firstName,
             "lastName": student.lastName,
@@ -98,6 +97,19 @@ class StudentDAO{
             // If the insertion was executed correctly return nil
             completion(nil)
         }
+    }
+    
+    // Delete student account
+    static func deleteStudent(id: String) {
+        
+        // Establish the connection with the database
+        let db = Firestore.firestore()
+        
+        // Delete the student information in the database
+        db.collection("students").document("\(id)").delete()
+        
+        // Delete the information from authentication
+        Auth.auth().currentUser?.delete()
     }
     
     // Get the user id
