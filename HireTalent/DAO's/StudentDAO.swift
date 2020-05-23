@@ -46,7 +46,6 @@ class StudentDAO{
             "firstName": student.firstName,
             "lastName": student.lastName,
             "email": student.email,
-            "password": student.password,
             "city": student.city,
             "state": student.state,
             "school": student.school,
