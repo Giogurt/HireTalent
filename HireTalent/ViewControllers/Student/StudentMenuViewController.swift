@@ -48,7 +48,7 @@ class StudentMenuViewController: UITableViewController {
             performSegue(withIdentifier: "logoutStudent", sender: nil)
         case 4:
             // Show alert to make sure you want to delete the account
-            let alert = UIAlertController(title: "Are you sure?", message: "Your account will be permanently deleted.", preferredStyle: UIAlertController.Style.alert)
+            let alert = UIAlertController(title: "Warning!", message: "Your account will be permanently deleted.", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) {
                 UIAlertAction in
                 self.performSegue(withIdentifier: "deleteStudent", sender: nil)
