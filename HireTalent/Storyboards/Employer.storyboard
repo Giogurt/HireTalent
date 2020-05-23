@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9gg-mb-DK4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9gg-mb-DK4">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -667,8 +667,8 @@
                         <outlet property="startLabel" destination="gZP-xX-gd6" id="GAo-lm-ej6"/>
                         <outlet property="titleLabel" destination="JJK-ay-Tp0" id="zl6-pI-RfZ"/>
                         <outlet property="vacantslabel" destination="Jh4-sH-ATO" id="puf-Ld-Gd4"/>
-                        <segue destination="4aL-qP-GY9" kind="show" identifier="interestedStudents" id="qvt-GU-fQH"/>
                         <segue destination="vCC-tQ-8D3" kind="show" identifier="EditOfferSegue" id="EYu-rb-Rrg"/>
+                        <segue destination="4aL-qP-GY9" kind="show" identifier="interestedStudents" id="Qee-CS-Er8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ocQ-yS-Jty" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -894,7 +894,15 @@
                             <outlet property="delegate" destination="4aL-qP-GY9" id="OIk-Zo-3eJ"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="TyC-8x-zob">
+                        <barButtonItem key="rightBarButtonItem" title="Filter" id="Z4u-Wh-hfQ">
+                            <connections>
+                                <action selector="filterButtonIsTapped:" destination="4aL-qP-GY9" id="7ze-Cj-hm9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="filterButton" destination="Z4u-Wh-hfQ" id="sIt-aj-xO6"/>
                         <outlet property="table" destination="8zf-Ji-jRT" id="xcT-az-o2Q"/>
                         <segue destination="HXQ-Jk-UYn" kind="show" identifier="showStudent" id="R0I-qd-f4r"/>
                     </connections>
