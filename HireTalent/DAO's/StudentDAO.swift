@@ -53,6 +53,7 @@ class StudentDAO{
             "major": student.major,
             "semester": student.semester,
             "experience": student.experience,
+            "notifications": student.notifications
         ]) { (error) in
 
             // Check for errors
@@ -83,6 +84,7 @@ class StudentDAO{
             "major": student.major,
             "semester": student.semester,
             "experience": student.experience,
+            "notifications": student.notifications
         ]) { (error) in
 
             // Check for errors
@@ -114,6 +116,28 @@ class StudentDAO{
     static func getStudentId() -> String {
         return Auth.auth().currentUser!.uid
     }
+    
+    // Get the major of the student
+    static func getStudentMajor(_ studentId: String, completion: @escaping(String?) -> Void){
+        
+        // Establish the connection with the database
+        let db = Firestore.firestore()
+        
+        let docRef = db.collection("students").document(studentId)
+        
+        docRef.getDocument(){ (document, error) in
+            
+            // If the specified document exists
+            if let document = document, document.exists {
+                
+                let studentData = document.data()
+                
+                let major = studentData!["major"] as? String ?? ""
+                
+                completion(major)
+            }
+        }
+    }
        
     
     // Get the general information of the student
@@ -127,7 +151,7 @@ class StudentDAO{
         
         ref.getDocument { (document, error) in
             
-            // If the specified document exist
+            // If the specified document exists
             if let document = document, document.exists {
                 
                 let empData = document.data()
@@ -142,7 +166,7 @@ class StudentDAO{
                 student.major = empData!["major"] as? String ?? ""
                 student.semester = empData!["semester"] as? String ?? ""
                 student.experience = empData!["experience"] as? String ?? ""
-                
+                student.notifications = empData!["notifications"] as? [String] ?? []
                 // Returns an object employer with all their data
                 completion(nil, student)
             } else {

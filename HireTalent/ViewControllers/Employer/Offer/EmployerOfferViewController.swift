@@ -95,6 +95,7 @@ class EmployerOfferViewController: UIViewController,OfferDelegate {
             let destinationController = segue.destination as! ShowStudentsInOfferViewController
             
             destinationController.students = offer!.interestedStudents
+            destinationController.offerId = offer!.offerKey
         }
         
         if segue.identifier == "EditOfferSegue"{
