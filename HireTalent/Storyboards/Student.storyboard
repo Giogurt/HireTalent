@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VZf-j0-LCC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VZf-j0-LCC">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -311,7 +311,7 @@
             <objects>
                 <tableViewController id="3Y6-5i-CdY" customClass="StudentMenuViewController" customModule="HireTalent" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5oy-o4-PRT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <sections>
@@ -407,8 +407,38 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="50" id="jwh-Gk-gjb">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="50" id="Ycc-Tp-g9l">
                                         <rect key="frame" x="0.0" y="178" width="414" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ycc-Tp-g9l" id="WV5-7K-3KB">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate Employers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nD6-Fs-9o4">
+                                                    <rect key="frame" x="65" y="15" width="120.5" height="20"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="TAl-VE-yXt">
+                                                    <rect key="frame" x="20" y="10" width="30" height="30"/>
+                                                    <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="9P1-pY-2tP"/>
+                                                        <constraint firstAttribute="width" constant="30" id="a6v-Mc-MfN"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="TAl-VE-yXt" firstAttribute="centerY" secondItem="WV5-7K-3KB" secondAttribute="centerY" id="Hsd-4n-XIl"/>
+                                                <constraint firstItem="TAl-VE-yXt" firstAttribute="leading" secondItem="WV5-7K-3KB" secondAttribute="leading" constant="20" id="ezG-fw-ZWT"/>
+                                                <constraint firstItem="nD6-Fs-9o4" firstAttribute="leading" secondItem="TAl-VE-yXt" secondAttribute="trailing" constant="15" id="jlg-XY-LfE"/>
+                                                <constraint firstItem="nD6-Fs-9o4" firstAttribute="centerY" secondItem="WV5-7K-3KB" secondAttribute="centerY" id="ygc-Ew-u5E"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="50" id="jwh-Gk-gjb">
+                                        <rect key="frame" x="0.0" y="228" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jwh-Gk-gjb" id="hca-pH-T08">
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="50"/>
@@ -438,7 +468,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="9EP-yO-nPz">
-                                        <rect key="frame" x="0.0" y="228" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="278" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9EP-yO-nPz" id="ebs-2M-IPE">
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="44"/>
@@ -481,6 +511,7 @@
                         <segue destination="hA5-Mm-oyx" kind="presentation" identifier="logoutStudent" modalPresentationStyle="fullScreen" id="Kcb-qE-Wm1"/>
                         <segue destination="amB-Ge-ECt" kind="presentation" identifier="viewJobOffers" modalPresentationStyle="fullScreen" id="jaE-b8-pNZ"/>
                         <segue destination="hA5-Mm-oyx" kind="presentation" identifier="deleteStudent" modalPresentationStyle="fullScreen" id="t1p-jc-4AD"/>
+                        <segue destination="lFH-nV-fzg" kind="presentation" identifier="rateEmployers" modalPresentationStyle="fullScreen" id="DWO-XC-cMZ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OCv-py-DVB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -495,13 +526,69 @@
             </objects>
             <point key="canvasLocation" x="7248" y="-147"/>
         </scene>
+        <!--Rate Employers-->
+        <scene sceneID="yHF-WF-mzz">
+            <objects>
+                <tableViewController title="Rate Employers" id="lFH-nV-fzg" customClass="StudentOffersMatchedViewController" customModule="HireTalent" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="zsv-Bo-Yxp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="employerCell" id="NGk-W5-z6V">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NGk-W5-z6V" id="ksf-1e-0PX">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="lFH-nV-fzg" id="pCA-DG-Qa0"/>
+                            <outlet property="delegate" destination="lFH-nV-fzg" id="mVF-WO-1pZ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Rate Employers" id="EDv-Oo-mte">
+                        <barButtonItem key="leftBarButtonItem" title="menu" image="line.horizontal.3" catalog="system" id="48e-tx-NAS">
+                            <connections>
+                                <segue destination="1qw-UV-2lv" kind="show" identifier="toMenu" id="crN-Ha-90t"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="table" destination="zsv-Bo-Yxp" id="RWG-yi-KR0"/>
+                        <segue destination="bQJ-Kk-gqK" kind="show" identifier="showEmployer" id="2gN-bv-XS9"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="72y-ab-UgJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8141" y="134"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="mFz-KJ-BS5">
+            <objects>
+                <viewController id="bQJ-Kk-gqK" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YwX-Y4-AVr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="9wd-V9-nfD"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="t5p-5K-csm"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jmx-o2-FVR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9099" y="134"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="BPd-xI-1gc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1qw-UV-2lv" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="LTH-JN-mT7"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BMr-50-wg6">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -565,14 +652,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="04U-jR-z8w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9078" y="-690"/>
+            <point key="canvasLocation" x="9100" y="-690"/>
         </scene>
         <!--Job Offer Detail View Controller-->
         <scene sceneID="vBt-zM-I4D">
             <objects>
                 <viewController id="gws-2I-dye" customClass="JobOfferDetailViewController" customModule="HireTalent" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zga-Rr-uNI">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="otl-KL-5G5">
@@ -847,7 +934,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="0yZ-kG-WVv"/>
+        <segue reference="crN-Ha-90t"/>
         <segue reference="t1p-jc-4AD"/>
         <segue reference="nH6-cc-9K8"/>
     </inferredMetricsTieBreakers>
@@ -860,6 +947,7 @@
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus.app.fill" catalog="system" width="128" height="114"/>
         <image name="power" catalog="system" width="128" height="124"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
         <image name="studentProfile.png" width="256" height="329"/>
         <image name="trash.fill" catalog="system" width="121" height="128"/>
     </resources>

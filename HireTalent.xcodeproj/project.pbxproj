@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0141D56F2457E44F00F03A56 /* ShowStudentsInOfferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0141D56E2457E44F00F03A56 /* ShowStudentsInOfferViewController.swift */; };
 		01861B63247836BD00980AC4 /* StudentNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01861B62247836BD00980AC4 /* StudentNotificationsViewController.swift */; };
+		0197418E2479D67E00BFC329 /* StudentOffersMatchedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0197418D2479D67E00BFC329 /* StudentOffersMatchedViewController.swift */; };
 		01AAA7082474867800040532 /* ShowStudentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AAA7072474867800040532 /* ShowStudentDetailViewController.swift */; };
 		01F9C37C2456602000E6DEC7 /* JobOffersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F9C37B2456602000E6DEC7 /* JobOffersViewController.swift */; };
 		410EAA952467886A0014B883 /* EditOfferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410EAA942467886A0014B883 /* EditOfferViewController.swift */; };
@@ -61,6 +62,7 @@
 /* Begin PBXFileReference section */
 		0141D56E2457E44F00F03A56 /* ShowStudentsInOfferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowStudentsInOfferViewController.swift; sourceTree = "<group>"; };
 		01861B62247836BD00980AC4 /* StudentNotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentNotificationsViewController.swift; sourceTree = "<group>"; };
+		0197418D2479D67E00BFC329 /* StudentOffersMatchedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentOffersMatchedViewController.swift; sourceTree = "<group>"; };
 		01AAA7072474867800040532 /* ShowStudentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowStudentDetailViewController.swift; sourceTree = "<group>"; };
 		01F9C37B2456602000E6DEC7 /* JobOffersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobOffersViewController.swift; sourceTree = "<group>"; };
 		410EAA942467886A0014B883 /* EditOfferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditOfferViewController.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				8C786394246775E4007A4A7C /* ViewStudentOffersController.swift */,
 				8C78639624679D92007A4A7C /* JobOfferDetailViewController.swift */,
 				01861B62247836BD00980AC4 /* StudentNotificationsViewController.swift */,
+				0197418D2479D67E00BFC329 /* StudentOffersMatchedViewController.swift */,
 			);
 			path = Student;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				8CD3E0E42449748D00B88845 /* CreateOfferViewController.swift in Sources */,
 				8C21E5F82469BDDD006674AE /* JobOfferCell.swift in Sources */,
 				41B7ED3124673C4500EBE3B8 /* EditStudentViewController.swift in Sources */,
+				0197418E2479D67E00BFC329 /* StudentOffersMatchedViewController.swift in Sources */,
 				8C0D03F1243BB27B00B2BC78 /* SignUpViewController.swift in Sources */,
 				41C43389244388F7000C1C97 /* SignUpOptionViewController.swift in Sources */,
 				41C433922443DDC9000C1C97 /* StudentDAO.swift in Sources */,
