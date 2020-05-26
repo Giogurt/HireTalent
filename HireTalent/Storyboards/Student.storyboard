@@ -311,7 +311,7 @@
             <objects>
                 <tableViewController id="3Y6-5i-CdY" customClass="StudentMenuViewController" customModule="HireTalent" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5oy-o4-PRT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <sections>
@@ -511,7 +511,7 @@
                         <segue destination="hA5-Mm-oyx" kind="presentation" identifier="logoutStudent" modalPresentationStyle="fullScreen" id="Kcb-qE-Wm1"/>
                         <segue destination="amB-Ge-ECt" kind="presentation" identifier="viewJobOffers" modalPresentationStyle="fullScreen" id="jaE-b8-pNZ"/>
                         <segue destination="hA5-Mm-oyx" kind="presentation" identifier="deleteStudent" modalPresentationStyle="fullScreen" id="t1p-jc-4AD"/>
-                        <segue destination="lFH-nV-fzg" kind="presentation" identifier="rateEmployers" modalPresentationStyle="fullScreen" id="DWO-XC-cMZ"/>
+                        <segue destination="uiY-5m-tsQ" kind="presentation" identifier="rateEmployers" modalPresentationStyle="fullScreen" id="9O2-Yz-DDq"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OCv-py-DVB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -525,6 +525,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c4n-AL-RE0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7248" y="-147"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Iii-Xn-Ads">
+            <objects>
+                <navigationController id="uiY-5m-tsQ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Pvn-yl-TMT">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="lFH-nV-fzg" kind="relationship" relationship="rootViewController" id="owC-lv-xRL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ptp-aW-dXQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8248" y="144"/>
         </scene>
         <!--Rate Employers-->
         <scene sceneID="yHF-WF-mzz">
@@ -563,14 +579,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="72y-ab-UgJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8141" y="134"/>
+            <point key="canvasLocation" x="9099" y="144"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="mFz-KJ-BS5">
             <objects>
                 <viewController id="bQJ-Kk-gqK" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YwX-Y4-AVr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="9wd-V9-nfD"/>
@@ -579,7 +595,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jmx-o2-FVR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9099" y="134"/>
+            <point key="canvasLocation" x="9967" y="144"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BPd-xI-1gc">
@@ -588,7 +604,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="LTH-JN-mT7"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BMr-50-wg6">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -934,6 +950,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="owC-lv-xRL"/>
         <segue reference="crN-Ha-90t"/>
         <segue reference="t1p-jc-4AD"/>
         <segue reference="nH6-cc-9K8"/>
