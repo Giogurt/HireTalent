@@ -16,10 +16,12 @@ class StudentOffersMatchedViewController: UITableViewController {
     var offers: [JobOffer] = []
     var employers: [Employer] = []
     var dataLoaded: Bool = false
+    let studentId: String = StudentDAO.getStudentId()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        prepareView()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -28,8 +30,6 @@ class StudentOffersMatchedViewController: UITableViewController {
     }
 
     func prepareView() {
-        
-        let studentId = StudentDAO.getStudentId()
         
         StudentDAO.getStudent(studentId) { (studentError, student) in
             if studentError != nil {
