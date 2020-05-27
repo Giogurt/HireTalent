@@ -27,6 +27,7 @@ class EmployerOfferViewController: UIViewController,OfferDelegate {
     
     @IBOutlet var jobDescription:UITextView!
     
+    // Variable initialized by JobOffersViewController
     var offer: JobOffer?
     
     override func viewDidLoad() {
@@ -95,6 +96,8 @@ class EmployerOfferViewController: UIViewController,OfferDelegate {
             let destinationController = segue.destination as! ShowStudentsInOfferViewController
             
             destinationController.students = offer!.interestedStudents
+            destinationController.offerId = offer!.offerKey
+            destinationController.specialityField = offer!.specialityField
         }
         
         if segue.identifier == "EditOfferSegue"{
