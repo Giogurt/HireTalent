@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 import Firebase
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
@@ -23,7 +23,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var profilePhotoContainer: UIView!
     @IBOutlet weak var profilePhoto: UIImageView!
     let userId = EmployerDAO.getUserId()
-    
+    var employer: Employer?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,7 +37,7 @@ class HomeViewController: UIViewController {
     
     // Initialize the elements
     func setupElements(){
-        
+    
         // Stylize the TextFields
         Utilities.styleDisplayTextField(emailTextField)
         Utilities.styleDisplayTextField(positionTextField)
@@ -61,6 +61,38 @@ class HomeViewController: UIViewController {
     }
     
     
+    @IBAction func selectImage(_ sender: UITapGestureRecognizer) {
+        // UIImagePickerController is a view controller that lets a user pick media from their photo library.
+           let imagePickerController = UIImagePickerController()
+           
+           // Only allow photos to be picked, not taken.
+           imagePickerController.sourceType = .photoLibrary
+           
+           // Make sure ViewController is notified when the user picks an image.
+           imagePickerController.delegate = self
+           present(imagePickerController, animated: true, completion: nil)
+    
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        // Dismiss the picker if the user canceled.
+        dismiss(animated: true, completion: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        // The info dictionary may contain multiple representations of the image. You want to use the original.
+        guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        }
+        
+        // Set photoImageView to display the selected image.
+        profilePhoto.image = selectedImage
+        print(selectedImage)
+        EmployerDAO.setImage(userId, selectedImage)
+        // Dismiss the picker.
+        dismiss(animated: true, completion: nil)
+    }
+
+    
     // Get and display the user information
     func initProfile(){
         
@@ -71,6 +103,7 @@ class HomeViewController: UIViewController {
                 
             }
             else {
+                self.employer = employer
                 self.nameLabel.text = employer!.self.firstName.uppercased() + " " + employer!.self.lastName.uppercased()
                 self.emailTextField.text = employer!.self.email
                 self.positionTextField.text = employer!.self.position

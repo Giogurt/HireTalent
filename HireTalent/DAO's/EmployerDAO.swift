@@ -84,7 +84,38 @@ class EmployerDAO {
         Auth.auth().currentUser?.delete()
     }
     
-    
+    static func setImage(_ userId: String, _ image: UIImage){
+        print("going to upload picture to the db")
+        guard let imageData = image.jpegData(compressionQuality: 0.1) else{
+            print("image is null")
+            return
+        }
+        let imageBase64String = imageData.base64EncodedData()
+        
+        let db = Firestore.firestore()
+        
+        // Store the information in the database
+        db.collection("employers").document(userId).updateData([
+            "profilePicture": imageBase64String
+        ]) { (error) in
+
+            // Check for errors
+            if error != nil {
+
+                // There was an error adding the user data to the database
+                print("error uploading image to the db")
+//                completion("Error creating the user")
+            }else{
+                print("succesfully added image to the db")
+            }
+            
+            // If the insertion was executed correctly return nil
+//            completion(nil)
+        }
+        
+        
+        
+    }
     // Get the user id
     static func getUserId() -> String {
         return Auth.auth().currentUser!.uid
