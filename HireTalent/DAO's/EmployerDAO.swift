@@ -100,7 +100,7 @@ class EmployerDAO {
                
                let empData = document.data()
             guard let urlString = empData!["profilePicture"] as? String else{
-                print("error: does not have profile picture")
+                //print("error: does not have profile picture")
                 return
             }
             guard let url = URL(string: urlString) else{
@@ -161,14 +161,10 @@ class EmployerDAO {
                             print("error uploading image to the db")
                             return
                         }
-                        UserDefaults.standard.set(db.collection("employers").document(userId).documentID, forKey: userId)
                         print("succesfully added image to the db")
                         completion()
                         
-                        // If the insertion was executed correctly return nil
-            //            completion(nil)
                     }
-                    
         }
     }
         

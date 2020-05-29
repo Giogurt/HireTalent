@@ -67,15 +67,15 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     
     @IBAction func selectImage(_ sender: UITapGestureRecognizer) {
-        // UIImagePickerController is a view controller that lets a user pick media from their photo library.
-           let imagePickerController = UIImagePickerController()
-           
-           // Only allow photos to be picked, not taken.
-           imagePickerController.sourceType = .photoLibrary
-           
-           // Make sure ViewController is notified when the user picks an image.
-           imagePickerController.delegate = self
-           present(imagePickerController, animated: true, completion: nil)
+    // UIImagePickerController is a view controller that lets a user pick media from their photo library.
+       let imagePickerController = UIImagePickerController()
+       
+       // Only allow photos to be picked, not taken.
+       imagePickerController.sourceType = .photoLibrary
+       
+       // Make sure ViewController is notified when the user picks an image.
+       imagePickerController.delegate = self
+       present(imagePickerController, animated: true, completion: nil)
     
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
