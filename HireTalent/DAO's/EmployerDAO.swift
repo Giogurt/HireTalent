@@ -9,6 +9,7 @@
 import Foundation
 import FirebaseAuth
 import Firebase
+import FirebaseStorage
 
 class EmployerDAO {
     
@@ -86,33 +87,53 @@ class EmployerDAO {
     
     static func setImage(_ userId: String, _ image: UIImage){
         print("going to upload picture to the db")
-        guard let imageData = image.jpegData(compressionQuality: 0.1) else{
-            print("image is null")
-            return
-        }
-        let imageBase64String = imageData.base64EncodedData()
+        let data = image.jpegData(compressionQuality: 0.1)
         
-        let db = Firestore.firestore()
         
-        // Store the information in the database
-        db.collection("employers").document(userId).updateData([
-            "profilePicture": imageBase64String
-        ]) { (error) in
-
-            // Check for errors
-            if error != nil {
-
-                // There was an error adding the user data to the database
-                print("error uploading image to the db")
-//                completion("Error creating the user")
-            }else{
-                print("succesfully added image to the db")
-            }
+        let imageName = UUID().uuidString
+        
+        let imageReference = Storage.storage().reference().child("employerImages").child(imageName)
+        
+        imageReference.putData(data!, metadata: nil){(metadata, error) in
             
-            // If the insertion was executed correctly return nil
-//            completion(nil)
+            if error != nil{
+                print("error puting image url")
+                return
+            }
+            imageReference.downloadURL { (url, error) in
+                if error != nil{
+                    print("error retrieving image url")
+                    return
+                }
+                if url == nil{
+                    print("error retrieving image url, it's null")
+                    return
+                }
+                let urlString = url?.absoluteString
+                let db = Firestore.firestore()
+                
+                    // Store the information in the database
+                    db.collection("employers").document(userId).updateData([
+                        "profilePicture": urlString ?? "error"
+                    ]) { (error) in
+
+                        // Check for errors
+                        if error != nil {
+                            print("error uploading image to the db")
+                            return
+                        }
+                        UserDefaults.standard.set(db.collection("employers").document(userId).documentID, forKey: userId)
+                        print("succesfully added image to the db")
+                        
+                        
+                        // If the insertion was executed correctly return nil
+            //            completion(nil)
+                    }
+                    
         }
+    }
         
+   
         
         
     }
@@ -174,6 +195,15 @@ class EmployerDAO {
                 employer.email = empData!["email"] as? String ?? ""
                 employer.position = empData!["position"] as? String ?? ""
                 employer.company_rfc = empData!["company_rfc"] as? String ?? ""
+//                let pictureData = empData!["profilePicture"] as?  ?? nil
+//                if (pictureData != nil){
+//                    let dataYes = Data(base64Encoded: pictureData!)
+//                    let image = UIImage(data: dataYes!)
+//                    employer.profilePicture = image
+//                }else{
+//                    employer.profilePicture = nil
+//                }
+                
                 
                 // Returns an object employer with all their data
                 completion(nil, employer)

@@ -109,7 +109,9 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 self.positionTextField.text = employer!.self.position
 
                 let companyRfc = employer!.self.company_rfc
-
+                if(employer?.profilePicture != nil){
+                    self.profilePhoto.image = employer?.profilePicture
+                }
                 // Get the company information of a selected user
                 CompanyDAO.getCompanyInformation(companyRfc) { (error, company) in
 
