@@ -25,6 +25,7 @@ class EmployerOfferViewController: UIViewController,OfferDelegate {
 
     @IBOutlet weak var openSwitch: UISwitch!
     
+    @IBOutlet weak var interestedStudentsButton: UIButton!
     @IBOutlet var jobDescription:UITextView!
     
     // Variable initialized by JobOffersViewController
@@ -34,6 +35,7 @@ class EmployerOfferViewController: UIViewController,OfferDelegate {
         super.viewDidLoad()
         self.title = offer!.jobTitle
         loadData()
+        Utilities.styleFilledButtonBlue(interestedStudentsButton)
     }
     override func viewWillAppear(_ animated: Bool) {
         self.title = offer!.jobTitle
