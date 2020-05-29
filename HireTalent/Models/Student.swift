@@ -14,7 +14,6 @@ struct Student {
     var firstName: String = ""
     var lastName: String = ""
     var email: String = ""
-    var password: String = ""
     var city: String = ""
     var state: String = ""
     var school: String = ""
@@ -23,4 +22,6 @@ struct Student {
     
     var experience: String = ""
     var profilePicture: UIImage?
+    
+    var notifications: [String] = []
 }

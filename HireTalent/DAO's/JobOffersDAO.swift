@@ -129,6 +129,45 @@ class JobOffersDAO {
             
         }
     }
+    
+    // Get the information of a job offer
+    static func getJobOffer(_ offerId: String, completion: @escaping(((String?), (JobOffer?)) -> Void)) {
+    
+        // Establish the connection with the database
+        let db = Firestore.firestore()
+        
+        // Set a reference to the desired document
+        let empRef = db.collection("offers").document(offerId)
+        
+        empRef.getDocument { (document, error) in
+            
+            // If the specified document exist
+            if let document = document, document.exists {
+                
+                let empData = document.data()
+                var offer = JobOffer()
+                
+                offer.companyName = empData!["companyName"] as? String ?? ""
+                offer.endDate = empData!["endDate"] as? String ?? ""
+                offer.experience = empData!["experience"] as? Int ?? 0
+                offer.interestedStudents = empData!["interestedStudents"] as? [String] ?? []
+                offer.jobDescription = empData!["jobDescription"] as? String ?? ""
+                offer.jobTitle = empData!["jobTitle"] as? String ?? ""
+                offer.salary = empData!["salary"] as? Int ?? 0
+                offer.specialityField = empData!["specialityField"] as? String ?? ""
+                offer.startDate = empData!["startDate"] as? String ?? ""
+                offer.userId = empData!["userId"] as? String ?? ""
+                offer.vacants = empData!["vacants"] as? Int ?? 0
+                
+                // Returns an object employer with all their data
+                completion(nil, offer)
+            } else {
+                
+                // Returns an error message
+                completion("Error retrieving the offer data", nil)
+            }
+        }
+    }
     // Retrieve the offers of an employer from the database.
     // It is used a callback because we depend of the 'result' provided by the setData() function.
     static func getOffers(_ userId: String, completion: @escaping(((String?), ([JobOffer]?)) -> Void)){
@@ -161,6 +200,7 @@ class JobOffersDAO {
                     offer.salary = offerData["salary"] as? Int ?? 0
                     offer.startDate = offerData["startDate"] as? String ?? ""
                     offer.vacants = offerData["vacants"] as? Int ?? 0
+                    offer.specialityField = offerData["specialityField"] as? String ?? ""
                     offer.open = offerData["open"] as? Bool ?? false
                     offer.interestedStudents = offerData["interestedStudents"] as? [String] ?? []
                     

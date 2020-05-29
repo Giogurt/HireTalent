@@ -50,7 +50,6 @@ class ExperienceViewController: UIViewController, UITextViewDelegate{
         student.firstName = firstName!
         student.lastName = lastName!
         student.email = email!
-        student.password = password!
         student.city = city!
         student.school = school!
         student.experience = experienceTextView.text!
@@ -58,7 +57,7 @@ class ExperienceViewController: UIViewController, UITextViewDelegate{
         student.state = state!
         student.semester = semester!
         
-        StudentDAO.createStudentCredentials(student.email, student.password){
+        StudentDAO.createStudentCredentials(student.email, password!){
             (userRetrieved) in
             
             // If the user was not created correctly

@@ -72,6 +72,18 @@ class EmployerDAO {
         }
     }
     
+    // Delete employer account
+    static func deleteEmployer(_ userId: String){
+        // Establish the connection with the database
+        let db = Firestore.firestore()
+        
+        // Delete the information in the database
+        db.collection("employers").document(userId).delete()
+        
+        // Delete the information from authentication
+        Auth.auth().currentUser?.delete()
+    }
+    
     
     // Get the user id
     static func getUserId() -> String {
