@@ -22,13 +22,18 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var stateTextField: UITextField!
     @IBOutlet weak var profilePhotoContainer: UIView!
     @IBOutlet weak var profilePhoto: UIImageView!
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     let userId = EmployerDAO.getUserId()
     var employer: Employer?
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Stylize the UI elements
+        activityIndicator.isHidden = true
         setupElements()
+        putProfilePicture()
         
         // Get and display the user information
         initProfile()
@@ -85,14 +90,24 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
         
         // Set photoImageView to display the selected image.
-        profilePhoto.image = selectedImage
-        print(selectedImage)
-        EmployerDAO.setImage(userId, selectedImage)
+        profilePhoto.image = nil
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+        
+        EmployerDAO.setImage(userId, selectedImage) {
+            self.activityIndicator.isHidden = true
+            self.activityIndicator.stopAnimating()
+            self.profilePhoto.image = selectedImage
+            
+        }
+            
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
     }
 
-    
+    func putProfilePicture(){
+        EmployerDAO.getImage(userId, imageView: profilePhoto)
+    }
     // Get and display the user information
     func initProfile(){
         
@@ -109,9 +124,8 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 self.positionTextField.text = employer!.self.position
 
                 let companyRfc = employer!.self.company_rfc
-                if(employer?.profilePicture != nil){
-                    self.profilePhoto.image = employer?.profilePicture
-                }
+                
+                
                 // Get the company information of a selected user
                 CompanyDAO.getCompanyInformation(companyRfc) { (error, company) in
 

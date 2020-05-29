@@ -10,6 +10,7 @@ import Foundation
 import FirebaseAuth
 import Firebase
 import FirebaseStorage
+import Kingfisher
 
 class EmployerDAO {
     
@@ -84,8 +85,46 @@ class EmployerDAO {
         // Delete the information from authentication
         Auth.auth().currentUser?.delete()
     }
-    
-    static func setImage(_ userId: String, _ image: UIImage){
+    static func getImage(_ userId: String, imageView: UIImageView){
+        // Establish the connection with the database
+        let db = Firestore.firestore()
+        
+         
+       // Set a reference to the desired document
+       let empRef = db.collection("employers").document(userId)
+       
+       empRef.getDocument { (document, error) in
+           
+           // If the specified document exist
+           if let document = document, document.exists {
+               
+               let empData = document.data()
+            guard let urlString = empData!["profilePicture"] as? String else{
+                print("error: does not have profile picture")
+                return
+            }
+            guard let url = URL(string: urlString) else{
+                print("error with url string ")
+                return
+            }
+            let resource = ImageResource(downloadURL: url)
+            imageView.kf.setImage(with: resource, completionHandler: { (result) in
+                switch result{
+                    
+                case .success(_):
+                    print("succesfully got image to the imageview")
+                case .failure(_):
+                    print("ERROR coudn't get image to the imageview")
+                }
+            })
+           } else {
+               
+               print("did not find document for the url in getImage employerDAO")
+           }
+        
+        }
+    }
+    static func setImage(_ userId: String, _ image: UIImage, completion: @escaping ()-> Void){
         print("going to upload picture to the db")
         let data = image.jpegData(compressionQuality: 0.1)
         
@@ -124,7 +163,7 @@ class EmployerDAO {
                         }
                         UserDefaults.standard.set(db.collection("employers").document(userId).documentID, forKey: userId)
                         print("succesfully added image to the db")
-                        
+                        completion()
                         
                         // If the insertion was executed correctly return nil
             //            completion(nil)
@@ -195,15 +234,6 @@ class EmployerDAO {
                 employer.email = empData!["email"] as? String ?? ""
                 employer.position = empData!["position"] as? String ?? ""
                 employer.company_rfc = empData!["company_rfc"] as? String ?? ""
-//                let pictureData = empData!["profilePicture"] as?  ?? nil
-//                if (pictureData != nil){
-//                    let dataYes = Data(base64Encoded: pictureData!)
-//                    let image = UIImage(data: dataYes!)
-//                    employer.profilePicture = image
-//                }else{
-//                    employer.profilePicture = nil
-//                }
-                
                 
                 // Returns an object employer with all their data
                 completion(nil, employer)

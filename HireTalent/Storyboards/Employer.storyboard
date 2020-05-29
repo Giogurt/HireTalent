@@ -168,6 +168,11 @@
                                                     <constraint firstItem="fn4-lc-DdV" firstAttribute="width" secondItem="K29-Sf-uBf" secondAttribute="width" id="qOp-5E-OKb"/>
                                                 </constraints>
                                             </stackView>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="G9R-aP-Bv8">
+                                                <rect key="frame" x="157" y="75" width="100" height="100"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
@@ -231,6 +236,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="G9R-aP-Bv8" id="6LM-xD-Ygq"/>
                         <outlet property="address1TextField" destination="EqX-hO-tI4" id="VzT-gu-hJP"/>
                         <outlet property="address2TextField" destination="9Wu-Uq-Y45" id="VSn-k6-exI"/>
                         <outlet property="cityTextField" destination="K29-Sf-uBf" id="GlM-mk-62F"/>
