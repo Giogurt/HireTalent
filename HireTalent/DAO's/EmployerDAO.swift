@@ -9,6 +9,8 @@
 import Foundation
 import FirebaseAuth
 import Firebase
+import FirebaseStorage
+import Kingfisher
 
 class EmployerDAO {
     
@@ -83,8 +85,93 @@ class EmployerDAO {
         // Delete the information from authentication
         Auth.auth().currentUser?.delete()
     }
-    
-    
+    static func getImage(_ userId: String, imageView: UIImageView){
+        // Establish the connection with the database
+        let db = Firestore.firestore()
+        
+         
+       // Set a reference to the desired document
+       let empRef = db.collection("employers").document(userId)
+       
+       empRef.getDocument { (document, error) in
+           
+           // If the specified document exist
+           if let document = document, document.exists {
+               
+               let empData = document.data()
+            guard let urlString = empData!["profilePicture"] as? String else{
+                //print("error: does not have profile picture")
+                return
+            }
+            guard let url = URL(string: urlString) else{
+                print("error with url string ")
+                return
+            }
+            let resource = ImageResource(downloadURL: url)
+            imageView.kf.setImage(with: resource, completionHandler: { (result) in
+                switch result{
+                    
+                case .success(_):
+                    print("succesfully got image to the imageview")
+                case .failure(_):
+                    print("ERROR coudn't get image to the imageview")
+                }
+            })
+           } else {
+               
+               print("did not find document for the url in getImage employerDAO")
+           }
+        
+        }
+    }
+    static func setImage(_ userId: String, _ image: UIImage, completion: @escaping ()-> Void){
+        print("going to upload picture to the db")
+        let data = image.jpegData(compressionQuality: 0.1)
+        
+        
+        let imageName = UUID().uuidString
+        
+        let imageReference = Storage.storage().reference().child("employerImages").child(imageName)
+        
+        imageReference.putData(data!, metadata: nil){(metadata, error) in
+            
+            if error != nil{
+                print("error puting image url")
+                return
+            }
+            imageReference.downloadURL { (url, error) in
+                if error != nil{
+                    print("error retrieving image url")
+                    return
+                }
+                if url == nil{
+                    print("error retrieving image url, it's null")
+                    return
+                }
+                let urlString = url?.absoluteString
+                let db = Firestore.firestore()
+                
+                    // Store the information in the database
+                    db.collection("employers").document(userId).updateData([
+                        "profilePicture": urlString ?? "error"
+                    ]) { (error) in
+
+                        // Check for errors
+                        if error != nil {
+                            print("error uploading image to the db")
+                            return
+                        }
+                        print("succesfully added image to the db")
+                        completion()
+                        
+                    }
+        }
+    }
+        
+   
+        
+        
+    }
     // Get the user id
     static func getUserId() -> String {
         return Auth.auth().currentUser!.uid

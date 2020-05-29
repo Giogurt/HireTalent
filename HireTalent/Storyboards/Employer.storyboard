@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9gg-mb-DK4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9gg-mb-DK4">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,8 +27,10 @@
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="FSC-Wu-ppA">
                                                         <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                        <gestureRecognizers/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="150" id="d3x-G0-Vaf"/>
+                                                            <constraint firstAttribute="width" secondItem="FSC-Wu-ppA" secondAttribute="height" multiplier="1:1" id="etZ-RA-D9Y"/>
                                                             <constraint firstAttribute="width" constant="150" id="l90-HI-TAC"/>
                                                         </constraints>
                                                     </imageView>
@@ -40,6 +42,9 @@
                                                     <constraint firstItem="FSC-Wu-ppA" firstAttribute="centerX" secondItem="n4N-1I-5IO" secondAttribute="centerX" id="WFM-v2-yJu"/>
                                                     <constraint firstAttribute="height" constant="150" id="ryz-Lf-imN"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="TG0-3P-e90" appends="YES" id="unv-m2-CCr"/>
+                                                </connections>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LABEL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBH-fZ-Xjs">
                                                 <rect key="frame" x="40" y="220" width="334" height="29.5"/>
@@ -163,6 +168,11 @@
                                                     <constraint firstItem="fn4-lc-DdV" firstAttribute="width" secondItem="K29-Sf-uBf" secondAttribute="width" id="qOp-5E-OKb"/>
                                                 </constraints>
                                             </stackView>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="G9R-aP-Bv8">
+                                                <rect key="frame" x="157" y="75" width="100" height="100"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
@@ -226,6 +236,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="G9R-aP-Bv8" id="6LM-xD-Ygq"/>
                         <outlet property="address1TextField" destination="EqX-hO-tI4" id="VzT-gu-hJP"/>
                         <outlet property="address2TextField" destination="9Wu-Uq-Y45" id="VSn-k6-exI"/>
                         <outlet property="cityTextField" destination="K29-Sf-uBf" id="GlM-mk-62F"/>
@@ -239,6 +250,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0O4-Rn-0cf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="TG0-3P-e90">
+                    <connections>
+                        <action selector="selectImage:" destination="lWB-Mc-D4s" id="1bL-FA-52b"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="5270" y="181"/>
         </scene>
@@ -1221,7 +1237,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="ZUk-Ef-Yhl"/>
-        <segue reference="bgt-A6-45m"/>
+        <segue reference="x7l-YN-Oq7"/>
         <segue reference="YoV-FD-pj6"/>
     </inferredMetricsTieBreakers>
     <resources>

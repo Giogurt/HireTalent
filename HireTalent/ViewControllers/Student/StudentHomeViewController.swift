@@ -10,7 +10,8 @@ import UIKit
 import FirebaseAuth
 import UIKit
 
-class StudentHomeViewController: UIViewController, StudentDelegate {
+class StudentHomeViewController: UIViewController, StudentDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     
     func updateStudentProfile(controller: AnyObject, newStudent: Student) {
         student = newStudent
@@ -25,6 +26,9 @@ class StudentHomeViewController: UIViewController, StudentDelegate {
     @IBOutlet weak var fullName: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var navBar: UINavigationItem!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    @IBOutlet weak var profilePhoto: UIImageView!
     
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var notificationsBtn: UIBarButtonItem!
@@ -34,12 +38,55 @@ class StudentHomeViewController: UIViewController, StudentDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator.isHidden = true
+        putProfilePicture()
         
         // Get and display the student information
         initProfile()
         
     }
+    @IBAction func chooseImage(_ sender: UITapGestureRecognizer) {
+        // UIImagePickerController is a view controller that lets a user pick media from their photo library.
+        let imagePickerController = UIImagePickerController()
+        
+        // Only allow photos to be picked, not taken.
+        imagePickerController.sourceType = .photoLibrary
+        
+        // Make sure ViewController is notified when the user picks an image.
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true, completion: nil)
+    }
     
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        // Dismiss the picker if the user canceled.
+        dismiss(animated: true, completion: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        // The info dictionary may contain multiple representations of the image. You want to use the original.
+        guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        }
+        
+        // Set photoImageView to display the selected image.
+        profilePhoto.image = nil
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+
+        StudentDAO.setImage(userId, selectedImage) {
+            self.activityIndicator.isHidden = true
+            self.activityIndicator.stopAnimating()
+            self.profilePhoto.image = selectedImage
+        }
+            
+        // Dismiss the picker.
+        dismiss(animated: true, completion: nil)
+    }
+
+    func putProfilePicture(){
+        StudentDAO.getImage(userId, imageView: profilePhoto)
+    }
     // Get and display the student information
     func initProfile(){
           
