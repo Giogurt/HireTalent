@@ -284,10 +284,29 @@ class StudentDAO{
                 numberOfStudents += 1
                 
                 if numberOfStudents == studentIds.count {
-                    print(students)
                     completion(students, newStudentsIds)
                 }
             }
+        }
+    }
+    
+    
+    // Delete all the selected offer's notifications from a set of students caused by the deletion of an offer
+    static func deleteNotifications(_ offerKey: String, _ interestedStudents: [String]){
+        
+        // Add the offer key to an array because the arrayRemove() method receives an [Any]
+        var offerKeys: [Any] = []
+        offerKeys.append(offerKey)
+        
+        // Establish the connection with the database
+        let db = Firestore.firestore()
+        
+        for interestedStudent in interestedStudents {
+
+            // Delete the notifications for each student
+            db.collection("students").document(interestedStudent).updateData([
+                "notifications": FieldValue.arrayRemove(offerKeys)
+            ])
         }
     }
 }
