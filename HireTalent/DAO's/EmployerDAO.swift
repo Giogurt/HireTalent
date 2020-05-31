@@ -79,8 +79,29 @@ class EmployerDAO {
         // Establish the connection with the database
         let db = Firestore.firestore()
         
-        // Delete the information in the database
+        // Delete all the student notifications of the job offers
+        db.collection("offers").whereField("userId", isEqualTo: userId).getDocuments() { (documents, err) in
+           
+            if let error = err {
+                print("Error getting the documents \(error)")
+            } else {
+                
+                // For each employer's offer
+                for document in documents!.documents {
+
+                    var jobOffer = JobOffer()
+                    jobOffer.offerKey = document.documentID
+                    
+                    JobOffersDAO.deleteOffer(offer: jobOffer)
+                }
+            }
+        }
+
+        // Delete their information in the employer's collection
         db.collection("employers").document(userId).delete()
+        
+        // Delete their information in the user's collection
+        db.collection("users").document(userId).delete()
         
         // Delete the information from authentication
         Auth.auth().currentUser?.delete()
