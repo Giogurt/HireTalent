@@ -74,8 +74,8 @@ class EmployerDAO {
         }
     }
     
-    // Delete employer account
-    static func deleteEmployer(_ userId: String){
+    // Delete employer offets
+    static func deleteEmployerOffers(_ userId: String, completion: @escaping((_ data: String?) -> Void)){
         // Establish the connection with the database
         let db = Firestore.firestore()
         
@@ -83,7 +83,7 @@ class EmployerDAO {
         db.collection("offers").whereField("userId", isEqualTo: userId).getDocuments() { (documents, err) in
            
             if let error = err {
-                print("Error getting the documents \(error)")
+                completion("Error getting the documents \(error)")
             } else {
                 
                 // For each employer's offer
@@ -95,8 +95,17 @@ class EmployerDAO {
                     JobOffersDAO.deleteOffer(offer: jobOffer)
                 }
             }
+            completion("Job offers deleted successfully")
         }
-
+    }
+    
+    
+    // Delete the employer profile and login information
+    static func deleteEmployer(_ userId: String){
+        
+        // Establish the connection with the database
+        let db = Firestore.firestore()
+        
         // Delete their information in the employer's collection
         db.collection("employers").document(userId).delete()
         
@@ -106,6 +115,8 @@ class EmployerDAO {
         // Delete the information from authentication
         Auth.auth().currentUser?.delete()
     }
+    
+    
     static func getImage(_ userId: String, imageView: UIImageView){
         // Establish the connection with the database
         let db = Firestore.firestore()

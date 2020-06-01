@@ -118,6 +118,7 @@ class JobOffersDAO {
     }
     
     
+    // Delete a job offer an all the student's notifications including it
     static func deleteOffer(offer: JobOffer){
 
         // Establish the connection with the database
