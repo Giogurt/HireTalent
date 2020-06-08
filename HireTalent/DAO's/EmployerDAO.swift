@@ -74,6 +74,34 @@ class EmployerDAO {
         }
     }
     
+    static func addRating(_ userId: String, _ rating: [Float], completion: @escaping((_ data: String?) -> Void)){
+        
+        // Establish the connection with the database
+        let db = Firestore.firestore()
+        
+        // Use a model to organize the employer information
+        var employer = Employer()
+
+        employer.rating = rating
+
+
+        // Store the information in the database
+        db.collection("employers").document(userId).setData([
+            "rating": employer.rating
+        ], merge: true) { (error) in
+
+            // Check for errors
+            if error != nil {
+
+                // There was an error adding the user data to the database
+                completion("Error creating the user")
+            }
+            
+            // If the insertion was executed correctly return nil
+            completion(nil)
+        }
+    }
+    
     // Delete employer offets
     static func deleteEmployerOffers(_ userId: String, completion: @escaping((_ data: String?) -> Void)){
         // Establish the connection with the database
@@ -269,6 +297,33 @@ class EmployerDAO {
                 
                 // Returns an error message
                 completion("Error retrieving the user data", nil)
+            }
+        }
+    }
+    
+    static func getEmployerRatings(_ userId: String, completion: @escaping(((String?), ([Float]?)) -> Void)) {
+    
+        // Establish the connection with the database
+        let db = Firestore.firestore()
+        
+        // Set a reference to the desired document
+        let empRef = db.collection("employers").document(userId)
+        
+        empRef.getDocument { (document, error) in
+            
+            // If the specified document exist
+            if let document = document, document.exists {
+                
+                let empData = document.data()
+                
+                let rating: [Float] = empData!["rating"] as? [Float] ?? []
+                
+                // Returns an object employer with all their data
+                completion(nil, rating)
+            } else {
+                
+                // Returns an error message
+                completion("Error retrieving the employer rating", nil)
             }
         }
     }

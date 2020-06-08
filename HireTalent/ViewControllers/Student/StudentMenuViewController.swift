@@ -45,6 +45,8 @@ class StudentMenuViewController: UITableViewController {
             performSegue(withIdentifier: "studentProfile", sender: nil)
         case 1:
             performSegue(withIdentifier: "viewJobOffers", sender: nil)
+        case 2:
+            performSegue(withIdentifier: "rateEmployers", sender: nil)
         case 3:
             performSegue(withIdentifier: "logoutStudent", sender: nil)
         case 4:
@@ -52,12 +54,17 @@ class StudentMenuViewController: UITableViewController {
             let alert = UIAlertController(title: "Warning!", message: "Your account will be permanently deleted.", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) {
                 UIAlertAction in
+                let studentID = StudentDAO.getStudentId()
+                StudentDAO.deleteStudent(id: studentID)
                 self.performSegue(withIdentifier: "deleteStudent", sender: nil)
+            })
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default) {
+                UIAlertAction in
+                alert.dismiss(animated: true, completion: nil)
             })
             self.present(alert, animated: true, completion: nil)
             
-            let studentID = StudentDAO.getStudentId()
-            StudentDAO.deleteStudent(id: studentID)
+            
         default:
             break
         }
