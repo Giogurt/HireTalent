@@ -70,52 +70,102 @@ class JobOfferDetailViewController: UIViewController {
     }
     
     
-    
-    @IBAction func applyButtonIsTapped(_ sender: Any) {
-        // Establish the connection with the database
-            let db = Firestore.firestore()
-            
-        // Store the information in the database
-        var open = true
-            
+    // Verify if a student has already applied to a job offer
+    func verifyApplicant() -> Bool {
         
-        let docRef = db.collection("offers").document(jobOffer.offerKey)
-        docRef.getDocument{
-            (document, error) in
-            if let document = document, document.exists {
-                open = document.data()?["open"] as? Bool ?? true
-                
-            
-        if(open){
-            
-        
-            self.jobOffer.interestedStudents.append(self.studentId)
-        
-            JobOffersDAO.addANewInterestedStudentToAJobOffer(self.jobOffer.jobOfferId, self.jobOffer.interestedStudents) { (errorHandler) in
-            
-            if errorHandler != nil {
-                print(errorHandler!)
-            } else {
-                let alert = UIAlertController(title: "Thank you!", message: "You have applied succesffully to this job offer", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) {
-                    UIAlertAction in
-                    self.performSegue(withIdentifier: "applicationSent", sender: nil)
-                })
-                self.present(alert, animated: true, completion: nil)
+        for student in jobOffer.interestedStudents {
+            if studentId == student {
+                return true
             }
         }
+        return false
     }
-    else{
-    let alert = UIAlertController(title: "Sorry", message: "Offer is no longer open", preferredStyle: UIAlertController.Style.alert)
-    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) {
-        UIAlertAction in
-    })
-    self.present(alert, animated: true, completion: nil)
+    
+    
+    // Display a successful alert
+    func displaySuccessfulAlert() {
+        
+        let alert = UIAlertController(title: "Thank you!", message: "You have applied succesffully to this job offer", preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) {
+            UIAlertAction in
+            self.performSegue(withIdentifier: "applicationSent", sender: nil)
+        })
+        
+        self.present(alert, animated: true, completion: nil)
     }
-        }else{
-                print("isOfferOpen in dao not working")
+    
+    
+    // Display an unsuccessful alert
+    func displayOfferNoLongerAlert() {
+        
+        let alert = UIAlertController(title: "Sorry", message: "Offer is no longer open", preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) {
+            UIAlertAction in
+        })
+                
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    // Display an unsuccessful alert
+    func displayApplicationDeniedAlert() {
+        
+        let alert = UIAlertController(title: "Application denied", message: "You already are an applicant to this offer.", preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) {
+            UIAlertAction in
+        })
+                
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    // When Apply button is tapped
+    @IBAction func applyButtonIsTapped(_ sender: Any) {
+        
+        // Establish the connection with the database
+        let db = Firestore.firestore()
+            
+        // Variable used to know if the offer is open
+        var open = true
+            
+        let docRef = db.collection("offers").document(jobOffer.offerKey)
+        
+        docRef.getDocument { (document, error) in
+            
+            if let document = document, document.exists {
+                
+                open = document.data()?["open"] as? Bool ?? true
+                
+                if(open){
+                    
+                    // Verify if the student has already applied to the job offer
+                    let applicant = self.verifyApplicant()
+                    
+                    if applicant {
+                        self.displayApplicationDeniedAlert()
+                    } else {
+                       
+                        // Add the student to interested students
+                        self.jobOffer.interestedStudents.append(self.studentId)
+                        
+                        // Update the job offer with the interested students
+                        JobOffersDAO.addANewInterestedStudentToAJobOffer(self.jobOffer.jobOfferId, self.jobOffer.interestedStudents) { (errorHandler) in
+                        
+                            if errorHandler != nil {
+                                print(errorHandler!)
+                            } else {
+                                self.displaySuccessfulAlert()
+                            }
+                        }
+                    }
+                } else {
+                    
+                    self.displayOfferNoLongerAlert()
+                }
             }
-         
         }
     }
 }
