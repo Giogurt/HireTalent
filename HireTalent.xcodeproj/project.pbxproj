@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01365DC3247D937400DF5F6D /* ViewEmployerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01365DC2247D937400DF5F6D /* ViewEmployerViewController.swift */; };
+		01365DC5247D9AC600DF5F6D /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01365DC4247D9AC600DF5F6D /* RatingControl.swift */; };
 		0141D56F2457E44F00F03A56 /* ShowStudentsInOfferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0141D56E2457E44F00F03A56 /* ShowStudentsInOfferViewController.swift */; };
 		01861B63247836BD00980AC4 /* StudentNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01861B62247836BD00980AC4 /* StudentNotificationsViewController.swift */; };
 		0197418E2479D67E00BFC329 /* StudentOffersMatchedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0197418D2479D67E00BFC329 /* StudentOffersMatchedViewController.swift */; };
@@ -60,6 +62,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01365DC2247D937400DF5F6D /* ViewEmployerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewEmployerViewController.swift; sourceTree = "<group>"; };
+		01365DC4247D9AC600DF5F6D /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		0141D56E2457E44F00F03A56 /* ShowStudentsInOfferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowStudentsInOfferViewController.swift; sourceTree = "<group>"; };
 		01861B62247836BD00980AC4 /* StudentNotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentNotificationsViewController.swift; sourceTree = "<group>"; };
 		0197418D2479D67E00BFC329 /* StudentOffersMatchedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentOffersMatchedViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +181,7 @@
 				8C0D03F2243BB29300B2BC78 /* LoginViewController.swift */,
 				8CE4237D243A788800846E86 /* ViewController.swift */,
 				41C43388244388F7000C1C97 /* SignUpOptionViewController.swift */,
+				01365DC4247D9AC600DF5F6D /* RatingControl.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -237,6 +242,7 @@
 				8C78639624679D92007A4A7C /* JobOfferDetailViewController.swift */,
 				01861B62247836BD00980AC4 /* StudentNotificationsViewController.swift */,
 				0197418D2479D67E00BFC329 /* StudentOffersMatchedViewController.swift */,
+				01365DC2247D937400DF5F6D /* ViewEmployerViewController.swift */,
 			);
 			path = Student;
 			sourceTree = "<group>";
@@ -426,6 +432,7 @@
 				8C2B35802454B4D8009A99D0 /* EmployerMenuViewController.swift in Sources */,
 				8C3646AC244A16970024153E /* JobOffersDAO.swift in Sources */,
 				410EAA97246789DA0014B883 /* OfferDelegate.swift in Sources */,
+				01365DC3247D937400DF5F6D /* ViewEmployerViewController.swift in Sources */,
 				8CE4237E243A788800846E86 /* ViewController.swift in Sources */,
 				8CE71481243E5BE600D08928 /* Employer.swift in Sources */,
 				8C3646AA244A15520024153E /* JobOffer.swift in Sources */,
@@ -450,6 +457,7 @@
 				0141D56F2457E44F00F03A56 /* ShowStudentsInOfferViewController.swift in Sources */,
 				8CD3E0E62449EAAA00B88845 /* UITextFieldAndDate.swift in Sources */,
 				8C78639724679D92007A4A7C /* JobOfferDetailViewController.swift in Sources */,
+				01365DC5247D9AC600DF5F6D /* RatingControl.swift in Sources */,
 				410EAA952467886A0014B883 /* EditOfferViewController.swift in Sources */,
 				41C4339424441103000C1C97 /* StudentHomeViewController.swift in Sources */,
 				C3926191247786CC005D6CEF /* DeleteEmployerViewController.swift in Sources */,

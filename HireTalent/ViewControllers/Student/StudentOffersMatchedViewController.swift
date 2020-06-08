@@ -18,6 +18,8 @@ class StudentOffersMatchedViewController: UITableViewController {
     var dataLoaded: Bool = false
     let studentId: String = StudentDAO.getStudentId()
     
+    var cellSelected: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -93,13 +95,12 @@ class StudentOffersMatchedViewController: UITableViewController {
         return cell
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        cellSelected = indexPath.row
+        performSegue(withIdentifier: "viewEmployer", sender: nil)
     }
-    */
 
     /*
     // Override to support editing the table view.
@@ -128,14 +129,17 @@ class StudentOffersMatchedViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "viewEmployer" {
+            var destinationController = segue.destination as! ViewEmployerViewController
+            
+            destinationController.employer = employers[cellSelected]
+        }
     }
-    */
 
 }
