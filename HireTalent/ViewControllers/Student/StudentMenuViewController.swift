@@ -31,7 +31,7 @@ class StudentMenuViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let numberOfRows = 6
+        let numberOfRows = 5
         
         return numberOfRows
     }
@@ -45,11 +45,11 @@ class StudentMenuViewController: UITableViewController {
             performSegue(withIdentifier: "studentProfile", sender: nil)
         case 1:
             performSegue(withIdentifier: "viewJobOffers", sender: nil)
-        case 3:
+        case 2:
             performSegue(withIdentifier: "rateEmployers", sender: nil)
-        case 4:
+        case 3:
             performSegue(withIdentifier: "logoutStudent", sender: nil)
-        case 5:
+        case 4:
             // Show alert to make sure you want to delete the account
             let alert = UIAlertController(title: "Warning!", message: "Your account will be permanently deleted.", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) {

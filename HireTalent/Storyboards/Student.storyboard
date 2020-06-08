@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VZf-j0-LCC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VZf-j0-LCC">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -350,7 +350,7 @@
             <objects>
                 <tableViewController id="3Y6-5i-CdY" customClass="StudentMenuViewController" customModule="HireTalent" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5oy-o4-PRT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <sections>
@@ -549,7 +549,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ptp-aW-dXQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8248" y="144"/>
+            <point key="canvasLocation" x="7791" y="173"/>
         </scene>
         <!--Rate Employers-->
         <scene sceneID="yHF-WF-mzz">
@@ -577,7 +577,7 @@
                     <navigationItem key="navigationItem" title="Rate Employers" id="EDv-Oo-mte">
                         <barButtonItem key="leftBarButtonItem" title="menu" image="line.horizontal.3" catalog="system" id="48e-tx-NAS">
                             <connections>
-                                <segue destination="1qw-UV-2lv" kind="show" identifier="toMenu" id="crN-Ha-90t"/>
+                                <segue destination="1qw-UV-2lv" kind="presentation" identifier="toMenu" modalPresentationStyle="fullScreen" id="crN-Ha-90t"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -588,7 +588,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="72y-ab-UgJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9099" y="144"/>
+            <point key="canvasLocation" x="9006" y="115"/>
         </scene>
         <!--View Employer View Controller-->
         <scene sceneID="mFz-KJ-BS5">
@@ -650,7 +650,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="LTH-JN-mT7"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BMr-50-wg6">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
