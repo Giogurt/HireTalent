@@ -352,21 +352,29 @@ class JobOffersDAO {
     
     
     // Delete the interested student id caused by the deletion of a student account
-    static func deleteInterestStudentId(_ offerKey: String, _ interestedStudents: [String]){
+    static func deleteInterestStudentId(_ studentID: String, completion: @escaping(String?) -> Void){
         
         // Add the offer key to an array because the arrayRemove() method receives an [Any]
-        var offerKeys: [Any] = []
-        offerKeys.append(offerKey)
+        var studentIDs: [Any] = []
+        studentIDs.append(studentID)
         
         // Establish the connection with the database
         let db = Firestore.firestore()
         
-        for interestedStudent in interestedStudents {
-
-            // Delete the notifications for each student
-            db.collection("students").document(interestedStudent).delete();
-                //updateData(["notifications": FieldValue.arrayRemove(offerKeys)
-            //])
+        JobOffersDAO.getAllJobOffers { (jobOffers) in
+            for offer in jobOffers! {
+                
+                // Delete the studentId from offers
+                db.collection("offers").document(offer.offerKey).updateData([
+                   "interestedStudents": FieldValue.arrayRemove(studentIDs)
+                ]) { err in
+                    if err != nil{
+                        completion("There was some error adding the student")
+                    } else {
+                        completion(nil)
+                    }
+                }
+            }
         }
     }
 }

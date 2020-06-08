@@ -189,13 +189,18 @@ class StudentDAO{
         // Establish the connection with the database
         let db = Firestore.firestore()
         
-        //Checar donde mas hay ids de los estudiantes
-        
-        // Delete the student information in the database
-        db.collection("students").document("\(id)").delete()
-        
-        // Delete the information from authentication
-        Auth.auth().currentUser?.delete()
+        // Delete the student id from offers
+        JobOffersDAO.deleteInterestStudentId(id) { (error) in
+            if error != nil {
+                print("Error deleting student from all job offers")
+            } else {
+                // Delete the student information in the database
+                db.collection("students").document("\(id)").delete()
+                
+                // Delete the information from authentication
+                Auth.auth().currentUser?.delete()
+            }
+        }
     }
     
     // Get the user id
