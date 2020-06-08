@@ -53,7 +53,6 @@
 		8CE71481243E5BE600D08928 /* Employer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE71480243E5BE600D08928 /* Employer.swift */; };
 		8CE71483243E651700D08928 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE71482243E651700D08928 /* Company.swift */; };
 		8CF0A8D52446D6EA00BF615E /* interns.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8CF0A8D42446D6EA00BF615E /* interns.jpg */; };
-		C3926191247786CC005D6CEF /* DeleteEmployerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3926190247786CC005D6CEF /* DeleteEmployerViewController.swift */; };
 		C3976E432458B6BB0058C1F9 /* studentProfile.png in Resources */ = {isa = PBXBuildFile; fileRef = C3976E422458B6BA0058C1F9 /* studentProfile.png */; };
 		ECDB31FF34CEFE7BEDFCF0A1 /* Pods_HireTalent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5442D0D49DF7F0B372E2D957 /* Pods_HireTalent.framework */; };
 /* End PBXBuildFile section */
@@ -110,7 +109,6 @@
 		8CE71482243E651700D08928 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		8CF0A8D42446D6EA00BF615E /* interns.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = interns.jpg; sourceTree = "<group>"; };
 		ADAA34DAC9C1B49D711F053A /* Pods-HireTalent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HireTalent.release.xcconfig"; path = "Target Support Files/Pods-HireTalent/Pods-HireTalent.release.xcconfig"; sourceTree = "<group>"; };
-		C3926190247786CC005D6CEF /* DeleteEmployerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteEmployerViewController.swift; sourceTree = "<group>"; };
 		C3976E422458B6BA0058C1F9 /* studentProfile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = studentProfile.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -218,7 +216,6 @@
 				8C0D03F0243BB27B00B2BC78 /* SignUpViewController.swift */,
 				8C0D03F4243BB2B300B2BC78 /* HomeViewController.swift */,
 				8C2B357F2454B4D8009A99D0 /* EmployerMenuViewController.swift */,
-				C3926190247786CC005D6CEF /* DeleteEmployerViewController.swift */,
 			);
 			path = Employer;
 			sourceTree = "<group>";
@@ -448,7 +445,6 @@
 				8C78639724679D92007A4A7C /* JobOfferDetailViewController.swift in Sources */,
 				410EAA952467886A0014B883 /* EditOfferViewController.swift in Sources */,
 				41C4339424441103000C1C97 /* StudentHomeViewController.swift in Sources */,
-				C3926191247786CC005D6CEF /* DeleteEmployerViewController.swift in Sources */,
 				8C7DF535246383B400417CC9 /* StudentMenuViewController.swift in Sources */,
 				8CE4237C243A788800846E86 /* SceneDelegate.swift in Sources */,
 				41B7ED34246765F400EBE3B8 /* StudentDelegate.swift in Sources */,

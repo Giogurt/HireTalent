@@ -282,6 +282,7 @@ class JobOffersDAO {
         }
     }
     
+    
     // Add a interested student in a job offer
     static func addANewInterestedStudentToAJobOffer(_ documentId: String, _ interestedStudents: [String], completion: @escaping(String?) -> Void){
         
@@ -348,5 +349,24 @@ class JobOffersDAO {
             }
         }
     }
-   
+    
+    
+    // Delete the interested student id caused by the deletion of a student account
+    static func deleteInterestStudentId(_ offerKey: String, _ interestedStudents: [String]){
+        
+        // Add the offer key to an array because the arrayRemove() method receives an [Any]
+        var offerKeys: [Any] = []
+        offerKeys.append(offerKey)
+        
+        // Establish the connection with the database
+        let db = Firestore.firestore()
+        
+        for interestedStudent in interestedStudents {
+
+            // Delete the notifications for each student
+            db.collection("students").document(interestedStudent).delete();
+                //updateData(["notifications": FieldValue.arrayRemove(offerKeys)
+            //])
+        }
+    }
 }
