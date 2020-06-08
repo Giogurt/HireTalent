@@ -64,8 +64,6 @@ class EmployerOfferViewController: UIViewController,OfferDelegate {
                 print("couldn't update the open in employerofferviewcontroller")
             }
         }
-        
-        
     }
     
     
