@@ -41,16 +41,34 @@ class EmployerMenuViewController: UITableViewController {
         case 3:
             performSegue(withIdentifier: "logout", sender: nil)
         case 4:
+            
             // Show alert to make sure you want to delete the account
             let alert = UIAlertController(title: "Are you sure?", message: "Your account will be permanently deleted.", preferredStyle: UIAlertController.Style.alert)
+            
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) {
                 UIAlertAction in
+                let employerID = EmployerDAO.getUserId()
+                
+                // Delete all the employer's offers
+                EmployerDAO.deleteEmployerOffers(employerID) { exit_code in
+                    
+                    if exit_code != nil {
+                        
+                        // Delete all the profile and login information of the employer
+                        EmployerDAO.deleteEmployer(employerID)
+                    }
+                    
+                }
                 self.performSegue(withIdentifier: "deleteEmployer", sender: nil)
             })
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default) {
+                UIAlertAction in
+                alert.dismiss(animated: true, completion: nil)
+            })
+            
             self.present(alert, animated: true, completion: nil)
             
-            let employerID = EmployerDAO.getUserId()
-            EmployerDAO.deleteEmployer(employerID)
+            
         default:
             break
         }

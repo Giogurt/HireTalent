@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 struct Employer {
     
     var firstName: String = ""
@@ -15,5 +15,6 @@ struct Employer {
     var email: String = ""
     var position: String = ""
     var company_rfc: String = ""
+    var rating: [Float] = []
     
 }

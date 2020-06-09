@@ -118,17 +118,42 @@ class JobOffersDAO {
     }
     
     
+    // Delete a job offer an all the student's notifications including it
     static func deleteOffer(offer: JobOffer){
+
+        // Establish the connection with the database
         let db = Firestore.firestore()
         
-        db.collection("offers").document(offer.offerKey).delete { (error) in
-            //Some code
-            if error != nil{
-                print("error deleting offer: " + offer.offerKey)
-            }
+        // Set a reference to the desired document
+        let offerRef = db.collection("offers").document(offer.offerKey)
+
+        offerRef.getDocument() { (document, error) in
             
+            // If the specified document exist
+            if let document = document, document.exists {
+                
+                // Get the data of the selected offer
+                let offerData = document.data()
+                
+                // Get the interested students of the offer
+                let interestedStudents = offerData!["interestedStudents"] as? [String] ?? []
+                
+                // If there were interested students then delete all the possible notifications
+                if interestedStudents != [] {
+                    StudentDAO.deleteNotifications(offer.offerKey, interestedStudents)
+                }
+                
+                // Delete the job offer. This instruction should be inside the closure because if
+                // it is not the offer is deleted before the student's notifications
+                offerRef.delete() { error in
+                    if error != nil {
+                        print("There was an error deleting the user")
+                    }
+                }
+            }
         }
     }
+    
     
     // Get the information of a job offer
     static func getJobOffer(_ offerId: String, completion: @escaping(((String?), (JobOffer?)) -> Void)) {
@@ -168,6 +193,8 @@ class JobOffersDAO {
             }
         }
     }
+    
+    
     // Retrieve the offers of an employer from the database.
     // It is used a callback because we depend of the 'result' provided by the setData() function.
     static func getOffers(_ userId: String, completion: @escaping(((String?), ([JobOffer]?)) -> Void)){
@@ -255,6 +282,7 @@ class JobOffersDAO {
         }
     }
     
+    
     // Add a interested student in a job offer
     static func addANewInterestedStudentToAJobOffer(_ documentId: String, _ interestedStudents: [String], completion: @escaping(String?) -> Void){
         
@@ -321,5 +349,32 @@ class JobOffersDAO {
             }
         }
     }
-   
+    
+    
+    // Delete the interested student id caused by the deletion of a student account
+    static func deleteInterestStudentId(_ studentID: String, completion: @escaping(String?) -> Void){
+        
+        // Add the offer key to an array because the arrayRemove() method receives an [Any]
+        var studentIDs: [Any] = []
+        studentIDs.append(studentID)
+        
+        // Establish the connection with the database
+        let db = Firestore.firestore()
+        
+        JobOffersDAO.getAllJobOffers { (jobOffers) in
+            for offer in jobOffers! {
+                
+                // Delete the studentId from offers
+                db.collection("offers").document(offer.offerKey).updateData([
+                   "interestedStudents": FieldValue.arrayRemove(studentIDs)
+                ]) { err in
+                    if err != nil{
+                        completion("There was some error adding the student")
+                    } else {
+                        completion(nil)
+                    }
+                }
+            }
+        }
+    }
 }
